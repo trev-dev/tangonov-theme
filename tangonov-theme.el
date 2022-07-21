@@ -192,6 +192,15 @@
    `(goggles-removed ((,spec (:background ,red))))
 ;; Goggles:1 ends here
 
+;; [[file:tangonov-theme.org::*Eglot][Eglot:1]]
+   `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
+;; Eglot:1 ends here
+
+;; [[file:tangonov-theme.org::*Eldoc Box][Eldoc Box:1]]
+   `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
+   `(eldoc-box-border ((,spec (:background ,fg-alt))))
+;; Eldoc Box:1 ends here
+
 ;; [[file:tangonov-theme.org::*Documents][Documents:1]]
    `(org-block ((,spec (:background ,bg-alt))))
    `(org-block-background ((,spec (:background ,bg-alt))))

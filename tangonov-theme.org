@@ -290,6 +290,21 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(goggles-removed ((,spec (:background ,red))))
 #+END_SRC
 
+** LSP
+
+*** Eglot
+
+#+BEGIN_SRC elisp
+   `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
+#+END_SRC
+
+*** Eldoc Box
+
+#+BEGIN_SRC elisp
+   `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
+   `(eldoc-box-border ((,spec (:background ,fg-alt))))
+#+END_SRC
+
 ** Org Mode
 
 Org-mode has many faces. It takes some work to make them consistent in buffers and in the agenda.
