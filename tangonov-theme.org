@@ -1,3 +1,4 @@
+#+STARTUP: content
 * Tangonov
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el :comments link
@@ -444,6 +445,37 @@ A work in progress. These are all currently set by doom-themes. I am not sure wh
    `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
    `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
    `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
+#+END_SRC
+
+** Shells
+*** Eshell
+
+#+BEGIN_SRC elisp
+   `(eshell-prompt ((,spec (:foreground ,magenta :weight bold))))
+   `(eshell-ls-archive ((,spec (:foreground ,gray2))))
+   `(eshell-ls-backup ((,spec (:foreground ,yellow))))
+   `(eshell-ls-clutter ((,spec (:foreground ,red))))
+   `(eshell-ls-directory ((,spec (:foreground ,blue))))
+   `(eshell-ls-executable ((,spec (:foreground ,green))))
+   `(eshell-ls-missing ((,spec (:foreground ,red))))
+   `(eshell-ls-product ((,spec (:foreground ,orange))))
+   `(eshell-ls-readonly ((,spec (:foreground ,orange))))
+   `(eshell-ls-special ((,spec (:foreground ,violet))))
+   `(eshell-ls-symlink ((,spec (:foreground ,cyan))))
+   `(eshell-ls-unreadable ((,spec (:foreground ,gray3))))
+#+END_SRC
+
+*** Vterm
+
+#+BEGIN_SRC elisp
+   `(vterm-color-black ((,spec (:background ,gray2 :foreground ,gray1))))
+   `(vterm-color-red ((,spec (:background ,dred :foreground ,red))))
+   `(vterm-color-green ((,spec (:background ,dgreen :foreground ,green))))
+   `(vterm-color-yellow ((,spec (:background ,dyellow :foreground ,yellow))))
+   `(vterm-color-blue ((,spec (:background ,dblue :foreground ,blue))))
+   `(vterm-color-magenta ((,spec (:background ,violet :foreground ,magenta))))
+   `(vterm-color-cyan ((,spec (:background ,dcyan :foreground ,cyan))))
+   `(vterm-color-white ((,spec (:background ,gray3 :foreground ,fg))))
 #+END_SRC
 
 ** Web Mode

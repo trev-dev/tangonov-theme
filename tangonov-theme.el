@@ -256,6 +256,32 @@
    `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
 ;; Typescript.el:1 ends here
 
+;; [[file:tangonov-theme.org::*Eshell][Eshell:1]]
+   `(eshell-prompt ((,spec (:foreground ,magenta :weight bold))))
+   `(eshell-ls-archive ((,spec (:foreground ,gray2))))
+   `(eshell-ls-backup ((,spec (:foreground ,yellow))))
+   `(eshell-ls-clutter ((,spec (:foreground ,red))))
+   `(eshell-ls-directory ((,spec (:foreground ,blue))))
+   `(eshell-ls-executable ((,spec (:foreground ,green))))
+   `(eshell-ls-missing ((,spec (:foreground ,red))))
+   `(eshell-ls-product ((,spec (:foreground ,orange))))
+   `(eshell-ls-readonly ((,spec (:foreground ,orange))))
+   `(eshell-ls-special ((,spec (:foreground ,violet))))
+   `(eshell-ls-symlink ((,spec (:foreground ,cyan))))
+   `(eshell-ls-unreadable ((,spec (:foreground ,gray3))))
+;; Eshell:1 ends here
+
+;; [[file:tangonov-theme.org::*Vterm][Vterm:1]]
+   `(vterm-color-black ((,spec (:background ,gray2 :foreground ,gray1))))
+   `(vterm-color-red ((,spec (:background ,dred :foreground ,red))))
+   `(vterm-color-green ((,spec (:background ,dgreen :foreground ,green))))
+   `(vterm-color-yellow ((,spec (:background ,dyellow :foreground ,yellow))))
+   `(vterm-color-blue ((,spec (:background ,dblue :foreground ,blue))))
+   `(vterm-color-magenta ((,spec (:background ,violet :foreground ,magenta))))
+   `(vterm-color-cyan ((,spec (:background ,dcyan :foreground ,cyan))))
+   `(vterm-color-white ((,spec (:background ,gray3 :foreground ,fg))))
+;; Vterm:1 ends here
+
 ;; [[file:tangonov-theme.org::*Web Mode][Web Mode:1]]
    `(web-mode-html-tag-face ((,spec (:foreground ,red))))
    `(web-mode-html-attr-equal-face ((,spec (:foreground ,cyan))))
