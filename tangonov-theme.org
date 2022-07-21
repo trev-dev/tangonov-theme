@@ -1,0 +1,385 @@
+* Tangonov
+:PROPERTIES:
+:header-args: :tangle tangonov-theme.el :comments link
+:END:
+
+A pleasant dark theme with bright, easy to read pastels. I had originally made this theme as a contribution to Doom Themes as "doom-material-dark". This is the stand-alone verison of that theme.
+
+** Package Header & License
+:PROPERTIES:
+:header-args: :tangle tangonov-theme.el
+:END:
+Some preliminary information about the theme
+
+#+BEGIN_SRC elisp
+;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels
+
+;; Copyright (C) 2022 Trevor Richards
+
+;; Author: Trevor Richards <trev@trevdev.ca>
+;; Maintainer: Trevor Richards <trev@trevdev.ca>
+;; URL: https://github.com/trev-dev/tangonov
+;; Created: 20th July, 2022
+;; Keywords: faces, theme, dark
+;; Version: 1.0.0
+
+;; License: GPL3
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; This program is distributed in the hope that it will be useful,
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Somewhat inspired by Material Dark, tangonov aims to be a dark theme with
+;; bright, pleasant pastel colors that are easy to distinguish from one another.
+
+;;; Code:
+;; Note: This file was generated using literate programming. See tangonov-theme.org.
+#+END_SRC
+
+** Color Definitions
+
+The strategy for writing this theme is to do it as simply as possible. I am only supporting 256 colors (for now).
+
+#+BEGIN_SRC elisp
+(deftheme tangonov
+  "A 256 color dark theme featuring bright pastels.")
+
+(let ((spec '((class color) (min-colors 256)))
+      (fg        "#EEFFFF")
+      (fg-alt    "#BFC7D5")
+      (bg        "#191919")
+      (bg-alt    "#232323")
+      (red       "#FF7B85")
+      (dred      "#7F3D42")
+      (green     "#ABDC88")
+      (dgreen    "#556d43")
+      (yellow    "#FFCA41")
+      (dyellow   "#7f641f")
+      (orange    "#FF996B")
+      (dorange   "#7f4c35")
+      (blue      "#82AAFF")
+      (dblue     "#41547F")
+      (magenta   "#C792EA")
+      (violet    "#BB80B3")
+      (cyan      "#89DDFF")
+      (dcyan     "#446e7f")
+      (teal      "#44b9b1")
+      (gray1     "#303030")
+      (gray2     "#626262")
+      (gray3     "#A8A8A8"))
+  (custom-theme-set-faces
+   'tangonov
+#+END_SRC
+
+** Basic Faces
+
+Set the basic faces for the editor. Many of these faces are used commonly throughout Emacs. Some of them derive other faces.
+
+#+BEGIN_SRC elisp
+   `(default ((,spec (:background ,bg :foreground ,fg))))
+   `(bold ((,spec (:weight bold))))
+   `(italic ((,spec (:slant italic))))
+   `(bold-italic ((,spec (:weight bold :slant italic))))
+   `(underline ((,spec (:underline t))))
+   `(shadow ((,spec (:foreground ,gray2))))
+   `(link ((,spec (:foreground ,blue :weight bold :underline t))))
+   `(link-visited ((,spec (:inherit link :foreground ,magenta))))
+   `(highlight ((,spec (:background ,gray1 :weight bold))))
+   `(match ((,spec (:foreground ,green :background ,dgreen))))
+   `(isearch ((,spec (:inherit match :weight bold))))
+   `(region ((,spec (:foreground ,cyan :background ,dcyan))))
+   `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
+   `(lazy-highlight ((,spec (:inherit isearch))))
+   `(error ((,spec (:foreground ,red))))
+   `(warning ((,spec (:foreground ,yellow))))
+   `(success ((,spec (:foreground ,green))))
+   `(escape-glyph ((,spec (:foreground ,orange))))
+   `(homoglyph ((,spec (:foreground ,orange))))
+   `(vertical-border ((,spec (:foreground ,gray1))))
+   `(cursor ((,spec (:background ,yellow))))
+   `(minibuffer-prompt ((,spec (:foreground ,yellow))))
+   `(line-number-current-line ((,spec (:foreground ,cyan :background ,gray1))))
+   `(completions-common-part ((,spec (:foreground ,cyan))))
+   `(completions-first-difference ((,spec (:foreground ,yellow))))
+   `(trailing-whitespace ((,spec (:background ,red))))
+   `(whitespace-trailing ((,spec (:background ,red))))
+#+END_SRC
+
+** Easy Customization
+
+#+BEGIN_SRC elisp
+   `(custom-button
+     ((,spec
+       (:foreground ,blue :background ,bg :box '(:line-width 1 :style none)))))
+   `(custom-button-unraised
+     ((,spec
+       (:foreground ,violet :background ,bg
+                    :box '(:line-width 1 :style none)))))
+   `(custom-button-pressed-unraised
+     ((,spec
+       (:foreground ,bg :background ,violet
+                    :box '(:line-width 1 :style none)))))
+   `(custom-button-pressed
+     ((,spec (:foreground ,bg :background ,blue
+                          :box '(:line-width 1 :style none)))))
+   `(custom-button-mouse
+     ((,spec (:foreground ,bg :background ,blue
+                          :box '(:line-width 1 :style none)))))
+   `(custom-variable-button ((,spec (:foreground ,green :underline t))))
+   `(custom-saved ((,spec (:foreground ,green :background ,dgreen :bold bold))))
+   `(custom-comment ((,spec (:foreground ,fg))))
+   `(custom-comment-tag ((,spec (:foreground ,gray2))))
+   `(custom-modified ((,spec (:foreground ,blue :background ,dblue))))
+   `(custom-variable-tag ((,spec (:foreground ,magenta))))
+   `(custom-visibility ((,spec (:foreground ,blue :underline nil))))
+   `(custom-group-subtitle ((,spec (:foreground ,red))))
+   `(custom-group-tag ((,spec (:foreground ,violet))))
+   `(custom-group-tag-1 ((,spec (:foreground ,blue))))
+   `(custom-set ((,spec (:foreground ,yellow :background ,bg))))
+   `(custom-themed ((,spec (:foreground ,yellow :background ,bg))))
+   `(custom-invalid ((,spec (:foreground ,red :background ,dred))))
+   `(custom-variable-obsolete ((,spec (:foreground ,gray2 :background ,bg))))
+   `(custom-state ((,spec (:foreground ,green :background ,dgreen))))
+   `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
+#+END_SRC
+
+** Modeline & Tabbar
+
+Set faces for the top and bottom "bars."
+
+#+BEGIN_SRC elisp
+   ;; Modeline/Tabline
+   `(mode-line
+     ((,spec (:foreground ,fg :background ,bg-alt :box
+                          (:line-width (2 . 2) :color ,bg-alt)))))
+   `(mode-line-inactive
+     ((,spec (:inherit mode-line :foreground ,gray2 :background ,bg))))
+   `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
+   `(mode-line-buffer-id ((,spec (:weight bold))))
+   `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
+#+END_SRC
+
+** Font Lock Faces
+
+These faces end up being inherited by /many/ major modes for highlighting.
+
+#+BEGIN_SRC elisp
+   ;; Font Lock
+   `(font-lock-warning-face ((,spec (:inherit warning))))
+   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
+   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
+   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
+   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
+   `(font-lock-type-face ((,spec (:foreground ,magenta))))
+   `(font-lock-constant-face ((,spec (:foreground ,orange))))
+   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
+   `(font-lock-string-face ((,spec (:foreground ,green))))
+   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
+   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
+#+END_SRC
+
+** Goggles
+
+#+BEGIN_SRC elisp
+   `(goggles-changed ((,spec (:background ,cyan))))
+   `(goggles-added ((,spec (:background ,green))))
+   `(goggles-removed ((,spec (:background ,red))))
+#+END_SRC
+
+** Org Mode
+
+Org-mode has many faces. It takes some work to make them consistent in buffers and in the agenda.
+
+*** Documents
+
+#+BEGIN_SRC elisp
+   `(org-block ((,spec (:background ,bg-alt))))
+   `(org-block-background ((,spec (:background ,bg-alt))))
+   `(org-block-begin-line ((,spec (:foreground ,gray2 :background ,bg))))
+   `(org-level-1 ((,spec (:foreground ,green))))
+   `(org-level-2 ((,spec (:foreground ,yellow))))
+   `(org-level-3 ((,spec (:foreground ,red))))
+   `(org-level-4 ((,spec (:foreground ,cyan))))
+   `(org-level-5 ((,spec (:foreground ,blue))))
+   `(org-level-6 ((,spec (:foreground ,magenta))))
+   `(org-level-7 ((,spec (:foreground ,teal))))
+   `(org-level-8 ((,spec (:foreground ,violet))))
+   `(org-todo ((,spec (:foreground ,orange))))
+   `(org-drawer ((,spec (:foreground ,gray2))))
+   `(org-meta-line ((,spec (:foreground ,gray2))))
+   `(org-special-keyword ((,spec (:foreground ,gray3))))
+   `(org-property-value ((,spec (:foreground ,red))))
+   `(org-tag ((,spec (:foreground ,fg-alt))))
+   `(org-verbatim ((,spec (:foreground ,green))))
+   `(org-code ((,spec (:foreground ,orange :background ,bg-alt))))
+   `(org-document-info-keyword ((,spec (:foreground ,red))))
+   `(org-document-info ((,spec (:foreground ,fg-alt))))
+   `(org-document-title ((,spec (:foreground ,yellow))))
+   `(org-date ((,spec (:foreground ,yellow))))
+   `(org-checkbox ((,spec (:foreground ,orange))))
+   `(org-checkbox-statistics-todo ((,spec (:inherit org-checkbox))))
+   `(org-checkbox-statistics-done ((,spec (:inherit org-done))))
+#+END_SRC
+
+*** Agenda
+
+#+BEGIN_SRC elisp
+   `(org-agenda-done ((,spec (:inherit org-done))))
+   `(org-agenda-clocking ((,spec (:background ,dcyan :extend t))))
+   `(org-time-grid ((,spec (:foreground ,gray2))))
+   `(org-imminent-deadline ((,spec (:foreground ,yellow))))
+   `(org-upcoming-deadline ((,spec (:foreground ,teal))))
+#+END_SRC
+
+** Version Control
+
+Set the faces for several version-control related packages.
+
+*** Diff-hl
+
+#+BEGIN_SRC elisp
+   `(diff-hl-change ((,spec (:background ,blue :foreground ,blue))))
+   `(diff-hl-delete ((,spec (:background ,red :foreground ,red))))
+   `(diff-hl-insert ((,spec (:background ,green :foreground ,green))))
+#+END_SRC
+
+*** COMMENT Magit
+
+A work in progress. These are all currently set by doom-themes. I am not sure what all of these faces are for.
+
+#+BEGIN_SRC elisp
+    (magit-bisect-bad        :foreground red)
+    (magit-bisect-good       :foreground green)
+    (magit-bisect-skip       :foreground orange)
+    (magit-blame-hash        :foreground cyan)
+    (magit-blame-date        :foreground red)
+    (magit-blame-heading     :foreground orange :background base3 :extend t)
+    (magit-branch-current    :foreground blue)
+    (magit-branch-local      :foreground cyan)
+    (magit-branch-remote     :foreground green)
+    (magit-cherry-equivalent :foreground violet)
+    (magit-cherry-unmatched  :foreground cyan)
+    (magit-diff-added             :foreground (doom-darken vc-added 0.2)  :background (doom-blend vc-added bg 0.1) :extend t)
+    (magit-diff-added-highlight   :foreground vc-added                    :background (doom-blend vc-added bg 0.2) :weight 'bold :extend t)
+    (magit-diff-base              :foreground (doom-darken orange 0.2) :background (doom-blend orange bg 0.1) :extend t)
+    (magit-diff-base-highlight    :foreground orange                   :background (doom-blend orange bg 0.2) :weight 'bold :extend t)
+    (magit-diff-context           :foreground (doom-darken fg 0.4) :background bg :extend t)
+    (magit-diff-context-highlight :foreground fg                   :background bg-alt :extend t)
+    (magit-diff-file-heading           :foreground fg :weight 'bold :extend t)
+    (magit-diff-file-heading-selection :foreground magenta               :background dark-blue :weight 'bold :extend t)
+    (magit-diff-hunk-heading           :foreground bg                    :background (doom-blend violet bg 0.3) :extend t)
+    (magit-diff-hunk-heading-highlight :foreground bg                    :background violet :weight 'bold :extend t)
+    (magit-diff-lines-heading          :foreground yellow :background red :extend t :extend t)
+    (magit-diff-removed                :foreground (doom-darken vc-deleted 0.2) :background (doom-blend vc-deleted base3 0.1) :extend t)
+    (magit-diff-removed-highlight      :foreground vc-deleted                   :background (doom-blend vc-deleted base3 0.2) :weight 'bold :extend t)
+    (magit-diffstat-added              :foreground vc-added)
+    (magit-diffstat-removed            :foreground vc-deleted)
+    (magit-dimmed :foreground comments)
+    (magit-hash :foreground comments)
+    (magit-header-line :background dark-blue :foreground base8 :weight 'bold
+                       :box `(:line-width 3 :color ,dark-blue))
+    (magit-filename :foreground violet)
+    (magit-log-author :foreground orange)
+    (magit-log-date :foreground blue)
+    (magit-log-graph :foreground comments)
+    (magit-process-ng :inherit 'error)
+    (magit-process-ok :inherit 'success)
+    (magit-reflog-amend :foreground magenta)
+    (magit-reflog-checkout :foreground blue)
+    (magit-reflog-cherry-pick :foreground green)
+    (magit-reflog-commit :foreground green)
+    (magit-reflog-merge :foreground green)
+    (magit-reflog-other :foreground cyan)
+    (magit-reflog-rebase :foreground magenta)
+    (magit-reflog-remote :foreground cyan)
+    (magit-reflog-reset :inherit 'error)
+    (magit-refname :foreground comments)
+    (magit-section-heading :foreground blue :weight 'bold :extend t)
+    (magit-section-heading-selection :foreground orange :weight 'bold :extend t)
+    (magit-section-highlight :inherit 'hl-line)
+    (magit-section-secondary-heading :foreground violet :weight 'bold :extend t)
+    (magit-sequence-drop :foreground red)
+    (magit-sequence-head :foreground blue)
+    (magit-sequence-part :foreground orange)
+    (magit-sequence-stop :foreground green)
+    (magit-signature-bad :inherit 'error)
+    (magit-signature-error :inherit 'error)
+    (magit-signature-expired :foreground orange)
+    (magit-signature-good :inherit 'success)
+    (magit-signature-revoked :foreground magenta)
+    (magit-signature-untrusted :foreground yellow)
+    (magit-tag :foreground yellow)
+#+END_SRC
+
+** CSS
+
+#+BEGIN_SRC elisp
+   `(css-proprietary-property ((,spec (:foreground ,orange))))
+   `(css-property ((,spec (:foreground ,green))))
+   `(css-selector ((,spec (:foreground ,blue))))
+#+END_SRC
+
+
+** Typescript.el
+
+#+BEGIN_SRC elisp
+   `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
+   `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
+   `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
+#+END_SRC
+
+** Web Mode
+
+#+BEGIN_SRC elisp
+   `(web-mode-html-tag-face ((,spec (:foreground ,red))))
+   `(web-mode-html-attr-equal-face ((,spec (:foreground ,cyan))))
+#+END_SRC
+
+** Rainbow Delimiters
+
+#+BEGIN_SRC elisp
+   `(rainbow-delimiters-depth-1-face ((,spec (:foreground ,magenta))))
+   `(rainbow-delimiters-depth-2-face ((,spec (:foreground ,orange))))
+   `(rainbow-delimiters-depth-3-face ((,spec (:foreground ,green))))
+   `(rainbow-delimiters-depth-4-face ((,spec (:foreground ,cyan))))
+   `(rainbow-delimiters-depth-5-face ((,spec (:foreground ,violet))))
+   `(rainbow-delimiters-depth-6-face ((,spec (:foreground ,yellow))))
+   `(rainbow-delimiters-depth-7-face ((,spec (:foreground ,blue))))
+   `(rainbow-delimiters-depth-8-face ((,spec (:foreground ,teal))))
+   `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
+#+END_SRC
+
+** RJSX Mode
+
+#+BEGIN_SRC elisp
+   `(rjsx-tag ((,spec (:foreground ,red))))
+   `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
+   `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
+#+END_SRC
+
+** List End & Provide Theme
+#+BEGIN_SRC elisp
+  ))
+(provide-theme 'tangonov)
+#+END_SRC
+
+** Theme Footer
+:PROPERTIES:
+:header-args: :tangle tangonov-theme.el
+:END:
+Provide the theme and mark the end of the file.
+
+#+BEGIN_SRC elisp
+;;; tangonov-theme.el ends here
+#+END_SRC
