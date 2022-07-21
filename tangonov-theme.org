@@ -448,6 +448,7 @@ A work in progress. These are all currently set by doom-themes. I am not sure wh
 #+END_SRC
 
 ** Shells
+
 *** Eshell
 
 #+BEGIN_SRC elisp
