@@ -170,6 +170,99 @@ Set faces for the top and bottom "bars."
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 #+END_SRC
 
+** Notmuch
+
+#+BEGIN_SRC elisp
+   `(notmuch-message-summary-face ((,spec (:foreground ,gray2 :background nil))))
+   `(notmuch-search-count ((,spec (:foreground ,gray2))))
+   `(notmuch-search-date ((,spec (:foreground ,orange))))
+   `(notmuch-search-flagged-face ((,spec (:foreground dred))))
+   `(notmuch-search-matching-authors ((,spec (:foreground blue))))
+   `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
+   `(notmuch-search-subject ((,spec (:foreground ,fg))))
+   `(notmuch-search-unread-face ((,spec (:weight bold))))
+   `(notmuch-tag-added ((,spec (:foreground green :weight normal))))
+   `(notmuch-tag-deleted ((,spec (:foreground red :weight normal))))
+   `(notmuch-tag-face ((,spec (:foreground ,yellow :weight normal))))
+   `(notmuch-tag-flagged ((,spec (:foreground ,yellow :weight normal))))
+   `(notmuch-tag-unread ((,spec (:foreground ,yellow :weight normal))))
+   `(notmuch-tree-match-author-face ((,spec (:foreground blue :weight bold))))
+   `(notmuch-tree-match-date-face ((,spec (:foreground ,orange :weight bold))))
+   `(notmuch-tree-match-face ((,spec (:foreground ,fg))))
+   `(notmuch-tree-match-subject-face ((,spec (:foreground ,fg))))
+   `(notmuch-tree-match-tag-face ((,spec (:foreground ,yellow))))
+   `(notmuch-tree-match-tree-face ((,spec (:foreground ,gray2))))
+   `(notmuch-tree-no-match-author-face ((,spec (:foreground blue))))
+   `(notmuch-tree-no-match-date-face ((,spec (:foreground ,orange))))
+   `(notmuch-tree-no-match-face ((,spec (:foreground ,gray3))))
+   `(notmuch-tree-no-match-subject-face ((,spec (:foreground ,gray3))))
+   `(notmuch-tree-no-match-tag-face ((,spec (:foreground ,yellow))))
+   `(notmuch-tree-no-match-tree-face ((,spec (:foreground ,yellow))))
+   `(notmuch-wash-cited-text ((,spec (:foreground ,gray1))))
+   `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
+#+END_SRC
+
+** COMMENT GNUs
+
+The built in news reader. Many aspects of email may be derived from here.
+
+#+BEGIN_SRC elisp
+(gnus-group-mail-1           :weight 'bold :foreground fg)
+(gnus-group-mail-2           :inherit 'gnus-group-mail-1)
+(gnus-group-mail-3           :inherit 'gnus-group-mail-1)
+(gnus-group-mail-1-empty     :foreground base5)
+(gnus-group-mail-2-empty     :inherit 'gnus-group-mail-1-empty)
+(gnus-group-mail-3-empty     :inherit 'gnus-group-mail-1-empty)
+(gnus-group-news-1           :inherit 'gnus-group-mail-1)
+(gnus-group-news-2           :inherit 'gnus-group-news-1)
+(gnus-group-news-3           :inherit 'gnus-group-news-1)
+(gnus-group-news-4           :inherit 'gnus-group-news-1)
+(gnus-group-news-5           :inherit 'gnus-group-news-1)
+(gnus-group-news-6           :inherit 'gnus-group-news-1)
+(gnus-group-news-1-empty     :inherit 'gnus-group-mail-1-empty)
+(gnus-group-news-2-empty     :inherit 'gnus-group-news-1-empty)
+(gnus-group-news-3-empty     :inherit 'gnus-group-news-1-empty)
+(gnus-group-news-4-empty     :inherit 'gnus-group-news-1-empty)
+(gnus-group-news-5-empty     :inherit 'gnus-group-news-1-empty)
+(gnus-group-news-6-empty     :inherit 'gnus-group-news-1-empty)
+(gnus-group-mail-low         :inherit 'gnus-group-mail-1 :weight 'normal)
+(gnus-group-mail-low-empty   :inherit 'gnus-group-mail-1-empty)
+(gnus-group-news-low         :inherit 'gnus-group-mail-1 :foreground base5)
+(gnus-group-news-low-empty   :inherit 'gnus-group-news-low :weight 'normal)
+(gnus-header-content         :inherit 'message-header-other)
+(gnus-header-from            :inherit 'message-header-other)
+(gnus-header-name            :inherit 'message-header-name)
+(gnus-header-newsgroups      :inherit 'message-header-other)
+(gnus-header-subject         :inherit 'message-header-subject)
+(gnus-summary-cancelled      :foreground red :strike-through t)
+(gnus-summary-high-ancient   :foreground (doom-lighten base5 0.2) :inherit 'italic)
+(gnus-summary-high-read      :foreground (doom-lighten fg 0.2))
+(gnus-summary-high-ticked    :foreground (doom-lighten magenta 0.2))
+(gnus-summary-high-unread    :foreground (doom-lighten green 0.2))
+(gnus-summary-low-ancient    :foreground (doom-darken base5 0.2) :inherit 'italic)
+(gnus-summary-low-read       :foreground (doom-darken fg 0.2))
+(gnus-summary-low-ticked     :foreground (doom-darken magenta 0.2))
+(gnus-summary-low-unread     :foreground (doom-darken green 0.2))
+(gnus-summary-normal-ancient :foreground base5 :inherit 'italic)
+(gnus-summary-normal-read    :foreground fg)
+(gnus-summary-normal-ticked  :foreground magenta)
+(gnus-summary-normal-unread  :foreground green :inherit 'bold)
+(gnus-summary-selected       :foreground blue :weight 'bold)
+(gnus-cite-1                 :foreground violet)
+(gnus-cite-2                 :foreground yellow)
+(gnus-cite-3                 :foreground magenta)
+(gnus-cite-4                 :foreground green)
+(gnus-cite-5                 :foreground green)
+(gnus-cite-6                 :foreground green)
+(gnus-cite-7                 :foreground magenta)
+(gnus-cite-8                 :foreground magenta)
+(gnus-cite-9                 :foreground magenta)
+(gnus-cite-10                :foreground yellow)
+(gnus-cite-11                :foreground yellow)
+(gnus-signature              :foreground yellow)
+(gnus-x-face                 :background base5 :foreground fg)
+#+END_SRC
+
 ** Font Lock Faces
 
 These faces end up being inherited by /many/ major modes for highlighting.
@@ -329,7 +422,6 @@ A work in progress. These are all currently set by doom-themes. I am not sure wh
    `(css-property ((,spec (:foreground ,green))))
    `(css-selector ((,spec (:foreground ,blue))))
 #+END_SRC
-
 
 ** Typescript.el
 

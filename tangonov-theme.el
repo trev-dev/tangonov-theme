@@ -30,6 +30,7 @@
 ;; bright, pleasant pastel colors that are easy to distinguish from one another.
 
 ;;; Code:
+;; Note: This file was generated using literate programming. See tangonov-theme.org.
 
 ;; [[file:tangonov-theme.org::*Color Definitions][Color Definitions:1]]
 (deftheme tangonov
@@ -139,6 +140,36 @@
    `(mode-line-buffer-id ((,spec (:weight bold))))
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 ;; Modeline & Tabbar:1 ends here
+
+;; [[file:tangonov-theme.org::*Notmuch][Notmuch:1]]
+   `(notmuch-message-summary-face ((,spec (:foreground ,gray2 :background nil))))
+   `(notmuch-search-count ((,spec (:foreground ,gray2))))
+   `(notmuch-search-date ((,spec (:foreground ,orange))))
+   `(notmuch-search-flagged-face ((,spec (:foreground ,dred))))
+   `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
+   `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
+   `(notmuch-search-subject ((,spec (:foreground ,fg))))
+   `(notmuch-search-unread-face ((,spec (:weight bold))))
+   `(notmuch-tag-added ((,spec (:foreground ,green :weight normal))))
+   `(notmuch-tag-deleted ((,spec (:foreground ,red :weight normal))))
+   `(notmuch-tag-face ((,spec (:foreground ,yellow :weight normal))))
+   `(notmuch-tag-flagged ((,spec (:foreground ,yellow :weight normal))))
+   `(notmuch-tag-unread ((,spec (:foreground ,yellow :weight normal))))
+   `(notmuch-tree-match-author-face ((,spec (:foreground ,blue :weight bold))))
+   `(notmuch-tree-match-date-face ((,spec (:foreground ,orange :weight bold))))
+   `(notmuch-tree-match-face ((,spec (:foreground ,fg))))
+   `(notmuch-tree-match-subject-face ((,spec (:foreground ,fg))))
+   `(notmuch-tree-match-tag-face ((,spec (:foreground ,yellow))))
+   `(notmuch-tree-match-tree-face ((,spec (:foreground ,gray2))))
+   `(notmuch-tree-no-match-author-face ((,spec (:foreground ,blue))))
+   `(notmuch-tree-no-match-date-face ((,spec (:foreground ,orange))))
+   `(notmuch-tree-no-match-face ((,spec (:foreground ,gray3))))
+   `(notmuch-tree-no-match-subject-face ((,spec (:foreground ,gray3))))
+   `(notmuch-tree-no-match-tag-face ((,spec (:foreground ,yellow))))
+   `(notmuch-tree-no-match-tree-face ((,spec (:foreground ,yellow))))
+   `(notmuch-wash-cited-text ((,spec (:foreground ,gray1))))
+   `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
+;; Notmuch:1 ends here
 
 ;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
    ;; Font Lock
