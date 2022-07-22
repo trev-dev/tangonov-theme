@@ -154,12 +154,12 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(underline ((,spec (:underline t))))
    `(shadow ((,spec (:foreground ,gray2))))
    `(link ((,spec (:foreground ,blue :weight bold :underline t))))
-   `(link-visited ((,spec (:inherit link :foreground ,magenta))))
+   `(link-visited ((,spec (:inherit 'link :foreground ,magenta))))
    `(highlight ((,spec (:background ,gray1 :weight bold))))
    `(match ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(region ((,spec (:foreground ,cyan :background ,(color-darken cyan 0.5)))))
    `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
-   `(lazy-highlight ((,spec (:inherit isearch))))
+   `(lazy-highlight ((,spec (:inherit 'isearch))))
    `(error ((,spec (:foreground ,red))))
    `(warning ((,spec (:foreground ,yellow))))
    `(success ((,spec (:foreground ,green))))
@@ -181,7 +181,7 @@ These faces end up being inherited by /many/ major modes for highlighting.
 
 #+BEGIN_SRC elisp
    ;; Font Lock
-   `(font-lock-warning-face ((,spec (:inherit warning))))
+   `(font-lock-warning-face ((,spec (:inherit 'warning))))
    `(font-lock-function-name-face ((,spec (:foreground ,blue))))
    `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
    `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
@@ -197,7 +197,7 @@ These faces end up being inherited by /many/ major modes for highlighting.
 ** ISearch
 
 #+BEGIN_SRC elisp
-   `(isearch ((,spec (:inherit match :weight bold))))
+   `(isearch ((,spec (:inherit 'match :weight bold))))
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
 #+END_SRC
 
@@ -253,23 +253,22 @@ These faces end up being inherited by /many/ major modes for highlighting.
 `(widget-field
   ((,spec (:background ,gray2 :distant-foreground
                        ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
-
 #+END_SRC
 
 ** Avy
 
 #+BEGIN_SRC elisp
    `(avy-goto-char-timer-face
-     ((,spec (:inherit isearch))))
+     ((,spec (:inherit 'isearch))))
    `(avy-background-face ((,spec (:foreground ,(color-darken bg 0.2)))))
    `(avy-lead-face
      ((,spec (:foreground ,red :weight bold))))
    `(avy-lead-face-0
-     ((,spec (:inherit avy-lead-face :foreground ,yellow))))
+     ((,spec (:inherit 'avy-lead-face :foreground ,yellow))))
    `(avy-lead-face-1
      ((,spec (:inheri avy-lead-face :foreground ,(color-darken yellow 0.4)))))
    `(avy-lead-face-2
-     ((,spec (:inherit avy-lead-face :foreground ,(color-darken yellow 0.6)))))
+     ((,spec (:inherit 'avy-lead-face :foreground ,(color-darken yellow 0.6)))))
 #+END_SRC
 
 ** Modeline & Tabbar
@@ -282,7 +281,7 @@ Set faces for the top and bottom "bars."
      ((,spec (:foreground ,fg :background ,bg-alt :box
                           (:line-width (2 . 2) :color ,bg-alt)))))
    `(mode-line-inactive
-     ((,spec (:inherit mode-line :foreground ,gray2 :background ,bg))))
+     ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
    `(mode-line-buffer-id ((,spec (:weight bold))))
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
@@ -299,7 +298,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
    `(message-header-to ((,spec (:foreground ,cyan :weight bold))))
    `(message-header-cc
-     ((,spec (:inherit message-header-to :foreground ,(color-darken cyan 0.15)))))
+     ((,spec (:inherit 'message-header-to :foreground ,(color-darken cyan 0.15)))))
    `(message-header-other ((,spec (:foreground ,violet))))
    `(message-header-newsgroups ((,spec (:foreground ,yellow))))
    `(message-header-xheader ((,spec (:foreground ,gray3))))
@@ -311,37 +310,37 @@ There are many packages that cobble together different Email & RSS interfaces. M
 
 #+BEGIN_SRC elisp
    `(gnus-group-mail-1 ((,spec (:weight bold :foreground ,fg))))
-   `(gnus-group-mail-2 ((,spec (:inherit gnus-group-mail-1))))
-   `(gnus-group-mail-3 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-mail-2 ((,spec (:inherit 'gnus-group-mail-1))))
+   `(gnus-group-mail-3 ((,spec (:inherit 'gnus-group-mail-1))))
    `(gnus-group-mail-1-empty ((,spec (:foreground ,gray3))))
-   `(gnus-group-mail-2-empty ((,spec (:inherit gnus-group-mail-1-empty))))
-   `(gnus-group-mail-3-empty ((,spec (:inherit gnus-group-mail-1-empty))))
-   `(gnus-group-news-1 ((,spec (:inherit gnus-group-mail-1))))
-   `(gnus-group-news-2 ((,spec (:inherit gnus-group-news-1))))
-   `(gnus-group-news-3 ((,spec (:inherit gnus-group-news-1))))
-   `(gnus-group-news-4 ((,spec (:inherit gnus-group-news-1))))
-   `(gnus-group-news-5 ((,spec (:inherit gnus-group-news-1))))
-   `(gnus-group-news-6 ((,spec (:inherit gnus-group-news-1))))
-   `(gnus-group-news-1-empty ((,spec (:inherit gnus-group-mail-1-empty))))
-   `(gnus-group-news-2-empty ((,spec (:inherit gnus-group-news-1-empty))))
-   `(gnus-group-news-3-empty ((,spec (:inherit gnus-group-news-1-empty))))
-   `(gnus-group-news-4-empty ((,spec (:inherit gnus-group-news-1-empty))))
-   `(gnus-group-news-5-empty ((,spec (:inherit gnus-group-news-1-empty))))
-   `(gnus-group-news-6-empty ((,spec (:inherit gnus-group-news-1-empty))))
-   `(gnus-group-mail-low ((,spec (:inherit gnus-group-mail-1 :weight normal))))
-   `(gnus-group-mail-low-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-mail-2-empty ((,spec (:inherit 'gnus-group-mail-1-empty))))
+   `(gnus-group-mail-3-empty ((,spec (:inherit 'gnus-group-mail-1-empty))))
+   `(gnus-group-news-1 ((,spec (:inherit 'gnus-group-mail-1))))
+   `(gnus-group-news-2 ((,spec (:inherit 'gnus-group-news-1))))
+   `(gnus-group-news-3 ((,spec (:inherit 'gnus-group-news-1))))
+   `(gnus-group-news-4 ((,spec (:inherit 'gnus-group-news-1))))
+   `(gnus-group-news-5 ((,spec (:inherit 'gnus-group-news-1))))
+   `(gnus-group-news-6 ((,spec (:inherit 'gnus-group-news-1))))
+   `(gnus-group-news-1-empty ((,spec (:inherit 'gnus-group-mail-1-empty))))
+   `(gnus-group-news-2-empty ((,spec (:inherit 'gnus-group-news-1-empty))))
+   `(gnus-group-news-3-empty ((,spec (:inherit 'gnus-group-news-1-empty))))
+   `(gnus-group-news-4-empty ((,spec (:inherit 'gnus-group-news-1-empty))))
+   `(gnus-group-news-5-empty ((,spec (:inherit 'gnus-group-news-1-empty))))
+   `(gnus-group-news-6-empty ((,spec (:inherit 'gnus-group-news-1-empty))))
+   `(gnus-group-mail-low ((,spec (:inherit 'gnus-group-mail-1 :weight normal))))
+   `(gnus-group-mail-low-empty ((,spec (:inherit 'gnus-group-mail-1-empty))))
    `(gnus-group-news-low
-     ((,spec (:inherit gnus-group-mail-1 :foreground ,gray3))))
+     ((,spec (:inherit 'gnus-group-mail-1 :foreground ,gray3))))
    `(gnus-group-news-low-empty
-     ((,spec (:inherit gnus-group-news-low :weight normal))))
-   `(gnus-header-content ((,spec (:inherit message-header-other))))
-   `(gnus-header-from ((,spec (:inherit message-header-other))))
-   `(gnus-header-name ((,spec (:inherit message-header-name))))
-   `(gnus-header-newsgroups ((,spec (:inherit message-header-other))))
-   `(gnus-header-subject ((,spec (:inherit message-header-subject))))
+     ((,spec (:inherit 'gnus-group-news-low :weight normal))))
+   `(gnus-header-content ((,spec (:inherit 'message-header-other))))
+   `(gnus-header-from ((,spec (:inherit 'message-header-other))))
+   `(gnus-header-name ((,spec (:inherit 'message-header-name))))
+   `(gnus-header-newsgroups ((,spec (:inherit 'message-header-other))))
+   `(gnus-header-subject ((,spec (:inherit 'message-header-subject))))
    `(gnus-summary-cancelled ((,spec (:foreground ,red :strike-through t))))
    `(gnus-summary-high-ancient
-     ((,spec (:foreground ,(color-lighten gray3 0.2) :inherit italic))))
+     ((,spec (:foreground ,(color-lighten gray3 0.2) :inherit 'italic))))
    `(gnus-summary-high-read
      ((,spec (:foreground ,(color-lighten fg 0.2)))))
    `(gnus-summary-high-ticked
@@ -349,15 +348,15 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(gnus-summary-high-unread
      ((,spec (:foreground ,(color-lighten green 0.2)))))
    `(gnus-summary-low-ancient
-     ((,spec (:foreground ,(color-darken gray3 0.2) :inherit italic))))
+     ((,spec (:foreground ,(color-darken gray3 0.2) :inherit 'italic))))
    `(gnus-summary-low-read ((,spec (:foreground ,(color-darken fg 0.2)))))
    `(gnus-summary-low-ticked
      ((,spec (:foreground ,(color-darken magenta 0.2)))))
    `(gnus-summary-low-unread ((,spec (:foreground ,(color-darken green 0.2)))))
-   `(gnus-summary-normal-ancient ((,spec (:foreground ,gray3 :inherit italic))))
+   `(gnus-summary-normal-ancient ((,spec (:foreground ,gray3 :inherit 'italic))))
    `(gnus-summary-normal-read ((,spec (:foreground ,fg))))
    `(gnus-summary-normal-ticked ((,spec (:foreground ,magenta))))
-   `(gnus-summary-normal-unread ((,spec (:foreground ,green :inherit bold))))
+   `(gnus-summary-normal-unread ((,spec (:foreground ,green :inherit 'bold))))
    `(gnus-summary-selected ((,spec (:foreground ,blue :weight bold))))
    `(gnus-cite-1 ((,spec (:foreground ,violet))))
    `(gnus-cite-2 ((,spec (:foreground ,yellow))))
@@ -412,7 +411,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
 
 #+BEGIN_SRC elisp
 `(erc-button ((,spec (:weight bold :underline t))))
-`(erc-default-face ((,spec (:inherit default))))
+`(erc-default-face ((,spec (:inherit 'default))))
 `(erc-action-face ((,spec (:weight bold))))
 `(erc-command-indicator-face ((,spec (:weight bold))))
 `(erc-direct-msg-face ((,spec (:foreground ,magenta))))
@@ -486,14 +485,14 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
    `(org-document-title ((,spec (:foreground ,yellow))))
    `(org-date ((,spec (:foreground ,yellow))))
    `(org-checkbox ((,spec (:foreground ,orange))))
-   `(org-checkbox-statistics-todo ((,spec (:inherit org-checkbox))))
-   `(org-checkbox-statistics-done ((,spec (:inherit org-done))))
+   `(org-checkbox-statistics-todo ((,spec (:inherit 'org-checkbox))))
+   `(org-checkbox-statistics-done ((,spec (:inherit 'org-done))))
 #+END_SRC
 
 *** Agenda
 
 #+BEGIN_SRC elisp
-   `(org-agenda-done ((,spec (:inherit org-done))))
+   `(org-agenda-done ((,spec (:inherit 'org-done))))
    `(org-agenda-clocking
      ((,spec (:background ,(color-darken cyan 0.5) :extend t))))
    `(org-time-grid ((,spec (:foreground ,gray2))))
@@ -563,27 +562,37 @@ Magit is a monster sized package with many, many faces
      ((,spec (:foreground ,(color-darken fg 0.4) :background ,bg :extend t))))
    `(magit-diff-context-highlight
      ((,spec (:foreground ,fg :background ,bg-alt :extend t))))
-   `(magit-diff-file-heading ((,spec (:foreground ,fg :weight bold :extend t))))
-   `(magit-diff-file-heading-selection ((,spec (:foreground ,magenta :background ,(color-darken blue 0.5) :weight bold :extend t))))
-   `(magit-diff-hunk-heading ((,spec (:foreground ,bg :background ,(color-blend violet bg 0.3) :extend t))))
-   `(magit-diff-hunk-heading-highlight ((,spec (:foreground ,bg :background ,violet :weight bold :extend t))))
-   `(magit-diff-lines-heading ((,spec (:foreground ,yellow :background ,red :extend t :extend t))))
-   `(magit-diff-removed ((,spec (:foreground ,(color-darken red 0.2) :background ,(color-blend red gray3 0.1) :extend t))))
-   `(magit-diff-removed-highlight ((,spec (:foreground ,red :background ,(color-blend red gray3 0.2) :weight bold :extend t))))
+   `(magit-diff-file-heading
+     ((,spec (:foreground ,fg :weight bold :extend t))))
+   `(magit-diff-file-heading-selection
+     ((,spec (:foreground ,magenta :background
+                          ,(color-darken blue 0.5) :weight bold :extend t))))
+   `(magit-diff-hunk-heading
+     ((,spec (:foreground ,bg :background
+                          ,(color-blend violet bg 0.3) :extend t))))
+   `(magit-diff-hunk-heading-highlight
+     ((,spec (:foreground ,bg :background ,violet :weight bold :extend t))))
+   `(magit-diff-lines-heading
+     ((,spec (:foreground ,yellow :background ,red :extend t :extend t))))
+   `(magit-diff-removed
+     ((,spec (:foreground ,(color-darken red 0.2) :background
+                          ,(color-blend red bg 0.1) :extend t))))
+   `(magit-diff-removed-highlight
+     ((,spec (:foreground ,red :background
+                          ,(color-blend red bg 0.2)
+                          :weight bold :extend t))))
    `(magit-diffstat-added ((,spec (:foreground ,green))))
    `(magit-diffstat-removed ((,spec (:foreground ,red))))
    `(magit-dimmed ((,spec (:foreground ,gray2))))
    `(magit-hash ((,spec (:foreground ,gray2))))
    `(magit-header-line
-    ((,spec (:background
-             ,(color-darken blue 0.5) :foreground ,gray3 :weight bold
-             :box `(:line-width 3 :color ,(color-darken blue 0.5))))))
+     ((,spec (:background ,bg-alt :foreground ,yellow :weight bold))))
    `(magit-filename ((,spec (:foreground ,violet))))
    `(magit-log-author ((,spec (:foreground ,orange))))
    `(magit-log-date ((,spec (:foreground ,blue))))
    `(magit-log-graph ((,spec (:foreground ,gray2))))
-   `(magit-process-ng ((,spec (:inherit error))))
-   `(magit-process-ok ((,spec (:inherit success))))
+   `(magit-process-ng ((,spec (:inherit 'error))))
+   `(magit-process-ok ((,spec (:inherit 'success))))
    `(magit-reflog-amend ((,spec (:foreground ,magenta))))
    `(magit-reflog-checkout ((,spec (:foreground ,blue))))
    `(magit-reflog-cherry-pick ((,spec (:foreground ,green))))
@@ -592,20 +601,23 @@ Magit is a monster sized package with many, many faces
    `(magit-reflog-other ((,spec (:foreground ,cyan))))
    `(magit-reflog-rebase ((,spec (:foreground ,magenta))))
    `(magit-reflog-remote ((,spec (:foreground ,cyan))))
-   `(magit-reflog-reset ((,spec (:inherit error))))
+   `(magit-reflog-reset ((,spec (:inherit 'error))))
    `(magit-refname ((,spec (:foreground ,gray2))))
-   `(magit-section-heading ((,spec (:foreground ,blue :weight bold :extend t))))
-   `(magit-section-heading-selection ((,spec (:foreground ,orange :weight bold :extend t))))
+   `(magit-section-heading
+     ((,spec (:foreground ,blue :weight bold :extend t))))
+   `(magit-section-heading-selection
+     ((,spec (:foreground ,orange :weight bold :extend t))))
    `(magit-section-highlight ((,spec (:inherit 'hl-line))))
-   `(magit-section-secondary-heading ((,spec (:foreground ,violet :weight bold :extend t))))
+   `(magit-section-secondary-heading
+     ((,spec (:foreground ,violet :weight bold :extend t))))
    `(magit-sequence-drop ((,spec (:foreground ,red))))
    `(magit-sequence-head ((,spec (:foreground ,blue))))
    `(magit-sequence-part ((,spec (:foreground ,orange))))
    `(magit-sequence-stop ((,spec (:foreground ,green))))
-   `(magit-signature-bad ((,spec (:inherit error))))
-   `(magit-signature-error ((,spec (:inherit error))))
+   `(magit-signature-bad ((,spec (:inherit 'error))))
+   `(magit-signature-error ((,spec (:inherit 'error))))
    `(magit-signature-expired ((,spec (:foreground ,orange))))
-   `(magit-signature-good ((,spec (:inherit success))))
+   `(magit-signature-good ((,spec (:inherit 'success))))
    `(magit-signature-revoked ((,spec (:foreground ,magenta))))
    `(magit-signature-untrusted ((,spec (:foreground ,yellow))))
    `(magit-tag ((,spec (:foreground ,yellow))))
