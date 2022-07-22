@@ -346,6 +346,14 @@ Alpha should be a float between 0 and 1."
    `(goggles-removed ((,spec (:background ,red))))
 ;; Goggles:1 ends here
 
+;; [[file:tangonov-theme.org::*Hydra][Hydra:1]]
+   `(hydra-face-red ((,spec (:foreground ,red :weight bold))))
+   `(hydra-face-blue ((,spec (:foreground ,blue :weight bold))))
+   `(hydra-face-amaranth ((,spec (:foreground ,magenta :weight bold))))
+   `(hydra-face-pink ((,spec (:foreground ,violet :weight bold))))
+   `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
+;; Hydra:1 ends here
+
 ;; [[file:tangonov-theme.org::*ISearch][ISearch:1]]
    `(isearch ((,spec (:inherit 'match :weight bold))))
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))

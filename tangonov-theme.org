@@ -418,6 +418,16 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(goggles-removed ((,spec (:background ,red))))
 #+END_SRC
 
+*** Hydra
+
+#+BEGIN_SRC elisp
+   `(hydra-face-red ((,spec (:foreground ,red :weight bold))))
+   `(hydra-face-blue ((,spec (:foreground ,blue :weight bold))))
+   `(hydra-face-amaranth ((,spec (:foreground ,magenta :weight bold))))
+   `(hydra-face-pink ((,spec (:foreground ,violet :weight bold))))
+   `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
+#+END_SRC
+
 *** ISearch
 
 #+BEGIN_SRC elisp
