@@ -182,6 +182,25 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(whitespace-trailing ((,spec (:background ,red))))
 #+END_SRC
 
+** Font Lock Faces
+
+These faces end up being inherited by /many/ major modes for highlighting.
+
+#+BEGIN_SRC elisp
+   ;; Font Lock
+   `(font-lock-warning-face ((,spec (:inherit warning))))
+   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
+   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
+   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
+   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
+   `(font-lock-type-face ((,spec (:foreground ,magenta))))
+   `(font-lock-constant-face ((,spec (:foreground ,orange))))
+   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
+   `(font-lock-string-face ((,spec (:foreground ,green))))
+   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
+   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
+#+END_SRC
+
 ** Easy Customization
 
 #+BEGIN_SRC elisp
@@ -410,25 +429,6 @@ There are many packages that cobble together different Email & RSS interfaces. M
 `(erc-my-nick-prefix-face ((,spec (:inherit 'erc-my-nick-face))))
 `(erc-notice-face ((,spec (:foreground ,gray2))))
 `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
-#+END_SRC
-
-** Font Lock Faces
-
-These faces end up being inherited by /many/ major modes for highlighting.
-
-#+BEGIN_SRC elisp
-   ;; Font Lock
-   `(font-lock-warning-face ((,spec (:inherit warning))))
-   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
-   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
-   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
-   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
-   `(font-lock-type-face ((,spec (:foreground ,magenta))))
-   `(font-lock-constant-face ((,spec (:foreground ,orange))))
-   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
-   `(font-lock-string-face ((,spec (:foreground ,green))))
-   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
-   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
 #+END_SRC
 
 ** Goggles

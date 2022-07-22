@@ -138,6 +138,21 @@ Alpha should be a float between 0 and 1."
    `(whitespace-trailing ((,spec (:background ,red))))
 ;; Basic Faces:1 ends here
 
+;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
+   ;; Font Lock
+   `(font-lock-warning-face ((,spec (:inherit warning))))
+   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
+   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
+   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
+   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
+   `(font-lock-type-face ((,spec (:foreground ,magenta))))
+   `(font-lock-constant-face ((,spec (:foreground ,orange))))
+   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
+   `(font-lock-string-face ((,spec (:foreground ,green))))
+   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
+   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
+;; Font Lock Faces:1 ends here
+
 ;; [[file:tangonov-theme.org::*Easy Customization][Easy Customization:1]]
    `(custom-button
      ((,spec
@@ -344,21 +359,6 @@ Alpha should be a float between 0 and 1."
 `(erc-notice-face ((,spec (:foreground ,gray2))))
 `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
 ;; ERC:1 ends here
-
-;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
-   ;; Font Lock
-   `(font-lock-warning-face ((,spec (:inherit warning))))
-   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
-   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
-   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
-   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
-   `(font-lock-type-face ((,spec (:foreground ,magenta))))
-   `(font-lock-constant-face ((,spec (:foreground ,orange))))
-   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
-   `(font-lock-string-face ((,spec (:foreground ,green))))
-   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
-   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
-;; Font Lock Faces:1 ends here
 
 ;; [[file:tangonov-theme.org::*Goggles][Goggles:1]]
    `(goggles-changed ((,spec (:background ,cyan))))
