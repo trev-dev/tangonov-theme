@@ -195,8 +195,8 @@ Alpha should be a float between 0 and 1."
      ((,spec (:foreground ,gray2 :background nil))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
-   `(notmuch-search-flagged-face ((,spec (:foreground
-                                          ,(color-darken red 0.5)))))
+   `(notmuch-search-flagged-face
+     ((,spec (:foreground ,(color-darken red 0.5)))))
    `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
    `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
    `(notmuch-search-subject ((,spec (:foreground ,fg))))
