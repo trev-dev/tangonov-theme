@@ -224,6 +224,22 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 #+END_SRC
 
+** Avy
+
+#+BEGIN_SRC elisp
+   `(avy-goto-char-timer-face
+     ((,spec (:inherit isearch))))
+   `(avy-background-face ((,spec (:foreground ,(color-darken bg 0.2)))))
+   `(avy-lead-face
+     ((,spec (:foreground ,red :weight bold))))
+   `(avy-lead-face-0
+     ((,spec (:inherit avy-lead-face :foreground ,yellow))))
+   `(avy-lead-face-1
+     ((,spec (:inheri avy-lead-face :foreground ,(color-darken yellow 0.4)))))
+   `(avy-lead-face-2
+     ((,spec (:inherit avy-lead-face :foreground ,(color-darken yellow 0.6)))))
+#+END_SRC
+
 ** Modeline & Tabbar
 
 Set faces for the top and bottom "bars."

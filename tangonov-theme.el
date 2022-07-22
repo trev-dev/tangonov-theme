@@ -79,7 +79,7 @@ Alpha should be a float between 0 and 1."
          (cl-loop for c in color collect (color-lighten c alpha)))
 
         ((color-blend color "#FFFFFF" (- 1 alpha)))))
- 
+
 (color-lighten "#000000" 0.2)
 ;; Blending colors:2 ends here
 
@@ -177,6 +177,20 @@ Alpha should be a float between 0 and 1."
      ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 ;; Easy Customization:1 ends here
+
+;; [[file:tangonov-theme.org::*Avy][Avy:1]]
+   `(avy-goto-char-timer-face
+     ((,spec (:inherit isearch))))
+   `(avy-background-face ((,spec (:foreground ,(color-darken bg 0.2)))))
+   `(avy-lead-face
+     ((,spec (:foreground ,red :weight bold))))
+   `(avy-lead-face-0
+     ((,spec (:inherit avy-lead-face :foreground ,yellow))))
+   `(avy-lead-face-1
+     ((,spec (:inheri avy-lead-face :foreground ,(color-darken yellow 0.4)))))
+   `(avy-lead-face-2
+     ((,spec (:inherit avy-lead-face :foreground ,(color-darken yellow 0.6)))))
+;; Avy:1 ends here
 
 ;; [[file:tangonov-theme.org::*Modeline & Tabbar][Modeline & Tabbar:1]]
    ;; Modeline/Tabline
