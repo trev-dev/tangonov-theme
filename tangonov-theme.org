@@ -48,6 +48,14 @@ Some preliminary information about the theme
 ;; Note: This file was generated using literate programming. See tangonov-theme.org.
 #+END_SRC
 
+** Dependences
+
+We will need a relatively modern version of emacs with "Common Lisp" support. These are for [[* Utility Functions][utility functions]].
+
+#+BEGIN_SRC elisp
+(require 'cl-lib)
+#+END_SRC
+
 ** Utility Functions
 
 [[https://github.com/doomemacs/themes][Doom Themes]] has some really helpful color functions that already implement the math for blending/calculating RGB colors for me so that I don't have to do that myself.
@@ -133,19 +141,13 @@ The strategy for writing this theme is to do it as simply as possible. I am only
       (bg        "#191919")
       (bg-alt    "#232323")
       (red       "#FF7B85")
-      (dred      "#7F3D42")
       (green     "#ABDC88")
-      (dgreen    "#556d43")
       (yellow    "#FFCA41")
-      (dyellow   "#7f641f")
       (orange    "#FF996B")
-      (dorange   "#7f4c35")
       (blue      "#82AAFF")
-      (dblue     "#41547F")
       (magenta   "#C792EA")
       (violet    "#BB80B3")
       (cyan      "#89DDFF")
-      (dcyan     "#446e7f")
       (teal      "#44b9b1")
       (gray1     "#303030")
       (gray2     "#626262")
@@ -168,9 +170,9 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(link ((,spec (:foreground ,blue :weight bold :underline t))))
    `(link-visited ((,spec (:inherit link :foreground ,magenta))))
    `(highlight ((,spec (:background ,gray1 :weight bold))))
-   `(match ((,spec (:foreground ,green :background ,dgreen))))
+   `(match ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(isearch ((,spec (:inherit match :weight bold))))
-   `(region ((,spec (:foreground ,cyan :background ,dcyan))))
+   `(region ((,spec (:foreground ,cyan :background ,(color-darken cyan 0.5)))))
    `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
    `(lazy-highlight ((,spec (:inherit isearch))))
    `(error ((,spec (:foreground ,red))))
@@ -195,24 +197,26 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
      ((,spec
        (:foreground ,blue :background ,bg :box '(:line-width 1 :style none)))))
    `(custom-button-unraised
-     ((,spec
-       (:foreground ,violet :background ,bg
-                    :box '(:line-width 1 :style none)))))
+     ((,spec (:foreground ,violet :background
+                          ,bg :box '(:line-width 1 :style none)))))
    `(custom-button-pressed-unraised
      ((,spec
-       (:foreground ,bg :background ,violet
-                    :box '(:line-width 1 :style none)))))
+       (:foreground ,bg :background
+                    ,violet :box '(:line-width 1 :style none)))))
    `(custom-button-pressed
-     ((,spec (:foreground ,bg :background ,blue
-                          :box '(:line-width 1 :style none)))))
+     ((,spec (:foreground ,bg :background
+                          ,blue :box '(:line-width 1 :style none)))))
    `(custom-button-mouse
      ((,spec (:foreground ,bg :background ,blue
                           :box '(:line-width 1 :style none)))))
    `(custom-variable-button ((,spec (:foreground ,green :underline t))))
-   `(custom-saved ((,spec (:foreground ,green :background ,dgreen :bold bold))))
+   `(custom-saved
+     ((,spec (:foreground ,green :background
+                          ,(color-darken green 0.5) :bold bold))))
    `(custom-comment ((,spec (:foreground ,fg))))
    `(custom-comment-tag ((,spec (:foreground ,gray2))))
-   `(custom-modified ((,spec (:foreground ,blue :background ,dblue))))
+   `(custom-modified
+     ((,spec (:foreground ,blue :background ,(color-darken blue 0.5)))))
    `(custom-variable-tag ((,spec (:foreground ,magenta))))
    `(custom-visibility ((,spec (:foreground ,blue :underline nil))))
    `(custom-group-subtitle ((,spec (:foreground ,red))))
@@ -220,9 +224,11 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(custom-group-tag-1 ((,spec (:foreground ,blue))))
    `(custom-set ((,spec (:foreground ,yellow :background ,bg))))
    `(custom-themed ((,spec (:foreground ,yellow :background ,bg))))
-   `(custom-invalid ((,spec (:foreground ,red :background ,dred))))
+   `(custom-invalid ((,spec (:foreground ,red
+                                         :background ,(color-darken red 0.5)))))
    `(custom-variable-obsolete ((,spec (:foreground ,gray2 :background ,bg))))
-   `(custom-state ((,spec (:foreground ,green :background ,dgreen))))
+   `(custom-state
+     ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 #+END_SRC
 
@@ -245,10 +251,12 @@ Set faces for the top and bottom "bars."
 ** Notmuch
 
 #+BEGIN_SRC elisp
-   `(notmuch-message-summary-face ((,spec (:foreground ,gray2 :background nil))))
+   `(notmuch-message-summary-face
+     ((,spec (:foreground ,gray2 :background nil))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
-   `(notmuch-search-flagged-face ((,spec (:foreground ,dred))))
+   `(notmuch-search-flagged-face ((,spec (:foreground
+                                          ,(color-darken red 0.5)))))
    `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
    `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
    `(notmuch-search-subject ((,spec (:foreground ,fg))))
@@ -396,6 +404,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
    `(org-level-7 ((,spec (:foreground ,teal))))
    `(org-level-8 ((,spec (:foreground ,violet))))
    `(org-todo ((,spec (:foreground ,orange))))
+   `(org-done ((,spec (:foreground ,gray2))))
    `(org-drawer ((,spec (:foreground ,gray2))))
    `(org-meta-line ((,spec (:foreground ,gray2))))
    `(org-special-keyword ((,spec (:foreground ,gray3))))
@@ -416,10 +425,12 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 
 #+BEGIN_SRC elisp
    `(org-agenda-done ((,spec (:inherit org-done))))
-   `(org-agenda-clocking ((,spec (:background ,dcyan :extend t))))
+   `(org-agenda-clocking
+     ((,spec (:background ,(color-darken cyan 0.5) :extend t))))
    `(org-time-grid ((,spec (:foreground ,gray2))))
    `(org-imminent-deadline ((,spec (:foreground ,yellow))))
    `(org-upcoming-deadline ((,spec (:foreground ,teal))))
+   `(org-agenda-dimmed-todo-face ((,spec (:foreground ,gray3))))
 #+END_SRC
 
 ** Version Control
@@ -540,14 +551,21 @@ A work in progress. These are all currently set by doom-themes. I am not sure wh
 *** Vterm
 
 #+BEGIN_SRC elisp
-   `(vterm-color-black ((,spec (:background ,gray2 :foreground ,gray1))))
-   `(vterm-color-red ((,spec (:background ,dred :foreground ,red))))
-   `(vterm-color-green ((,spec (:background ,dgreen :foreground ,green))))
-   `(vterm-color-yellow ((,spec (:background ,dyellow :foreground ,yellow))))
-   `(vterm-color-blue ((,spec (:background ,dblue :foreground ,blue))))
-   `(vterm-color-magenta ((,spec (:background ,violet :foreground ,magenta))))
-   `(vterm-color-cyan ((,spec (:background ,dcyan :foreground ,cyan))))
-   `(vterm-color-white ((,spec (:background ,gray3 :foreground ,fg))))
+   `(vterm-color-black
+     ((,spec (:background ,gray1 :foreground ,(color-lighten gray1 0.2)))))
+   `(vterm-color-red
+     ((,spec (:background ,red :foreground ,(color-lighten red 0.2)))))
+   `(vterm-color-green
+     ((,spec (:background ,green :foreground ,(color-lighten green 0.2)))))
+   `(vterm-color-yellow
+     ((,spec (:background ,yellow :foreground ,(color-lighten yellow 0.2)))))
+   `(vterm-color-blue
+     ((,spec (:background ,blue :foreground ,(color-lighten blue 0.2)))))
+   `(vterm-color-magenta
+     ((,spec (:background ,magenta :foreground ,(color-lighten violet 0.2)))))
+   `(vterm-color-cyan
+     ((,spec (:background ,cyan :foreground ,(color-lighten cyan 0.2)))))
+   `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
 #+END_SRC
 
 ** Web Mode

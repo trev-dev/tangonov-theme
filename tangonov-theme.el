@@ -32,6 +32,65 @@
 ;;; Code:
 ;; Note: This file was generated using literate programming. See tangonov-theme.org.
 
+;; [[file:tangonov-theme.org::*Dependences][Dependences:1]]
+(require 'cl-lib)
+;; Dependences:1 ends here
+
+;; [[file:tangonov-theme.org::*Converting named colors to hexidecimal colors][Converting named colors to hexidecimal colors:1]]
+(defun name-to-rgb (color)
+  "Get the hexidecimal version of the named `COLOR'."
+  (cl-loop with div = (float (car (tty-color-standard-values "#ffffff")))
+           for x in (tty-color-standard-values (downcase color))
+           collect (/ x div)))
+;; Converting named colors to hexidecimal colors:1 ends here
+
+;; [[file:tangonov-theme.org::*Blending colors][Blending colors:1]]
+(defun color-blend (c1 c2 alpha)
+  "Blend hexidecimal colors `C1' and `C2' together by a coefficient of `ALPHA'."
+  (when (and c1 c2)
+    (cond ((and c1 c2 (symbolp c1) (symbolp c2))
+           (color-blend (doom-color c1) (doom-color c2) alpha))
+
+          ((or (listp c1) (listp c2))
+           (cl-loop for x in c1
+                    when (if (listp c2) (pop c2) c2)
+                    collect (color-blend x it alpha)))
+
+          ((and (string-prefix-p "#" c1) (string-prefix-p "#" c2))
+           (apply (lambda (r g b) (format "#%02x%02x%02x" (* r 255) (* g 255) (* b 255)))
+                  (cl-loop for it    in (name-to-rgb c1)
+                           for other in (name-to-rgb c2)
+                           collect (+ (* alpha it) (* other (- 1 alpha))))))
+
+          (c1))))
+;; Blending colors:1 ends here
+
+;; [[file:tangonov-theme.org::*Blending colors][Blending colors:2]]
+(defun color-darken (color alpha)
+  "Darken a hexidecimal `COLOR' by a coefficient of `ALPHA'.
+Alpha should be a float between 0 and 1."
+  (cond ((and color (symbolp color))
+         (color-darken (doom-color color) alpha))
+
+        ((listp color)
+         (cl-loop for c in color collect (color-darken c alpha)))
+
+        ((color-blend color "#000000" (- 1 alpha)))))
+
+(defun color-lighten (color alpha)
+  "Lighten a hexidecimal `COLOR' by a coefficient of `ALPHA'.
+Alpha should be a float between 0 and 1."
+  (cond ((and color (symbolp color))
+         (color-lighten (doom-color color) alpha))
+
+        ((listp color)
+         (cl-loop for c in color collect (color-lighten c alpha)))
+
+        ((color-blend color "#FFFFFF" (- 1 alpha)))))
+
+(color-lighten "#000000" 0.2)
+;; Blending colors:2 ends here
+
 ;; [[file:tangonov-theme.org::*Color Definitions][Color Definitions:1]]
 (deftheme tangonov
   "A 256 color dark theme featuring bright pastels.")
@@ -42,19 +101,13 @@
       (bg        "#191919")
       (bg-alt    "#232323")
       (red       "#FF7B85")
-      (dred      "#7F3D42")
       (green     "#ABDC88")
-      (dgreen    "#556d43")
       (yellow    "#FFCA41")
-      (dyellow   "#7f641f")
       (orange    "#FF996B")
-      (dorange   "#7f4c35")
       (blue      "#82AAFF")
-      (dblue     "#41547F")
       (magenta   "#C792EA")
       (violet    "#BB80B3")
       (cyan      "#89DDFF")
-      (dcyan     "#446e7f")
       (teal      "#44b9b1")
       (gray1     "#303030")
       (gray2     "#626262")
@@ -73,9 +126,9 @@
    `(link ((,spec (:foreground ,blue :weight bold :underline t))))
    `(link-visited ((,spec (:inherit link :foreground ,magenta))))
    `(highlight ((,spec (:background ,gray1 :weight bold))))
-   `(match ((,spec (:foreground ,green :background ,dgreen))))
+   `(match ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(isearch ((,spec (:inherit match :weight bold))))
-   `(region ((,spec (:foreground ,cyan :background ,dcyan))))
+   `(region ((,spec (:foreground ,cyan :background ,(color-darken cyan 0.5)))))
    `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
    `(lazy-highlight ((,spec (:inherit isearch))))
    `(error ((,spec (:foreground ,red))))
@@ -98,24 +151,26 @@
      ((,spec
        (:foreground ,blue :background ,bg :box '(:line-width 1 :style none)))))
    `(custom-button-unraised
-     ((,spec
-       (:foreground ,violet :background ,bg
-                    :box '(:line-width 1 :style none)))))
+     ((,spec (:foreground ,violet :background
+                          ,bg :box '(:line-width 1 :style none)))))
    `(custom-button-pressed-unraised
      ((,spec
-       (:foreground ,bg :background ,violet
-                    :box '(:line-width 1 :style none)))))
+       (:foreground ,bg :background
+                    ,violet :box '(:line-width 1 :style none)))))
    `(custom-button-pressed
-     ((,spec (:foreground ,bg :background ,blue
-                          :box '(:line-width 1 :style none)))))
+     ((,spec (:foreground ,bg :background
+                          ,blue :box '(:line-width 1 :style none)))))
    `(custom-button-mouse
      ((,spec (:foreground ,bg :background ,blue
                           :box '(:line-width 1 :style none)))))
    `(custom-variable-button ((,spec (:foreground ,green :underline t))))
-   `(custom-saved ((,spec (:foreground ,green :background ,dgreen :bold bold))))
+   `(custom-saved
+     ((,spec (:foreground ,green :background
+                          ,(color-darken green 0.5) :bold bold))))
    `(custom-comment ((,spec (:foreground ,fg))))
    `(custom-comment-tag ((,spec (:foreground ,gray2))))
-   `(custom-modified ((,spec (:foreground ,blue :background ,dblue))))
+   `(custom-modified
+     ((,spec (:foreground ,blue :background ,(color-darken blue 0.5)))))
    `(custom-variable-tag ((,spec (:foreground ,magenta))))
    `(custom-visibility ((,spec (:foreground ,blue :underline nil))))
    `(custom-group-subtitle ((,spec (:foreground ,red))))
@@ -123,9 +178,11 @@
    `(custom-group-tag-1 ((,spec (:foreground ,blue))))
    `(custom-set ((,spec (:foreground ,yellow :background ,bg))))
    `(custom-themed ((,spec (:foreground ,yellow :background ,bg))))
-   `(custom-invalid ((,spec (:foreground ,red :background ,dred))))
+   `(custom-invalid ((,spec (:foreground ,red
+                                         :background ,(color-darken red 0.5)))))
    `(custom-variable-obsolete ((,spec (:foreground ,gray2 :background ,bg))))
-   `(custom-state ((,spec (:foreground ,green :background ,dgreen))))
+   `(custom-state
+     ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 ;; Easy Customization:1 ends here
 
@@ -142,10 +199,12 @@
 ;; Modeline & Tabbar:1 ends here
 
 ;; [[file:tangonov-theme.org::*Notmuch][Notmuch:1]]
-   `(notmuch-message-summary-face ((,spec (:foreground ,gray2 :background nil))))
+   `(notmuch-message-summary-face
+     ((,spec (:foreground ,gray2 :background nil))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
-   `(notmuch-search-flagged-face ((,spec (:foreground ,dred))))
+   `(notmuch-search-flagged-face ((,spec (:foreground
+                                          ,(color-darken red 0.5)))))
    `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
    `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
    `(notmuch-search-subject ((,spec (:foreground ,fg))))
@@ -233,7 +292,8 @@
 
 ;; [[file:tangonov-theme.org::*Agenda][Agenda:1]]
    `(org-agenda-done ((,spec (:inherit org-done))))
-   `(org-agenda-clocking ((,spec (:background ,dcyan :extend t))))
+   `(org-agenda-clocking
+     ((,spec (:background ,(color-darken cyan 0.5) :extend t))))
    `(org-time-grid ((,spec (:foreground ,gray2))))
    `(org-imminent-deadline ((,spec (:foreground ,yellow))))
    `(org-upcoming-deadline ((,spec (:foreground ,teal))))
@@ -274,14 +334,21 @@
 ;; Eshell:1 ends here
 
 ;; [[file:tangonov-theme.org::*Vterm][Vterm:1]]
-   `(vterm-color-black ((,spec (:background ,gray2 :foreground ,gray1))))
-   `(vterm-color-red ((,spec (:background ,dred :foreground ,red))))
-   `(vterm-color-green ((,spec (:background ,dgreen :foreground ,green))))
-   `(vterm-color-yellow ((,spec (:background ,dyellow :foreground ,yellow))))
-   `(vterm-color-blue ((,spec (:background ,dblue :foreground ,blue))))
-   `(vterm-color-magenta ((,spec (:background ,violet :foreground ,magenta))))
-   `(vterm-color-cyan ((,spec (:background ,dcyan :foreground ,cyan))))
-   `(vterm-color-white ((,spec (:background ,gray3 :foreground ,fg))))
+   `(vterm-color-black
+     ((,spec (:background ,gray1 :foreground ,(color-lighten gray1 0.2)))))
+   `(vterm-color-red
+     ((,spec (:background ,red :foreground ,(color-lighten red 0.2)))))
+   `(vterm-color-green
+     ((,spec (:background ,green :foreground ,(color-lighten green 0.2)))))
+   `(vterm-color-yellow
+     ((,spec (:background ,yellow :foreground ,(color-lighten yellow 0.2)))))
+   `(vterm-color-blue
+     ((,spec (:background ,blue :foreground ,(color-lighten blue 0.2)))))
+   `(vterm-color-magenta
+     ((,spec (:background ,magenta :foreground ,(color-lighten violet 0.2)))))
+   `(vterm-color-cyan
+     ((,spec (:background ,cyan :foreground ,(color-lighten cyan 0.2)))))
+   `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
 ;; Vterm:1 ends here
 
 ;; [[file:tangonov-theme.org::*Web Mode][Web Mode:1]]
