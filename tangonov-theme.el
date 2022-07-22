@@ -298,6 +298,83 @@ Alpha should be a float between 0 and 1."
    `(diff-hl-insert ((,spec (:background ,green :foreground ,green))))
 ;; Diff-hl:1 ends here
 
+;; [[file:tangonov-theme.org::*Magit][Magit:1]]
+   `(magit-bisect-bad ((,spec (:foreground ,red))))
+   `(magit-bisect-good ((,spec (:foreground ,green))))
+   `(magit-bisect-skip ((,spec (:foreground ,orange))))
+   `(magit-blame-hash ((,spec (:foreground ,cyan))))
+   `(magit-blame-date ((,spec (:foreground ,red))))
+   `(magit-blame-heading
+     ((,spec (:foreground ,orange :background ,gray3 :extend t))))
+   `(magit-branch-current ((,spec (:foreground ,blue))))
+   `(magit-branch-local ((,spec (:foreground ,cyan))))
+   `(magit-branch-remote ((,spec (:foreground ,green))))
+   `(magit-cherry-equivalent ((,spec (:foreground ,violet))))
+   `(magit-cherry-unmatched ((,spec (:foreground ,cyan))))
+   `(magit-diff-added
+     ((,spec (:foreground ,(color-darken green 0.2) :background
+                          ,(color-blend green bg 0.1) :extend t))))
+   `(magit-diff-added-highlight
+     ((,spec (:foreground ,green :background
+                          ,(color-blend green bg 0.2) :weight bold :extend t))))
+   `(magit-diff-base
+     ((,spec (:foreground ,(color-darken orange 0.2) :background
+                          ,(color-blend orange bg 0.1) :extend t))))
+   `(magit-diff-base-highlight
+     ((,spec (:foreground ,orange :background
+                          ,(color-blend orange bg 0.2) :weight bold :extend t))))
+   `(magit-diff-context
+     ((,spec (:foreground ,(color-darken fg 0.4) :background ,bg :extend t))))
+   `(magit-diff-context-highlight
+     ((,spec (:foreground ,fg :background ,bg-alt :extend t))))
+   `(magit-diff-file-heading ((,spec (:foreground ,fg :weight bold :extend t))))
+   `(magit-diff-file-heading-selection ((,spec (:foreground ,magenta :background ,(color-darken blue 0.5) :weight bold :extend t))))
+   `(magit-diff-hunk-heading ((,spec (:foreground ,bg :background ,(color-blend violet bg 0.3) :extend t))))
+   `(magit-diff-hunk-heading-highlight ((,spec (:foreground ,bg :background ,violet :weight bold :extend t))))
+   `(magit-diff-lines-heading ((,spec (:foreground ,yellow :background ,red :extend t :extend t))))
+   `(magit-diff-removed ((,spec (:foreground ,(color-darken red 0.2) :background ,(color-blend red gray3 0.1) :extend t))))
+   `(magit-diff-removed-highlight ((,spec (:foreground ,red :background ,(color-blend red gray3 0.2) :weight bold :extend t))))
+   `(magit-diffstat-added ((,spec (:foreground ,green))))
+   `(magit-diffstat-removed ((,spec (:foreground ,red))))
+   `(magit-dimmed ((,spec (:foreground ,gray2))))
+   `(magit-hash ((,spec (:foreground ,gray2))))
+   `(magit-header-line
+    ((,spec (:background
+             ,(color-darken blue 0.5) :foreground ,gray3 :weight bold
+             :box `(:line-width 3 :color ,(color-darken blue 0.5))))))
+   `(magit-filename ((,spec (:foreground ,violet))))
+   `(magit-log-author ((,spec (:foreground ,orange))))
+   `(magit-log-date ((,spec (:foreground ,blue))))
+   `(magit-log-graph ((,spec (:foreground ,gray2))))
+   `(magit-process-ng ((,spec (:inherit error))))
+   `(magit-process-ok ((,spec (:inherit success))))
+   `(magit-reflog-amend ((,spec (:foreground ,magenta))))
+   `(magit-reflog-checkout ((,spec (:foreground ,blue))))
+   `(magit-reflog-cherry-pick ((,spec (:foreground ,green))))
+   `(magit-reflog-commit ((,spec (:foreground ,green))))
+   `(magit-reflog-merge ((,spec (:foreground ,green))))
+   `(magit-reflog-other ((,spec (:foreground ,cyan))))
+   `(magit-reflog-rebase ((,spec (:foreground ,magenta))))
+   `(magit-reflog-remote ((,spec (:foreground ,cyan))))
+   `(magit-reflog-reset ((,spec (:inherit error))))
+   `(magit-refname ((,spec (:foreground ,gray2))))
+   `(magit-section-heading ((,spec (:foreground ,blue :weight bold :extend t))))
+   `(magit-section-heading-selection ((,spec (:foreground ,orange :weight bold :extend t))))
+   `(magit-section-highlight ((,spec (:inherit 'hl-line))))
+   `(magit-section-secondary-heading ((,spec (:foreground ,violet :weight bold :extend t))))
+   `(magit-sequence-drop ((,spec (:foreground ,red))))
+   `(magit-sequence-head ((,spec (:foreground ,blue))))
+   `(magit-sequence-part ((,spec (:foreground ,orange))))
+   `(magit-sequence-stop ((,spec (:foreground ,green))))
+   `(magit-signature-bad ((,spec (:inherit error))))
+   `(magit-signature-error ((,spec (:inherit error))))
+   `(magit-signature-expired ((,spec (:foreground ,orange))))
+   `(magit-signature-good ((,spec (:inherit success))))
+   `(magit-signature-revoked ((,spec (:foreground ,magenta))))
+   `(magit-signature-untrusted ((,spec (:foreground ,yellow))))
+   `(magit-tag ((,spec (:foreground ,yellow))))
+;; Magit:1 ends here
+
 ;; [[file:tangonov-theme.org::*CSS][CSS:1]]
    `(css-proprietary-property ((,spec (:foreground ,orange))))
    `(css-property ((,spec (:foreground ,green))))
