@@ -86,14 +86,12 @@ With ~color-blend~ we can blend any two arbitrary hexidecimal colors with this h
            (cl-loop for x in c1
                     when (if (listp c2) (pop c2) c2)
                     collect (color-blend x it alpha)))
-
           ((and (string-prefix-p "#" c1) (string-prefix-p "#" c2))
            (apply (lambda (r g b)
                     (format "#%02x%02x%02x" (* r 255) (* g 255) (* b 255)))
                   (cl-loop for it    in (name-to-rgb c1)
                            for other in (name-to-rgb c2)
                            collect (+ (* alpha it) (* other (- 1 alpha))))))
-
           (c1))))
 #+END_SRC
 
@@ -105,7 +103,6 @@ Here we has some quick derivations of ~color-blend~ which can quickly darken, or
 Alpha should be a float between 0 and 1."
   (cond ((listp color)
          (cl-loop for c in color collect (color-darken c alpha)))
-
         ((color-blend color "#000000" (- 1 alpha)))))
 
 (defun color-lighten (color alpha)
@@ -113,10 +110,7 @@ Alpha should be a float between 0 and 1."
 Alpha should be a float between 0 and 1."
   (cond ((listp color)
          (cl-loop for c in color collect (color-lighten c alpha)))
-
         ((color-blend color "#FFFFFF" (- 1 alpha)))))
-
-(color-lighten "#000000" 0.2)
 #+END_SRC
 
 ** Color Definitions
