@@ -48,6 +48,77 @@ Some preliminary information about the theme
 ;; Note: This file was generated using literate programming. See tangonov-theme.org.
 #+END_SRC
 
+** Utility Functions
+
+[[https://github.com/doomemacs/themes][Doom Themes]] has some really helpful color functions that already implement the math for blending/calculating RGB colors for me so that I don't have to do that myself.
+
+The benefit of using these is laziness. I can make one list of colors and then derive other complimentary colors from that list.
+
+*** Converting named colors to hexidecimal colors
+
+Apparently Emacs has a built in function called ~tty-color-standard-values~ which gives us the ability to derive an RGB value from any "named color" such as "red," "blue," etc.
+
+#+BEGIN_SRC elisp
+(defun name-to-rgb (color)
+  "Get the hexidecimal version of the named `COLOR'."
+  (cl-loop with div = (float (car (tty-color-standard-values "#ffffff")))
+           for x in (tty-color-standard-values (downcase color))
+           collect (/ x div)))
+#+END_SRC
+
+*** Blending colors
+
+With ~color-blend~ we can blend any two arbitrary hexidecimal colors with this helper function by a coefficient of an alpha between 0.0-1.0.
+
+#+BEGIN_SRC elisp
+(defun color-blend (c1 c2 alpha)
+  "Blend hexidecimal colors `C1' and `C2' together by a coefficient of `ALPHA'."
+  (when (and c1 c2)
+    (cond ((and c1 c2 (symbolp c1) (symbolp c2))
+           (color-blend (doom-color c1) (doom-color c2) alpha))
+
+          ((or (listp c1) (listp c2))
+           (cl-loop for x in c1
+                    when (if (listp c2) (pop c2) c2)
+                    collect (color-blend x it alpha)))
+
+          ((and (string-prefix-p "#" c1) (string-prefix-p "#" c2))
+           (apply (lambda (r g b) (format "#%02x%02x%02x" (* r 255) (* g 255) (* b 255)))
+                  (cl-loop for it    in (name-to-rgb c1)
+                           for other in (name-to-rgb c2)
+                           collect (+ (* alpha it) (* other (- 1 alpha))))))
+
+          (c1))))
+#+END_SRC
+
+Here we has some quick derivations of ~color-blend~ which can quickly darken, or lighten a color.
+
+#+BEGIN_SRC elisp
+(defun color-darken (color alpha)
+  "Darken a hexidecimal `COLOR' by a coefficient of `ALPHA'.
+Alpha should be a float between 0 and 1."
+  (cond ((and color (symbolp color))
+         (color-darken (doom-color color) alpha))
+
+        ((listp color)
+         (cl-loop for c in color collect (color-darken c alpha)))
+
+        ((color-blend color "#000000" (- 1 alpha)))))
+
+(defun color-lighten (color alpha)
+  "Lighten a hexidecimal `COLOR' by a coefficient of `ALPHA'.
+Alpha should be a float between 0 and 1."
+  (cond ((and color (symbolp color))
+         (color-lighten (doom-color color) alpha))
+
+        ((listp color)
+         (cl-loop for c in color collect (color-lighten c alpha)))
+
+        ((color-blend color "#FFFFFF" (- 1 alpha)))))
+
+(color-lighten "#000000" 0.2)
+#+END_SRC
+
 ** Color Definitions
 
 The strategy for writing this theme is to do it as simply as possible. I am only supporting 256 colors (for now).
