@@ -436,10 +436,10 @@ Alpha should be a float between 0 and 1."
 ;; [[file:tangonov-theme.org::*Ediff][Ediff:1]]
    `(ediff-fine-diff-A ((,spec
                          (:background
-                          ,(color-blend ,cyan ,bg 0.7) :weight bold :extend))))
+                          ,(color-blend cyan bg 0.7) :weight bold :extend))))
    `(ediff-fine-diff-B ((,spec (:inherit 'ediff-fine-diff-A))))
    `(ediff-fine-diff-C ((,spec (:inherit 'ediff-fine-diff-A))))
-   `(ediff-current-diff-A ((,spec (:background ,(color-blend ,cyan ,bg 0.3) :extend t))))
+   `(ediff-current-diff-A ((,spec (:background ,(color-blend cyan bg 0.3) :extend t))))
    `(ediff-current-diff-B ((,spec (:inherit 'ediff-current-diff-A))))
    `(ediff-current-diff-C ((,spec (:inherit 'ediff-current-diff-A))))
    `(ediff-even-diff-A ((,spec (:inherit 'hl-line))))
@@ -464,7 +464,7 @@ Alpha should be a float between 0 and 1."
    `(magit-cherry-equivalent ((,spec (:foreground ,violet))))
    `(magit-cherry-unmatched ((,spec (:foreground ,cyan))))
    `(magit-diff-added
-     ((,spec (:foreground ,(color-darken green 0.2) :background
+     ((,spec (:foreground ,(color-green 0.2) :background
                           ,(color-blend green bg 0.1) :extend t))))
    `(magit-diff-added-highlight
      ((,spec (:foreground ,green :background
