@@ -163,7 +163,6 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(link-visited ((,spec (:inherit link :foreground ,magenta))))
    `(highlight ((,spec (:background ,gray1 :weight bold))))
    `(match ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
-   `(isearch ((,spec (:inherit match :weight bold))))
    `(region ((,spec (:foreground ,cyan :background ,(color-darken cyan 0.5)))))
    `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
    `(lazy-highlight ((,spec (:inherit isearch))))
@@ -199,6 +198,13 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(font-lock-string-face ((,spec (:foreground ,green))))
    `(font-lock-doc-face ((,spec (:foreground ,gray2))))
    `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
+#+END_SRC
+
+** ISearch
+
+#+BEGIN_SRC elisp
+   `(isearch ((,spec (:inherit match :weight bold))))
+   `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
 #+END_SRC
 
 ** Easy Customization
