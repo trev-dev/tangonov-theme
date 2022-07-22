@@ -79,7 +79,7 @@ Alpha should be a float between 0 and 1."
          (cl-loop for c in color collect (color-lighten c alpha)))
 
         ((color-blend color "#FFFFFF" (- 1 alpha)))))
-
+ 
 (color-lighten "#000000" 0.2)
 ;; Blending colors:2 ends here
 
@@ -221,6 +221,27 @@ Alpha should be a float between 0 and 1."
    `(notmuch-wash-cited-text ((,spec (:foreground ,gray1))))
    `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
 ;; Notmuch:1 ends here
+
+;; [[file:tangonov-theme.org::*ERC][ERC:1]]
+`(erc-button ((,spec (:weight bold :underline t))))
+`(erc-default-face ((,spec (:inherit default))))
+`(erc-action-face ((,spec (:weight bold))))
+`(erc-command-indicator-face ((,spec (:weight bold))))
+`(erc-direct-msg-face ((,spec (:foreground ,magenta))))
+`(erc-error-face ((,spec (:inherit 'error))))
+`(erc-header-line
+  ((,spec (:background ,(color-darken bg-alt 0.15) :foreground ,cyan))))
+`(erc-input-face ((,spec (:foreground ,green))))
+`(erc-current-nick-face ((,spec (:foreground ,green :weight bold))))
+`(erc-timestamp-face ((,spec (:foreground ,blue :weight bold))))
+`(erc-nick-default-face ((,spec (:weight bold))))
+`(erc-nick-msg-face ((,spec (:foreground ,magenta))))
+`(erc-nick-prefix-face ((,spec (:inherit 'erc-nick-default-face))))
+`(erc-my-nick-face ((,spec (:foreground ,green :weight bold))))
+`(erc-my-nick-prefix-face ((,spec (:inherit 'erc-my-nick-face))))
+`(erc-notice-face ((,spec (:foreground ,gray2))))
+`(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
+;; ERC:1 ends here
 
 ;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
    ;; Font Lock
