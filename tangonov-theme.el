@@ -424,6 +424,12 @@ Alpha should be a float between 0 and 1."
    `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
 ;; Rainbow Delimiters:1 ends here
 
+;; [[file:tangonov-theme.org::*RJSX Mode][RJSX Mode:1]]
+   `(rjsx-tag ((,spec (:foreground ,red))))
+   `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
+   `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
+;; RJSX Mode:1 ends here
+
 ;; [[file:tangonov-theme.org::*Eshell][Eshell:1]]
    `(eshell-prompt ((,spec (:foreground ,magenta :weight bold))))
    `(eshell-ls-archive ((,spec (:foreground ,gray2))))
@@ -604,12 +610,6 @@ Alpha should be a float between 0 and 1."
   ((,spec (:background ,gray2 :distant-foreground
                        ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
 ;; Widgets:1 ends here
-
-;; [[file:tangonov-theme.org::*Widgets][Widgets:2]]
-   `(rjsx-tag ((,spec (:foreground ,red))))
-   `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
-   `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
-;; Widgets:2 ends here
 
 ;; [[file:tangonov-theme.org::*List End & Provide Theme][List End & Provide Theme:1]]
   ))

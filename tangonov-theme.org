@@ -518,7 +518,15 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
    `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
 #+END_SRC
 
-*** RJSX Mode*** Shells
+*** RJSX Mode
+
+#+BEGIN_SRC elisp
+   `(rjsx-tag ((,spec (:foreground ,red))))
+   `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
+   `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
+#+END_SRC
+
+*** Shells
 
 **** Eshell
 
@@ -723,14 +731,6 @@ Magit is a monster sized package with many, many faces
 `(widget-field
   ((,spec (:background ,gray2 :distant-foreground
                        ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
-#+END_SRC
-
-
-
-#+BEGIN_SRC elisp
-   `(rjsx-tag ((,spec (:foreground ,red))))
-   `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
-   `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
 #+END_SRC
 
 ** List End & Provide Theme
