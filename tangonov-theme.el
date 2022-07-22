@@ -48,16 +48,14 @@
 (defun color-blend (c1 c2 alpha)
   "Blend hexidecimal colors `C1' and `C2' together by a coefficient of `ALPHA'."
   (when (and c1 c2)
-    (cond ((and c1 c2 (symbolp c1) (symbolp c2))
-           (color-blend (doom-color c1) (doom-color c2) alpha))
-
-          ((or (listp c1) (listp c2))
+    (cond ((or (listp c1) (listp c2))
            (cl-loop for x in c1
                     when (if (listp c2) (pop c2) c2)
                     collect (color-blend x it alpha)))
 
           ((and (string-prefix-p "#" c1) (string-prefix-p "#" c2))
-           (apply (lambda (r g b) (format "#%02x%02x%02x" (* r 255) (* g 255) (* b 255)))
+           (apply (lambda (r g b)
+                    (format "#%02x%02x%02x" (* r 255) (* g 255) (* b 255)))
                   (cl-loop for it    in (name-to-rgb c1)
                            for other in (name-to-rgb c2)
                            collect (+ (* alpha it) (* other (- 1 alpha))))))
@@ -69,10 +67,7 @@
 (defun color-darken (color alpha)
   "Darken a hexidecimal `COLOR' by a coefficient of `ALPHA'.
 Alpha should be a float between 0 and 1."
-  (cond ((and color (symbolp color))
-         (color-darken (doom-color color) alpha))
-
-        ((listp color)
+  (cond ((listp color)
          (cl-loop for c in color collect (color-darken c alpha)))
 
         ((color-blend color "#000000" (- 1 alpha)))))
@@ -80,10 +75,7 @@ Alpha should be a float between 0 and 1."
 (defun color-lighten (color alpha)
   "Lighten a hexidecimal `COLOR' by a coefficient of `ALPHA'.
 Alpha should be a float between 0 and 1."
-  (cond ((and color (symbolp color))
-         (color-lighten (doom-color color) alpha))
-
-        ((listp color)
+  (cond ((listp color)
          (cl-loop for c in color collect (color-lighten c alpha)))
 
         ((color-blend color "#FFFFFF" (- 1 alpha)))))
