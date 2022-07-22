@@ -506,6 +506,22 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 
 Set the faces for several version-control related packages.
 
+*** Diff Mode
+
+#+BEGIN_SRC elisp
+   `(diff-added ((,spec
+                  (:foreground ,green :background ,(color-darken green 0.5)))))
+   `(diff-changed ((,spec (:foreground ,blue :background ,(color-darken blue 0.5)))))
+   `(diff-context ((,spec (:foreground ,gray3))))
+   `(diff-removed ((,spec (:foreground ,red :background ,(color-darken red 0.5)))))
+   `(diff-header ((,spec (:foreground ,cyan))))
+   `(diff-file-header ((,spec (:foreground ,blue :background ,bg))))
+   `(diff-hunk-header ((,spec (:foreground ,violet))))
+   `(diff-refine-added ((,spec (:inherit 'diff-added :inverse-video t))))
+   `(diff-refine-changed ((,spec (:inherit 'diff-changed :inverse-video t))))
+   `(diff-refine-removed ((,spec (:inherit 'diff-removed :inverse-video t))))
+#+END_SRC
+
 *** Diff-hl
 
 #+BEGIN_SRC elisp
