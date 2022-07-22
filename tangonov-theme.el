@@ -214,6 +214,7 @@
    `(org-level-7 ((,spec (:foreground ,teal))))
    `(org-level-8 ((,spec (:foreground ,violet))))
    `(org-todo ((,spec (:foreground ,orange))))
+   `(org-done ((,spec (:foreground ,gray2))))
    `(org-drawer ((,spec (:foreground ,gray2))))
    `(org-meta-line ((,spec (:foreground ,gray2))))
    `(org-special-keyword ((,spec (:foreground ,gray3))))
@@ -236,6 +237,7 @@
    `(org-time-grid ((,spec (:foreground ,gray2))))
    `(org-imminent-deadline ((,spec (:foreground ,yellow))))
    `(org-upcoming-deadline ((,spec (:foreground ,teal))))
+   `(org-agenda-dimmed-todo-face ((,spec (:foreground ,gray3))))
 ;; Agenda:1 ends here
 
 ;; [[file:tangonov-theme.org::*Diff-hl][Diff-hl:1]]
