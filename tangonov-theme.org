@@ -529,6 +529,25 @@ Set the faces for several version-control related packages.
    `(diff-hl-insert ((,spec (:background ,green :foreground ,green))))
 #+END_SRC
 
+*** Ediff
+
+#+BEGIN_SRC elisp
+   `(ediff-fine-diff-A ((,spec
+                         (:background
+                          ,(color-blend ,cyan ,bg 0.7) :weight bold :extend))))
+   `(ediff-fine-diff-B ((,spec (:inherit 'ediff-fine-diff-A))))
+   `(ediff-fine-diff-C ((,spec (:inherit 'ediff-fine-diff-A))))
+   `(ediff-current-diff-A ((,spec (:background ,(color-blend ,cyan ,bg 0.3) :extend t))))
+   `(ediff-current-diff-B ((,spec (:inherit 'ediff-current-diff-A))))
+   `(ediff-current-diff-C ((,spec (:inherit 'ediff-current-diff-A))))
+   `(ediff-even-diff-A ((,spec (:inherit 'hl-line))))
+   `(ediff-even-diff-B ((,spec (:inherit 'ediff))))
+   `(ediff-even-diff-C ((,spec (:inherit 'ediff-even-diff-A))))
+   `(ediff-odd-diff-A ((,spec (:inherit 'ediff-even-diff-A))))
+   `(ediff-odd-diff-B ((,spec (:inherit 'ediff-odd-diff-A))))
+   `(ediff-odd-diff-C ((,spec (:inherit 'ediff-odd-diff-A))))
+#+END_SRC
+
 *** Magit
 
 Magit is a monster sized package with many, many faces

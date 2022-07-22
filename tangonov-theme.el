@@ -433,6 +433,23 @@ Alpha should be a float between 0 and 1."
    `(diff-hl-insert ((,spec (:background ,green :foreground ,green))))
 ;; Diff-hl:1 ends here
 
+;; [[file:tangonov-theme.org::*Ediff][Ediff:1]]
+   `(ediff-fine-diff-A ((,spec
+                         (:background
+                          ,(color-blend ,cyan ,bg 0.7) :weight bold :extend))))
+   `(ediff-fine-diff-B ((,spec (:inherit 'ediff-fine-diff-A))))
+   `(ediff-fine-diff-C ((,spec (:inherit 'ediff-fine-diff-A))))
+   `(ediff-current-diff-A ((,spec (:background ,(color-blend ,cyan ,bg 0.3) :extend t))))
+   `(ediff-current-diff-B ((,spec (:inherit 'ediff-current-diff-A))))
+   `(ediff-current-diff-C ((,spec (:inherit 'ediff-current-diff-A))))
+   `(ediff-even-diff-A ((,spec (:inherit 'hl-line))))
+   `(ediff-even-diff-B ((,spec (:inherit 'ediff))))
+   `(ediff-even-diff-C ((,spec (:inherit 'ediff-even-diff-A))))
+   `(ediff-odd-diff-A ((,spec (:inherit 'ediff-even-diff-A))))
+   `(ediff-odd-diff-B ((,spec (:inherit 'ediff-odd-diff-A))))
+   `(ediff-odd-diff-C ((,spec (:inherit 'ediff-odd-diff-A))))
+;; Ediff:1 ends here
+
 ;; [[file:tangonov-theme.org::*Magit][Magit:1]]
    `(magit-bisect-bad ((,spec (:foreground ,red))))
    `(magit-bisect-good ((,spec (:foreground ,green))))
