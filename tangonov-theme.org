@@ -389,7 +389,6 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
 #+END_SRC
 
-
 ** ERC
 
 #+BEGIN_SRC elisp
