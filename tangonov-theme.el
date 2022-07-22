@@ -214,9 +214,87 @@ Alpha should be a float between 0 and 1."
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 ;; Modeline & Tabbar:1 ends here
 
+;; [[file:tangonov-theme.org::*Message Mode][Message Mode:1]]
+   `(message-header-name ((,spec (:foreground ,green))))
+   `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
+   `(message-header-to ((,spec (:foreground ,cyan :weight bold))))
+   `(message-header-cc
+     ((,spec (:inherit message-header-to :foreground ,(color-darken cyan 0.15)))))
+   `(message-header-other ((,spec (:foreground ,violet))))
+   `(message-header-newsgroups ((,spec (:foreground ,yellow))))
+   `(message-header-xheader ((,spec (:foreground ,gray3))))
+   `(message-separator ((,spec (:foreground ,gray2))))
+   `(message-mml ((,spec (:foreground ,gray2 :slant italic))))
+;; Message Mode:1 ends here
+
+;; [[file:tangonov-theme.org::*GNUs][GNUs:1]]
+   `(gnus-group-mail-1 ((,spec (:weight bold :foreground ,fg))))
+   `(gnus-group-mail-2 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-mail-3 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-mail-1-empty ((,spec (:foreground ,gray3))))
+   `(gnus-group-mail-2-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-mail-3-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-news-1 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-news-2 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-3 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-4 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-5 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-6 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-1-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-news-2-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-3-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-4-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-5-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-6-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-mail-low ((,spec (:inherit gnus-group-mail-1 :weight normal))))
+   `(gnus-group-mail-low-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-news-low
+     ((,spec (:inherit gnus-group-mail-1 :foreground ,gray3))))
+   `(gnus-group-news-low-empty
+     ((,spec (:inherit gnus-group-news-low :weight normal))))
+   `(gnus-header-content ((,spec (:inherit message-header-other))))
+   `(gnus-header-from ((,spec (:inherit message-header-other))))
+   `(gnus-header-name ((,spec (:inherit message-header-name))))
+   `(gnus-header-newsgroups ((,spec (:inherit message-header-other))))
+   `(gnus-header-subject ((,spec (:inherit message-header-subject))))
+   `(gnus-summary-cancelled ((,spec (:foreground ,red :strike-through t))))
+   `(gnus-summary-high-ancient
+     ((,spec (:foreground ,(color-lighten gray3 0.2) :inherit italic))))
+   `(gnus-summary-high-read
+     ((,spec (:foreground ,(color-lighten fg 0.2)))))
+   `(gnus-summary-high-ticked
+     ((,spec (:foreground ,(color-lighten magenta 0.2)))))
+   `(gnus-summary-high-unread
+     ((,spec (:foreground ,(color-lighten green 0.2)))))
+   `(gnus-summary-low-ancient
+     ((,spec (:foreground ,(color-darken gray3 0.2) :inherit italic))))
+   `(gnus-summary-low-read ((,spec (:foreground ,(color-darken fg 0.2)))))
+   `(gnus-summary-low-ticked
+     ((,spec (:foreground ,(color-darken magenta 0.2)))))
+   `(gnus-summary-low-unread ((,spec (:foreground ,(color-darken green 0.2)))))
+   `(gnus-summary-normal-ancient ((,spec (:foreground ,gray3 :inherit italic))))
+   `(gnus-summary-normal-read ((,spec (:foreground ,fg))))
+   `(gnus-summary-normal-ticked ((,spec (:foreground ,magenta))))
+   `(gnus-summary-normal-unread ((,spec (:foreground ,green :inherit bold))))
+   `(gnus-summary-selected ((,spec (:foreground ,blue :weight bold))))
+   `(gnus-cite-1 ((,spec (:foreground ,violet))))
+   `(gnus-cite-2 ((,spec (:foreground ,yellow))))
+   `(gnus-cite-3 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-4 ((,spec (:foreground ,green))))
+   `(gnus-cite-5 ((,spec (:foreground ,green))))
+   `(gnus-cite-6 ((,spec (:foreground ,green))))
+   `(gnus-cite-7 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-8 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-9 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-10 ((,spec (:foreground ,yellow))))
+   `(gnus-cite-11 ((,spec (:foreground ,yellow))))
+   `(gnus-signature ((,spec (:foreground ,yellow))))
+   `(gnus-x-face ((,spec (:background ,gray3 :foreground ,fg))))
+;; GNUs:1 ends here
+
 ;; [[file:tangonov-theme.org::*Notmuch][Notmuch:1]]
    `(notmuch-message-summary-face
-     ((,spec (:foreground ,gray2 :background nil))))
+     ((,spec (:background ,bg-alt))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
    `(notmuch-search-flagged-face

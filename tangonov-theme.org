@@ -269,11 +269,97 @@ Set faces for the top and bottom "bars."
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 #+END_SRC
 
-** Notmuch
+** Email
+
+There are many packages that cobble together different Email & RSS interfaces. Many of them look to ~message-mode~ or ~gnus~ for faces. Others have their own opinions.
+
+*** Message Mode
+
+#+BEGIN_SRC elisp
+   `(message-header-name ((,spec (:foreground ,green))))
+   `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
+   `(message-header-to ((,spec (:foreground ,cyan :weight bold))))
+   `(message-header-cc
+     ((,spec (:inherit message-header-to :foreground ,(color-darken cyan 0.15)))))
+   `(message-header-other ((,spec (:foreground ,violet))))
+   `(message-header-newsgroups ((,spec (:foreground ,yellow))))
+   `(message-header-xheader ((,spec (:foreground ,gray3))))
+   `(message-separator ((,spec (:foreground ,gray2))))
+   `(message-mml ((,spec (:foreground ,gray2 :slant italic))))
+#+END_SRC
+
+*** GNUs
+
+#+BEGIN_SRC elisp
+   `(gnus-group-mail-1 ((,spec (:weight bold :foreground ,fg))))
+   `(gnus-group-mail-2 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-mail-3 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-mail-1-empty ((,spec (:foreground ,gray3))))
+   `(gnus-group-mail-2-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-mail-3-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-news-1 ((,spec (:inherit gnus-group-mail-1))))
+   `(gnus-group-news-2 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-3 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-4 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-5 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-6 ((,spec (:inherit gnus-group-news-1))))
+   `(gnus-group-news-1-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-news-2-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-3-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-4-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-5-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-news-6-empty ((,spec (:inherit gnus-group-news-1-empty))))
+   `(gnus-group-mail-low ((,spec (:inherit gnus-group-mail-1 :weight normal))))
+   `(gnus-group-mail-low-empty ((,spec (:inherit gnus-group-mail-1-empty))))
+   `(gnus-group-news-low
+     ((,spec (:inherit gnus-group-mail-1 :foreground ,gray3))))
+   `(gnus-group-news-low-empty
+     ((,spec (:inherit gnus-group-news-low :weight normal))))
+   `(gnus-header-content ((,spec (:inherit message-header-other))))
+   `(gnus-header-from ((,spec (:inherit message-header-other))))
+   `(gnus-header-name ((,spec (:inherit message-header-name))))
+   `(gnus-header-newsgroups ((,spec (:inherit message-header-other))))
+   `(gnus-header-subject ((,spec (:inherit message-header-subject))))
+   `(gnus-summary-cancelled ((,spec (:foreground ,red :strike-through t))))
+   `(gnus-summary-high-ancient
+     ((,spec (:foreground ,(color-lighten gray3 0.2) :inherit italic))))
+   `(gnus-summary-high-read
+     ((,spec (:foreground ,(color-lighten fg 0.2)))))
+   `(gnus-summary-high-ticked
+     ((,spec (:foreground ,(color-lighten magenta 0.2)))))
+   `(gnus-summary-high-unread
+     ((,spec (:foreground ,(color-lighten green 0.2)))))
+   `(gnus-summary-low-ancient
+     ((,spec (:foreground ,(color-darken gray3 0.2) :inherit italic))))
+   `(gnus-summary-low-read ((,spec (:foreground ,(color-darken fg 0.2)))))
+   `(gnus-summary-low-ticked
+     ((,spec (:foreground ,(color-darken magenta 0.2)))))
+   `(gnus-summary-low-unread ((,spec (:foreground ,(color-darken green 0.2)))))
+   `(gnus-summary-normal-ancient ((,spec (:foreground ,gray3 :inherit italic))))
+   `(gnus-summary-normal-read ((,spec (:foreground ,fg))))
+   `(gnus-summary-normal-ticked ((,spec (:foreground ,magenta))))
+   `(gnus-summary-normal-unread ((,spec (:foreground ,green :inherit bold))))
+   `(gnus-summary-selected ((,spec (:foreground ,blue :weight bold))))
+   `(gnus-cite-1 ((,spec (:foreground ,violet))))
+   `(gnus-cite-2 ((,spec (:foreground ,yellow))))
+   `(gnus-cite-3 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-4 ((,spec (:foreground ,green))))
+   `(gnus-cite-5 ((,spec (:foreground ,green))))
+   `(gnus-cite-6 ((,spec (:foreground ,green))))
+   `(gnus-cite-7 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-8 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-9 ((,spec (:foreground ,magenta))))
+   `(gnus-cite-10 ((,spec (:foreground ,yellow))))
+   `(gnus-cite-11 ((,spec (:foreground ,yellow))))
+   `(gnus-signature ((,spec (:foreground ,yellow))))
+   `(gnus-x-face ((,spec (:background ,gray3 :foreground ,fg))))
+#+END_SRC
+
+*** Notmuch
 
 #+BEGIN_SRC elisp
    `(notmuch-message-summary-face
-     ((,spec (:foreground ,gray2 :background nil))))
+     ((,spec (:background ,bg-alt))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
    `(notmuch-search-flagged-face
@@ -303,66 +389,6 @@ Set faces for the top and bottom "bars."
    `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
 #+END_SRC
 
-** COMMENT GNUs
-
-The built in news reader. Many aspects of email may be derived from here.
-
-#+BEGIN_SRC elisp
-(gnus-group-mail-1           :weight 'bold :foreground fg)
-(gnus-group-mail-2           :inherit 'gnus-group-mail-1)
-(gnus-group-mail-3           :inherit 'gnus-group-mail-1)
-(gnus-group-mail-1-empty     :foreground base5)
-(gnus-group-mail-2-empty     :inherit 'gnus-group-mail-1-empty)
-(gnus-group-mail-3-empty     :inherit 'gnus-group-mail-1-empty)
-(gnus-group-news-1           :inherit 'gnus-group-mail-1)
-(gnus-group-news-2           :inherit 'gnus-group-news-1)
-(gnus-group-news-3           :inherit 'gnus-group-news-1)
-(gnus-group-news-4           :inherit 'gnus-group-news-1)
-(gnus-group-news-5           :inherit 'gnus-group-news-1)
-(gnus-group-news-6           :inherit 'gnus-group-news-1)
-(gnus-group-news-1-empty     :inherit 'gnus-group-mail-1-empty)
-(gnus-group-news-2-empty     :inherit 'gnus-group-news-1-empty)
-(gnus-group-news-3-empty     :inherit 'gnus-group-news-1-empty)
-(gnus-group-news-4-empty     :inherit 'gnus-group-news-1-empty)
-(gnus-group-news-5-empty     :inherit 'gnus-group-news-1-empty)
-(gnus-group-news-6-empty     :inherit 'gnus-group-news-1-empty)
-(gnus-group-mail-low         :inherit 'gnus-group-mail-1 :weight 'normal)
-(gnus-group-mail-low-empty   :inherit 'gnus-group-mail-1-empty)
-(gnus-group-news-low         :inherit 'gnus-group-mail-1 :foreground base5)
-(gnus-group-news-low-empty   :inherit 'gnus-group-news-low :weight 'normal)
-(gnus-header-content         :inherit 'message-header-other)
-(gnus-header-from            :inherit 'message-header-other)
-(gnus-header-name            :inherit 'message-header-name)
-(gnus-header-newsgroups      :inherit 'message-header-other)
-(gnus-header-subject         :inherit 'message-header-subject)
-(gnus-summary-cancelled      :foreground red :strike-through t)
-(gnus-summary-high-ancient   :foreground (doom-lighten base5 0.2) :inherit 'italic)
-(gnus-summary-high-read      :foreground (doom-lighten fg 0.2))
-(gnus-summary-high-ticked    :foreground (doom-lighten magenta 0.2))
-(gnus-summary-high-unread    :foreground (doom-lighten green 0.2))
-(gnus-summary-low-ancient    :foreground (doom-darken base5 0.2) :inherit 'italic)
-(gnus-summary-low-read       :foreground (doom-darken fg 0.2))
-(gnus-summary-low-ticked     :foreground (doom-darken magenta 0.2))
-(gnus-summary-low-unread     :foreground (doom-darken green 0.2))
-(gnus-summary-normal-ancient :foreground base5 :inherit 'italic)
-(gnus-summary-normal-read    :foreground fg)
-(gnus-summary-normal-ticked  :foreground magenta)
-(gnus-summary-normal-unread  :foreground green :inherit 'bold)
-(gnus-summary-selected       :foreground blue :weight 'bold)
-(gnus-cite-1                 :foreground violet)
-(gnus-cite-2                 :foreground yellow)
-(gnus-cite-3                 :foreground magenta)
-(gnus-cite-4                 :foreground green)
-(gnus-cite-5                 :foreground green)
-(gnus-cite-6                 :foreground green)
-(gnus-cite-7                 :foreground magenta)
-(gnus-cite-8                 :foreground magenta)
-(gnus-cite-9                 :foreground magenta)
-(gnus-cite-10                :foreground yellow)
-(gnus-cite-11                :foreground yellow)
-(gnus-signature              :foreground yellow)
-(gnus-x-face                 :background base5 :foreground fg)
-#+END_SRC
 
 ** ERC
 
