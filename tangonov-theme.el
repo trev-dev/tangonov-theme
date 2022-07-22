@@ -98,9 +98,26 @@ Alpha should be a float between 0 and 1."
       (gray1     "#303030")
       (gray2     "#626262")
       (gray3     "#A8A8A8"))
+;; Color Definitions:1 ends here
+
+;; [[file:tangonov-theme.org::*Faces][Faces:1]]
   (custom-theme-set-faces
    'tangonov
-;; Color Definitions:1 ends here
+;; Faces:1 ends here
+
+;; [[file:tangonov-theme.org::*Avy][Avy:1]]
+   `(avy-goto-char-timer-face
+     ((,spec (:inherit 'isearch))))
+   `(avy-background-face ((,spec (:foreground ,(color-darken bg 0.2)))))
+   `(avy-lead-face
+     ((,spec (:foreground ,red :weight bold))))
+   `(avy-lead-face-0
+     ((,spec (:inherit 'avy-lead-face :foreground ,yellow))))
+   `(avy-lead-face-1
+     ((,spec (:inheri avy-lead-face :foreground ,(color-darken yellow 0.4)))))
+   `(avy-lead-face-2
+     ((,spec (:inherit 'avy-lead-face :foreground ,(color-darken yellow 0.6)))))
+;; Avy:1 ends here
 
 ;; [[file:tangonov-theme.org::*Basic Faces][Basic Faces:1]]
    `(default ((,spec (:background ,bg :foreground ,fg))))
@@ -131,25 +148,11 @@ Alpha should be a float between 0 and 1."
    `(whitespace-trailing ((,spec (:background ,red))))
 ;; Basic Faces:1 ends here
 
-;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
-   ;; Font Lock
-   `(font-lock-warning-face ((,spec (:inherit 'warning))))
-   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
-   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
-   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
-   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
-   `(font-lock-type-face ((,spec (:foreground ,magenta))))
-   `(font-lock-constant-face ((,spec (:foreground ,orange))))
-   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
-   `(font-lock-string-face ((,spec (:foreground ,green))))
-   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
-   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
-;; Font Lock Faces:1 ends here
-
-;; [[file:tangonov-theme.org::*ISearch][ISearch:1]]
-   `(isearch ((,spec (:inherit 'match :weight bold))))
-   `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
-;; ISearch:1 ends here
+;; [[file:tangonov-theme.org::*CSS][CSS:1]]
+   `(css-proprietary-property ((,spec (:foreground ,orange))))
+   `(css-property ((,spec (:foreground ,green))))
+   `(css-selector ((,spec (:foreground ,blue))))
+;; CSS:1 ends here
 
 ;; [[file:tangonov-theme.org::*Easy Customization][Easy Customization:1]]
    `(custom-button
@@ -190,42 +193,6 @@ Alpha should be a float between 0 and 1."
      ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 ;; Easy Customization:1 ends here
-
-;; [[file:tangonov-theme.org::*Widgets][Widgets:1]]
-`(widget-button-pressed ((,spec (:foreground ,red))))
-`(widget-documentation ((,spec (:foreground ,green))))
-`(widget-single-line-field
-  ((,spec (:background ,gray2 :distant-foreground ,bg))))
-`(widget-field
-  ((,spec (:background ,gray2 :distant-foreground
-                       ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
-;; Widgets:1 ends here
-
-;; [[file:tangonov-theme.org::*Avy][Avy:1]]
-   `(avy-goto-char-timer-face
-     ((,spec (:inherit 'isearch))))
-   `(avy-background-face ((,spec (:foreground ,(color-darken bg 0.2)))))
-   `(avy-lead-face
-     ((,spec (:foreground ,red :weight bold))))
-   `(avy-lead-face-0
-     ((,spec (:inherit 'avy-lead-face :foreground ,yellow))))
-   `(avy-lead-face-1
-     ((,spec (:inheri avy-lead-face :foreground ,(color-darken yellow 0.4)))))
-   `(avy-lead-face-2
-     ((,spec (:inherit 'avy-lead-face :foreground ,(color-darken yellow 0.6)))))
-;; Avy:1 ends here
-
-;; [[file:tangonov-theme.org::*Modeline & Tabbar][Modeline & Tabbar:1]]
-   ;; Modeline/Tabline
-   `(mode-line
-     ((,spec (:foreground ,fg :background ,bg-alt :box
-                          (:line-width (2 . 2) :color ,bg-alt)))))
-   `(mode-line-inactive
-     ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
-   `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
-   `(mode-line-buffer-id ((,spec (:weight bold))))
-   `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
-;; Modeline & Tabbar:1 ends here
 
 ;; [[file:tangonov-theme.org::*Message Mode][Message Mode:1]]
    `(message-header-name ((,spec (:foreground ,green))))
@@ -358,11 +325,31 @@ Alpha should be a float between 0 and 1."
 `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
 ;; ERC:1 ends here
 
+;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
+   ;; Font Lock
+   `(font-lock-warning-face ((,spec (:inherit 'warning))))
+   `(font-lock-function-name-face ((,spec (:foreground ,blue))))
+   `(font-lock-variable-name-face ((,spec (:foreground ,yellow))))
+   `(font-lock-keyword-face ((,spec (:foreground ,cyan))))
+   `(font-lock-comment-face ((,spec (:foreground ,gray2))))
+   `(font-lock-type-face ((,spec (:foreground ,magenta))))
+   `(font-lock-constant-face ((,spec (:foreground ,orange))))
+   `(font-lock-builtin-face ((,spec (:foreground ,cyan))))
+   `(font-lock-string-face ((,spec (:foreground ,green))))
+   `(font-lock-doc-face ((,spec (:foreground ,gray2))))
+   `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
+;; Font Lock Faces:1 ends here
+
 ;; [[file:tangonov-theme.org::*Goggles][Goggles:1]]
    `(goggles-changed ((,spec (:background ,cyan))))
    `(goggles-added ((,spec (:background ,green))))
    `(goggles-removed ((,spec (:background ,red))))
 ;; Goggles:1 ends here
+
+;; [[file:tangonov-theme.org::*ISearch][ISearch:1]]
+   `(isearch ((,spec (:inherit 'match :weight bold))))
+   `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
+;; ISearch:1 ends here
 
 ;; [[file:tangonov-theme.org::*Eglot][Eglot:1]]
    `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
@@ -372,6 +359,18 @@ Alpha should be a float between 0 and 1."
    `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 ;; Eldoc Box:1 ends here
+
+;; [[file:tangonov-theme.org::*Modeline & Tabbar][Modeline & Tabbar:1]]
+   ;; Modeline/Tabline
+   `(mode-line
+     ((,spec (:foreground ,fg :background ,bg-alt :box
+                          (:line-width (2 . 2) :color ,bg-alt)))))
+   `(mode-line-inactive
+     ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
+   `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
+   `(mode-line-buffer-id ((,spec (:weight bold))))
+   `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
+;; Modeline & Tabbar:1 ends here
 
 ;; [[file:tangonov-theme.org::*Documents][Documents:1]]
    `(org-block ((,spec (:background ,bg-alt))))
@@ -412,6 +411,57 @@ Alpha should be a float between 0 and 1."
    `(org-upcoming-deadline ((,spec (:foreground ,teal))))
    `(org-agenda-dimmed-todo-face ((,spec (:foreground ,gray3))))
 ;; Agenda:1 ends here
+
+;; [[file:tangonov-theme.org::*Rainbow Delimiters][Rainbow Delimiters:1]]
+   `(rainbow-delimiters-depth-1-face ((,spec (:foreground ,magenta))))
+   `(rainbow-delimiters-depth-2-face ((,spec (:foreground ,orange))))
+   `(rainbow-delimiters-depth-3-face ((,spec (:foreground ,green))))
+   `(rainbow-delimiters-depth-4-face ((,spec (:foreground ,cyan))))
+   `(rainbow-delimiters-depth-5-face ((,spec (:foreground ,violet))))
+   `(rainbow-delimiters-depth-6-face ((,spec (:foreground ,yellow))))
+   `(rainbow-delimiters-depth-7-face ((,spec (:foreground ,blue))))
+   `(rainbow-delimiters-depth-8-face ((,spec (:foreground ,teal))))
+   `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
+;; Rainbow Delimiters:1 ends here
+
+;; [[file:tangonov-theme.org::*Eshell][Eshell:1]]
+   `(eshell-prompt ((,spec (:foreground ,magenta :weight bold))))
+   `(eshell-ls-archive ((,spec (:foreground ,gray2))))
+   `(eshell-ls-backup ((,spec (:foreground ,yellow))))
+   `(eshell-ls-clutter ((,spec (:foreground ,red))))
+   `(eshell-ls-directory ((,spec (:foreground ,blue))))
+   `(eshell-ls-executable ((,spec (:foreground ,green))))
+   `(eshell-ls-missing ((,spec (:foreground ,red))))
+   `(eshell-ls-product ((,spec (:foreground ,orange))))
+   `(eshell-ls-readonly ((,spec (:foreground ,orange))))
+   `(eshell-ls-special ((,spec (:foreground ,violet))))
+   `(eshell-ls-symlink ((,spec (:foreground ,cyan))))
+   `(eshell-ls-unreadable ((,spec (:foreground ,gray3))))
+;; Eshell:1 ends here
+
+;; [[file:tangonov-theme.org::*Vterm][Vterm:1]]
+   `(vterm-color-black
+     ((,spec (:background ,gray1 :foreground ,(color-lighten gray1 0.2)))))
+   `(vterm-color-red
+     ((,spec (:background ,red :foreground ,(color-lighten red 0.2)))))
+   `(vterm-color-green
+     ((,spec (:background ,green :foreground ,(color-lighten green 0.2)))))
+   `(vterm-color-yellow
+     ((,spec (:background ,yellow :foreground ,(color-lighten yellow 0.2)))))
+   `(vterm-color-blue
+     ((,spec (:background ,blue :foreground ,(color-lighten blue 0.2)))))
+   `(vterm-color-magenta
+     ((,spec (:background ,magenta :foreground ,(color-lighten violet 0.2)))))
+   `(vterm-color-cyan
+     ((,spec (:background ,cyan :foreground ,(color-lighten cyan 0.2)))))
+   `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
+;; Vterm:1 ends here
+
+;; [[file:tangonov-theme.org::*Typescript.el][Typescript.el:1]]
+   `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
+   `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
+   `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
+;; Typescript.el:1 ends here
 
 ;; [[file:tangonov-theme.org::*Diff Mode][Diff Mode:1]]
    `(diff-added ((,spec
@@ -540,73 +590,26 @@ Alpha should be a float between 0 and 1."
    `(magit-tag ((,spec (:foreground ,yellow))))
 ;; Magit:1 ends here
 
-;; [[file:tangonov-theme.org::*CSS][CSS:1]]
-   `(css-proprietary-property ((,spec (:foreground ,orange))))
-   `(css-property ((,spec (:foreground ,green))))
-   `(css-selector ((,spec (:foreground ,blue))))
-;; CSS:1 ends here
-
-;; [[file:tangonov-theme.org::*Typescript.el][Typescript.el:1]]
-   `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
-   `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
-   `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
-;; Typescript.el:1 ends here
-
-;; [[file:tangonov-theme.org::*Eshell][Eshell:1]]
-   `(eshell-prompt ((,spec (:foreground ,magenta :weight bold))))
-   `(eshell-ls-archive ((,spec (:foreground ,gray2))))
-   `(eshell-ls-backup ((,spec (:foreground ,yellow))))
-   `(eshell-ls-clutter ((,spec (:foreground ,red))))
-   `(eshell-ls-directory ((,spec (:foreground ,blue))))
-   `(eshell-ls-executable ((,spec (:foreground ,green))))
-   `(eshell-ls-missing ((,spec (:foreground ,red))))
-   `(eshell-ls-product ((,spec (:foreground ,orange))))
-   `(eshell-ls-readonly ((,spec (:foreground ,orange))))
-   `(eshell-ls-special ((,spec (:foreground ,violet))))
-   `(eshell-ls-symlink ((,spec (:foreground ,cyan))))
-   `(eshell-ls-unreadable ((,spec (:foreground ,gray3))))
-;; Eshell:1 ends here
-
-;; [[file:tangonov-theme.org::*Vterm][Vterm:1]]
-   `(vterm-color-black
-     ((,spec (:background ,gray1 :foreground ,(color-lighten gray1 0.2)))))
-   `(vterm-color-red
-     ((,spec (:background ,red :foreground ,(color-lighten red 0.2)))))
-   `(vterm-color-green
-     ((,spec (:background ,green :foreground ,(color-lighten green 0.2)))))
-   `(vterm-color-yellow
-     ((,spec (:background ,yellow :foreground ,(color-lighten yellow 0.2)))))
-   `(vterm-color-blue
-     ((,spec (:background ,blue :foreground ,(color-lighten blue 0.2)))))
-   `(vterm-color-magenta
-     ((,spec (:background ,magenta :foreground ,(color-lighten violet 0.2)))))
-   `(vterm-color-cyan
-     ((,spec (:background ,cyan :foreground ,(color-lighten cyan 0.2)))))
-   `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
-;; Vterm:1 ends here
-
 ;; [[file:tangonov-theme.org::*Web Mode][Web Mode:1]]
    `(web-mode-html-tag-face ((,spec (:foreground ,red))))
    `(web-mode-html-attr-equal-face ((,spec (:foreground ,cyan))))
 ;; Web Mode:1 ends here
 
-;; [[file:tangonov-theme.org::*Rainbow Delimiters][Rainbow Delimiters:1]]
-   `(rainbow-delimiters-depth-1-face ((,spec (:foreground ,magenta))))
-   `(rainbow-delimiters-depth-2-face ((,spec (:foreground ,orange))))
-   `(rainbow-delimiters-depth-3-face ((,spec (:foreground ,green))))
-   `(rainbow-delimiters-depth-4-face ((,spec (:foreground ,cyan))))
-   `(rainbow-delimiters-depth-5-face ((,spec (:foreground ,violet))))
-   `(rainbow-delimiters-depth-6-face ((,spec (:foreground ,yellow))))
-   `(rainbow-delimiters-depth-7-face ((,spec (:foreground ,blue))))
-   `(rainbow-delimiters-depth-8-face ((,spec (:foreground ,teal))))
-   `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
-;; Rainbow Delimiters:1 ends here
+;; [[file:tangonov-theme.org::*Widgets][Widgets:1]]
+`(widget-button-pressed ((,spec (:foreground ,red))))
+`(widget-documentation ((,spec (:foreground ,green))))
+`(widget-single-line-field
+  ((,spec (:background ,gray2 :distant-foreground ,bg))))
+`(widget-field
+  ((,spec (:background ,gray2 :distant-foreground
+                       ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
+;; Widgets:1 ends here
 
-;; [[file:tangonov-theme.org::*RJSX Mode][RJSX Mode:1]]
+;; [[file:tangonov-theme.org::*Widgets][Widgets:2]]
    `(rjsx-tag ((,spec (:foreground ,red))))
    `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
    `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
-;; RJSX Mode:1 ends here
+;; Widgets:2 ends here
 
 ;; [[file:tangonov-theme.org::*List End & Provide Theme][List End & Provide Theme:1]]
   ))
