@@ -178,6 +178,16 @@ Alpha should be a float between 0 and 1."
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 ;; Easy Customization:1 ends here
 
+;; [[file:tangonov-theme.org::*Widgets][Widgets:1]]
+`(widget-button-pressed ((,spec (:foreground ,red))))
+`(widget-documentation ((,spec (:foreground ,green))))
+`(widget-single-line-field
+  ((,spec (:background ,gray2 :distant-foreground ,bg))))
+`(widget-field
+  ((,spec (:background ,gray2 :distant-foreground
+                       ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
+;; Widgets:1 ends here
+
 ;; [[file:tangonov-theme.org::*Avy][Avy:1]]
    `(avy-goto-char-timer-face
      ((,spec (:inherit isearch))))

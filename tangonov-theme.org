@@ -224,6 +224,19 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 #+END_SRC
 
+** Widgets
+
+#+BEGIN_SRC elisp
+`(widget-button-pressed ((,spec (:foreground ,red))))
+`(widget-documentation ((,spec (:foreground ,green))))
+`(widget-single-line-field
+  ((,spec (:background ,gray2 :distant-foreground ,bg))))
+`(widget-field
+  ((,spec (:background ,gray2 :distant-foreground
+                       ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
+
+#+END_SRC
+
 ** Avy
 
 #+BEGIN_SRC elisp
