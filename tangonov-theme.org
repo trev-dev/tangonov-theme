@@ -566,7 +566,7 @@ Magit is a monster sized package with many, many faces
    `(magit-cherry-equivalent ((,spec (:foreground ,violet))))
    `(magit-cherry-unmatched ((,spec (:foreground ,cyan))))
    `(magit-diff-added
-     ((,spec (:foreground ,(color-green 0.2) :background
+     ((,spec (:foreground ,(color-darken green 0.2) :background
                           ,(color-blend green bg 0.1) :extend t))))
    `(magit-diff-added-highlight
      ((,spec (:foreground ,green :background

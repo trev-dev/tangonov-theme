@@ -464,7 +464,7 @@ Alpha should be a float between 0 and 1."
    `(magit-cherry-equivalent ((,spec (:foreground ,violet))))
    `(magit-cherry-unmatched ((,spec (:foreground ,cyan))))
    `(magit-diff-added
-     ((,spec (:foreground ,(color-green 0.2) :background
+     ((,spec (:foreground ,(color-darken green 0.2) :background
                           ,(color-blend green bg 0.1) :extend t))))
    `(magit-diff-added-highlight
      ((,spec (:foreground ,green :background
