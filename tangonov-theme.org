@@ -447,6 +447,40 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
 #+END_SRC
 
+*** Linters
+**** Flymake
+
+#+BEGIN_SRC elisp
+   `(flymake-error ((,spec (:underline (:style wave :color ,red)))))
+   `(flymake-note ((,spec (:underline (:style wave :color ,green)))))
+   `(flymake-warning ((,spec (:underline (:style wave :color ,orange)))))
+#+END_SRC
+
+**** Flycheck
+
+#+BEGIN_SRC elisp
+   `(flycheck-error ((,spec (:underline (:style wave :color ,red)))))
+   `(flycheck-warning ((,spec (:underline (:style wave :color ,yellow)))))
+   `(flycheck-info ((,spec (:underline (:style wave :color ,green)))))
+   `(flycheck-fringe-error ((,spec (:inherit 'fringe :foreground ,red))))
+   `(flycheck-fringe-warning ((,spec (:inherit 'fringe :foreground ,yellow))))
+   `(flycheck-fringe-info ((,spec (:inherit 'fringe :foreground ,green))))
+   `(flycheck-posframe-face ((,spec (:inherit 'default))))
+   `(flycheck-posframe-background-face ((,spec (:background ,bg-alt))))
+   `(flycheck-posframe-error-face
+     ((,spec (:inherit 'flycheck-posframe-face :foreground ,red))))
+   `(flycheck-posframe-info-face
+     ((,spec (:inherit 'flycheck-posframe-face :foreground ,fg))))
+   `(flycheck-posframe-warning-face
+     ((,spec (:inherit 'flycheck-posframe-face :foreground ,yellow))))
+   #+END_SRC
+
+**** Flyspell
+
+#+BEGIN_SRC elisp
+   `(flyspell-incorrect ((,spec (:underline (:style wave :color ,red) :inherit 'unspecified))))
+   `(flyspell-duplicate ((,spec (:underline (:style wave :color ,yellow) :inherit 'unspecified))))
+#+END_SRC
 *** LSP
 
 **** Eglot
