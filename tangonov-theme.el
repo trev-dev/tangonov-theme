@@ -450,6 +450,24 @@ Alpha should be a float between 0 and 1."
    `(org-agenda-dimmed-todo-face ((,spec (:foreground ,gray3))))
 ;; Agenda:1 ends here
 
+;; [[file:tangonov-theme.org::*Habit][Habit:1]]
+   `(org-habit-clear-face ((,spec (:weight bold :background ,gray2))))
+   `(org-habit-clear-future-face ((,spec (:weight bold :background ,gray3))))
+   `(org-habit-ready-face
+     ((,spec (:weight bold :background ,(color-darken red 0.5)))))
+   `(org-habit-ready-future-face
+     ((,spec (:weight bold :background ,(color-darken blue 0.5) :weight bold))))
+;; Podomoro:1 ends here
+
+;; [[file:tangonov-theme.org::*Ref faces][Ref faces:1]]
+   `(org-ref-acronym-face ((,spec (:foreground ,violet))))
+   `(org-ref-cite-face
+     ((,spec (:foreground ,yellow :weight light :underline t))))
+   `(org-ref-glossary-face ((,spec (:foreground ,magenta))))
+   `(org-ref-label-face ((,spec (:foreground ,blue))))
+   `(org-ref-ref-face ((,spec (:inherit 'link :foreground ,teal))))
+;; Ref faces:1 ends here
+
 ;; [[file:tangonov-theme.org::*Rainbow Delimiters][Rainbow Delimiters:1]]
    `(rainbow-delimiters-depth-1-face ((,spec (:foreground ,magenta))))
    `(rainbow-delimiters-depth-2-face ((,spec (:foreground ,orange))))

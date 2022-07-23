@@ -28,7 +28,7 @@ Some preliminary information about the theme
 ;; URL: https://github.com/trev-dev/tangonov
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -554,6 +554,56 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
    `(org-imminent-deadline ((,spec (:foreground ,yellow))))
    `(org-upcoming-deadline ((,spec (:foreground ,teal))))
    `(org-agenda-dimmed-todo-face ((,spec (:foreground ,gray3))))
+#+END_SRC
+
+**** Habit
+
+Faces for tracking habits with the agenda view.
+
+#+BEGIN_SRC elisp
+   `(org-habit-clear-face ((,spec (:weight bold :background ,gray2))))
+   `(org-habit-clear-future-face ((,spec (:weight bold :background ,gray3))))
+   `(org-habit-ready-face
+     ((,spec (:weight bold :background ,(color-blend blue bg-alt 0.5)))))
+   `(org-habit-ready-future-face
+     ((,spec (:weight bold :background ,(color-blend blue bg-alt 0.3)))))
+   `(org-habit-alert-face
+     ((,spec (:weight bold :background ,(color-blend yellow bg-alt 0.5)))))
+   `(org-habit-alert-future-face
+     ((,spec (:weight bold :background ,(color-blend yellow bg-alt 0.3)))))
+   `(org-habit-overdue-face
+     ((,spec (:weight bold :background ,(color-blend red bg-alt 0.5)))))
+   `(org-habit-overdue-future-face
+     ((,spec (:weight bold :background ,(color-blend red bg-alt 0.3)))))
+#+END_SRC
+
+**** Journal
+
+#+BEGIN_SRC elisp
+`(org-journal-highlight ((,spec (:foreground ,violet))))
+`(org-journal-calendar-entry-face
+  ((,spec (:foreground ,magenta :slant italic))))
+`(org-journal-calendar-scheduled-face
+  ((,spec (:foreground ,red :slant italic))))
+#+END_SRC
+
+**** Podomoro
+
+#+BEGIN_SRC elisp
+   `(org-pomodoro-mode-line ((,spec (:foreground ,red))))
+   `(org-pomodoro-mode-line-overtime
+     ((,spec (:foreground ,yellow :weight bold))))
+#+END_SRC
+
+**** Ref faces
+
+#+BEGIN_SRC elisp
+   `(org-ref-acronym-face ((,spec (:foreground ,violet))))
+   `(org-ref-cite-face
+     ((,spec (:foreground ,yellow :weight light :underline t))))
+   `(org-ref-glossary-face ((,spec (:foreground ,magenta))))
+   `(org-ref-label-face ((,spec (:foreground ,blue))))
+   `(org-ref-ref-face ((,spec (:inherit 'link :foreground ,teal))))
 #+END_SRC
 
 *** Rainbow Delimiters
