@@ -362,6 +362,34 @@ Alpha should be a float between 0 and 1."
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
 ;; ISearch:1 ends here
 
+;; [[file:tangonov-theme.org::*Flymake][Flymake:1]]
+   `(flymake-error ((,spec (:underline (:style wave :color ,red)))))
+   `(flymake-note ((,spec (:underline (:style wave :color ,green)))))
+   `(flymake-warning ((,spec (:underline (:style wave :color ,orange)))))
+;; Flymake:1 ends here
+
+;; [[file:tangonov-theme.org::*Flycheck][Flycheck:1]]
+   `(flycheck-error ((,spec (:underline (:style wave :color ,red)))))
+   `(flycheck-warning ((,spec (:underline (:style wave :color ,yellow)))))
+   `(flycheck-info ((,spec (:underline (:style wave :color ,green)))))
+   `(flycheck-fringe-error ((,spec (:inherit 'fringe :foreground ,red))))
+   `(flycheck-fringe-warning ((,spec (:inherit 'fringe :foreground ,yellow))))
+   `(flycheck-fringe-info ((,spec (:inherit 'fringe :foreground ,green))))
+   `(flycheck-posframe-face ((,spec (:inherit 'default))))
+   `(flycheck-posframe-background-face ((,spec (:background ,bg-alt))))
+   `(flycheck-posframe-error-face
+     ((,spec (:inherit 'flycheck-posframe-face :foreground ,red))))
+   `(flycheck-posframe-info-face
+     ((,spec (:inherit 'flycheck-posframe-face :foreground ,fg))))
+   `(flycheck-posframe-warning-face
+     ((,spec (:inherit 'flycheck-posframe-face :foreground ,yellow))))
+;; Flycheck:1 ends here
+
+;; [[file:tangonov-theme.org::*Flyspell][Flyspell:1]]
+   `(flyspell-incorrect ((,spec (:underline (:style wave :color ,red) :inherit 'unspecified))))
+   `(flyspell-duplicate ((,spec (:underline (:style wave :color ,yellow) :inherit 'unspecified))))
+;; Flyspell:1 ends here
+
 ;; [[file:tangonov-theme.org::*Eglot][Eglot:1]]
    `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
 ;; Eglot:1 ends here
