@@ -8,6 +8,7 @@
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
 ;; Version: 1.0.0
+;; Package-Requires: ((emacs "25") cl-lib)
 
 ;; License: GPL3
 
@@ -26,7 +27,7 @@
 
 ;;; Commentary:
 
-;; Somewhat inspired by Material Dark, tangonov aims to be a dark theme with
+;; Somewhat inspired by Material Dark, Tangonov aims to be a dark theme with
 ;; bright, pleasant pastel colors that are easy to distinguish from one another.
 
 ;;; Code:
