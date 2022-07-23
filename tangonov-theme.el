@@ -8,7 +8,7 @@
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
 ;; Version: 1.0.0
-;; Package-Requires: ((emacs "25") cl-lib)
+;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
 
@@ -367,7 +367,6 @@ Alpha should be a float between 0 and 1."
 ;; Eglot:1 ends here
 
 ;; [[file:tangonov-theme.org::*Eldoc Box][Eldoc Box:1]]
-   `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 ;; Eldoc Box:1 ends here
 

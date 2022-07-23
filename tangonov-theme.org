@@ -29,7 +29,7 @@ Some preliminary information about the theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
 ;; Version: 1.0.0
-;; Package-Requires: ((emacs "25") cl-lib)
+;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
 
@@ -455,7 +455,6 @@ These faces end up being inherited by /many/ major modes for highlighting.
 **** Eldoc Box
 
 #+BEGIN_SRC elisp
-   `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
 
