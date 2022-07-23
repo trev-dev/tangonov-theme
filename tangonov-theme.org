@@ -1,4 +1,5 @@
 #+STARTUP: content
+#+OPTIONS: toc:nil
 * Tangonov
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el :comments link
@@ -10,7 +11,7 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 
 [[file:images/tangonov-1.png]]
 [[file:images/tangonov-2.png]]
-
+#+TOC: headlines 3 local
 ** Package Header & License
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el
