@@ -2,7 +2,7 @@
 #+OPTIONS: toc:nil
 * Tangonov
 :PROPERTIES:
-:header-args: :tangle tangonov-theme.el :padline no
+:header-args: :tangle tangonov-theme.el
 :END:
 
 [[file:images/tangonov.png]]
@@ -148,6 +148,9 @@ The strategy for writing this theme is to do it as simply as possible. I am only
 #+END_SRC
 
 ** Faces
+:PROPERTIES:
+:header-args+: :noweb-ref themed-faces :tangle no
+:END:
 
 To theme Emacs you must set the faces for every package you would like to see changed. There are so many packages & faces. It is what it is.
 
@@ -752,13 +755,15 @@ Magit is a monster sized package with many, many faces
    `(widget-single-line-field
      ((,spec (:background ,gray2 :distant-foreground ,bg))))
    `(widget-field
-     ((,spec (:background ,gray2 :distant-foreground
-                          ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
+     ((,spec (:background
+              ,gray2 :distant-foreground
+              ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
 #+END_SRC
 
 ** List End & Provide Theme
-#+BEGIN_SRC elisp
-  ))
+#+BEGIN_SRC elisp :noweb yes
+<<themed-faces>>))
+
 (provide-theme 'tangonov)
 #+END_SRC
 

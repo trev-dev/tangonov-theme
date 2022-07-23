@@ -32,12 +32,15 @@
 
 ;;; Code:
 ;; Note: This file was generated using literate programming. See tangonov-theme.org.
+
 (require 'cl-lib)
+
 (defun name-to-rgb (color)
   "Get the hexidecimal version of the named `COLOR'."
   (cl-loop with div = (float (car (tty-color-standard-values "#ffffff")))
            for x in (tty-color-standard-values (downcase color))
            collect (/ x div)))
+
 (defun color-blend (c1 c2 alpha)
   "Blend hexidecimal colors `C1' and `C2' together by a coefficient of `ALPHA'."
   (when (and c1 c2)
@@ -52,6 +55,7 @@
                            for other in (name-to-rgb c2)
                            collect (+ (* alpha it) (* other (- 1 alpha))))))
           (c1))))
+
 (defun color-darken (color alpha)
   "Darken a hexidecimal `COLOR' by a coefficient of `ALPHA'.
 Alpha should be a float between 0 and 1."
@@ -65,6 +69,7 @@ Alpha should be a float between 0 and 1."
   (cond ((listp color)
          (cl-loop for c in color collect (color-lighten c alpha)))
         ((color-blend color "#FFFFFF" (- 1 alpha)))))
+
 (deftheme tangonov
   "A 256 color dark theme featuring bright pastels.")
 
@@ -85,6 +90,7 @@ Alpha should be a float between 0 and 1."
       (gray1     "#303030")
       (gray2     "#626262")
       (gray3     "#A8A8A8"))
+
   (custom-theme-set-faces
    'tangonov
    `(avy-goto-char-timer-face
@@ -521,9 +527,10 @@ Alpha should be a float between 0 and 1."
    `(widget-single-line-field
      ((,spec (:background ,gray2 :distant-foreground ,bg))))
    `(widget-field
-     ((,spec (:background ,gray2 :distant-foreground
-                          ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
-  ))
+     ((,spec (:background
+              ,gray2 :distant-foreground
+              ,bg :box `(:line-width -1 :color ,grey1) :extend t))))))
+
 (provide-theme 'tangonov)
 
 ;;; tangonov-theme.el ends here
