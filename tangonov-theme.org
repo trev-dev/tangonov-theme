@@ -4,7 +4,12 @@
 :header-args: :tangle tangonov-theme.el :comments link
 :END:
 
+[[file:images/tangonov.png]]
+
 A pleasant dark theme with bright, easy to read pastels. I had originally made this theme as a contribution to Doom Themes as "doom-material-dark". This is the stand-alone verison of that theme.
+
+[[file:images/tangonov-1.png]]
+[[file:images/tangonov-2.png]]
 
 ** Package Header & License
 :PROPERTIES:
