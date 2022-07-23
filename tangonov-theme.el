@@ -8,7 +8,7 @@
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
 ;; Version: 1.0.0
-;; Package-Requires: ((emacs "25") cl-lib)
+;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
 
@@ -314,7 +314,6 @@ Alpha should be a float between 0 and 1."
    `(isearch ((,spec (:inherit 'match :weight bold))))
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
    `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
-   `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
    ;; Modeline/Tabline
    `(mode-line
