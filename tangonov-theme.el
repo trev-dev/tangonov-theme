@@ -199,7 +199,8 @@ Alpha should be a float between 0 and 1."
    `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
    `(message-header-to ((,spec (:foreground ,cyan :weight bold))))
    `(message-header-cc
-     ((,spec (:inherit 'message-header-to :foreground ,(color-darken cyan 0.15)))))
+     ((,spec (:inherit 'message-header-to
+                       :foreground ,(color-darken cyan 0.15)))))
    `(message-header-other ((,spec (:foreground ,violet))))
    `(message-header-newsgroups ((,spec (:foreground ,yellow))))
    `(message-header-xheader ((,spec (:foreground ,gray3))))
@@ -252,7 +253,8 @@ Alpha should be a float between 0 and 1."
    `(gnus-summary-low-ticked
      ((,spec (:foreground ,(color-darken magenta 0.2)))))
    `(gnus-summary-low-unread ((,spec (:foreground ,(color-darken green 0.2)))))
-   `(gnus-summary-normal-ancient ((,spec (:foreground ,gray3 :inherit 'italic))))
+   `(gnus-summary-normal-ancient
+     ((,spec (:foreground ,gray3 :inherit 'italic))))
    `(gnus-summary-normal-read ((,spec (:foreground ,fg))))
    `(gnus-summary-normal-ticked ((,spec (:foreground ,magenta))))
    `(gnus-summary-normal-unread ((,spec (:foreground ,green :inherit 'bold))))
@@ -480,9 +482,11 @@ Alpha should be a float between 0 and 1."
 ;; [[file:tangonov-theme.org::*Diff Mode][Diff Mode:1]]
    `(diff-added ((,spec
                   (:foreground ,green :background ,(color-darken green 0.5)))))
-   `(diff-changed ((,spec (:foreground ,blue :background ,(color-darken blue 0.5)))))
+   `(diff-changed
+     ((,spec (:foreground ,blue :background ,(color-darken blue 0.5)))))
    `(diff-context ((,spec (:foreground ,gray3))))
-   `(diff-removed ((,spec (:foreground ,red :background ,(color-darken red 0.5)))))
+   `(diff-removed
+     ((,spec (:foreground ,red :background ,(color-darken red 0.5)))))
    `(diff-header ((,spec (:foreground ,cyan))))
    `(diff-file-header ((,spec (:foreground ,blue :background ,bg))))
    `(diff-hunk-header ((,spec (:foreground ,violet))))
@@ -503,7 +507,8 @@ Alpha should be a float between 0 and 1."
                           ,(color-blend cyan bg 0.7) :weight bold :extend))))
    `(ediff-fine-diff-B ((,spec (:inherit 'ediff-fine-diff-A))))
    `(ediff-fine-diff-C ((,spec (:inherit 'ediff-fine-diff-A))))
-   `(ediff-current-diff-A ((,spec (:background ,(color-blend cyan bg 0.3) :extend t))))
+   `(ediff-current-diff-A
+     ((,spec (:background ,(color-blend cyan bg 0.3) :extend t))))
    `(ediff-current-diff-B ((,spec (:inherit 'ediff-current-diff-A))))
    `(ediff-current-diff-C ((,spec (:inherit 'ediff-current-diff-A))))
    `(ediff-even-diff-A ((,spec (:inherit 'hl-line))))
@@ -538,7 +543,8 @@ Alpha should be a float between 0 and 1."
                           ,(color-blend orange bg 0.1) :extend t))))
    `(magit-diff-base-highlight
      ((,spec (:foreground ,orange :background
-                          ,(color-blend orange bg 0.2) :weight bold :extend t))))
+                          ,(color-blend orange bg 0.2) :weight
+                          bold :extend t))))
    `(magit-diff-context
      ((,spec (:foreground ,(color-darken fg 0.4) :background ,bg :extend t))))
    `(magit-diff-context-highlight
@@ -610,13 +616,13 @@ Alpha should be a float between 0 and 1."
 ;; Web Mode:1 ends here
 
 ;; [[file:tangonov-theme.org::*Widgets][Widgets:1]]
-`(widget-button-pressed ((,spec (:foreground ,red))))
-`(widget-documentation ((,spec (:foreground ,green))))
-`(widget-single-line-field
-  ((,spec (:background ,gray2 :distant-foreground ,bg))))
-`(widget-field
-  ((,spec (:background ,gray2 :distant-foreground
-                       ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
+   `(widget-button-pressed ((,spec (:foreground ,red))))
+   `(widget-documentation ((,spec (:foreground ,green))))
+   `(widget-single-line-field
+     ((,spec (:background ,gray2 :distant-foreground ,bg))))
+   `(widget-field
+     ((,spec (:background ,gray2 :distant-foreground
+                          ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
 ;; Widgets:1 ends here
 
 ;; [[file:tangonov-theme.org::*List End & Provide Theme][List End & Provide Theme:1]]
