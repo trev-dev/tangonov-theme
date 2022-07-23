@@ -2,7 +2,7 @@
 #+OPTIONS: toc:nil
 * Tangonov
 :PROPERTIES:
-:header-args: :tangle tangonov-theme.el :comments link
+:header-args: :tangle tangonov-theme.el :padline no
 :END:
 
 [[file:images/tangonov.png]]

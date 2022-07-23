@@ -31,20 +31,12 @@
 
 ;;; Code:
 ;; Note: This file was generated using literate programming. See tangonov-theme.org.
-
-;; [[file:tangonov-theme.org::*Dependences][Dependences:1]]
 (require 'cl-lib)
-;; Dependences:1 ends here
-
-;; [[file:tangonov-theme.org::*Converting named colors to hexidecimal colors][Converting named colors to hexidecimal colors:1]]
 (defun name-to-rgb (color)
   "Get the hexidecimal version of the named `COLOR'."
   (cl-loop with div = (float (car (tty-color-standard-values "#ffffff")))
            for x in (tty-color-standard-values (downcase color))
            collect (/ x div)))
-;; Converting named colors to hexidecimal colors:1 ends here
-
-;; [[file:tangonov-theme.org::*Blending colors][Blending colors:1]]
 (defun color-blend (c1 c2 alpha)
   "Blend hexidecimal colors `C1' and `C2' together by a coefficient of `ALPHA'."
   (when (and c1 c2)
@@ -59,9 +51,6 @@
                            for other in (name-to-rgb c2)
                            collect (+ (* alpha it) (* other (- 1 alpha))))))
           (c1))))
-;; Blending colors:1 ends here
-
-;; [[file:tangonov-theme.org::*Blending colors][Blending colors:2]]
 (defun color-darken (color alpha)
   "Darken a hexidecimal `COLOR' by a coefficient of `ALPHA'.
 Alpha should be a float between 0 and 1."
@@ -75,9 +64,6 @@ Alpha should be a float between 0 and 1."
   (cond ((listp color)
          (cl-loop for c in color collect (color-lighten c alpha)))
         ((color-blend color "#FFFFFF" (- 1 alpha)))))
-;; Blending colors:2 ends here
-
-;; [[file:tangonov-theme.org::*Color Definitions][Color Definitions:1]]
 (deftheme tangonov
   "A 256 color dark theme featuring bright pastels.")
 
@@ -98,14 +84,8 @@ Alpha should be a float between 0 and 1."
       (gray1     "#303030")
       (gray2     "#626262")
       (gray3     "#A8A8A8"))
-;; Color Definitions:1 ends here
-
-;; [[file:tangonov-theme.org::*Faces][Faces:1]]
   (custom-theme-set-faces
    'tangonov
-;; Faces:1 ends here
-
-;; [[file:tangonov-theme.org::*Avy][Avy:1]]
    `(avy-goto-char-timer-face
      ((,spec (:inherit 'isearch))))
    `(avy-background-face ((,spec (:foreground ,(color-darken bg 0.2)))))
@@ -117,9 +97,6 @@ Alpha should be a float between 0 and 1."
      ((,spec (:inheri avy-lead-face :foreground ,(color-darken yellow 0.4)))))
    `(avy-lead-face-2
      ((,spec (:inherit 'avy-lead-face :foreground ,(color-darken yellow 0.6)))))
-;; Avy:1 ends here
-
-;; [[file:tangonov-theme.org::*Basic Faces][Basic Faces:1]]
    `(default ((,spec (:background ,bg :foreground ,fg))))
    `(bold ((,spec (:weight bold))))
    `(italic ((,spec (:slant italic))))
@@ -146,15 +123,9 @@ Alpha should be a float between 0 and 1."
    `(completions-first-difference ((,spec (:foreground ,yellow))))
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
-;; Basic Faces:1 ends here
-
-;; [[file:tangonov-theme.org::*CSS][CSS:1]]
    `(css-proprietary-property ((,spec (:foreground ,orange))))
    `(css-property ((,spec (:foreground ,green))))
    `(css-selector ((,spec (:foreground ,blue))))
-;; CSS:1 ends here
-
-;; [[file:tangonov-theme.org::*Easy Customization][Easy Customization:1]]
    `(custom-button
      ((,spec
        (:foreground ,blue :background ,bg :box '(:line-width 1 :style none)))))
@@ -192,9 +163,6 @@ Alpha should be a float between 0 and 1."
    `(custom-state
      ((,spec (:foreground ,green :background ,(color-darken green 0.5)))))
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
-;; Easy Customization:1 ends here
-
-;; [[file:tangonov-theme.org::*Message Mode][Message Mode:1]]
    `(message-header-name ((,spec (:foreground ,green))))
    `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
    `(message-header-to ((,spec (:foreground ,cyan :weight bold))))
@@ -205,9 +173,6 @@ Alpha should be a float between 0 and 1."
    `(message-header-xheader ((,spec (:foreground ,gray3))))
    `(message-separator ((,spec (:foreground ,gray2))))
    `(message-mml ((,spec (:foreground ,gray2 :slant italic))))
-;; Message Mode:1 ends here
-
-;; [[file:tangonov-theme.org::*GNUs][GNUs:1]]
    `(gnus-group-mail-1 ((,spec (:weight bold :foreground ,fg))))
    `(gnus-group-mail-2 ((,spec (:inherit 'gnus-group-mail-1))))
    `(gnus-group-mail-3 ((,spec (:inherit 'gnus-group-mail-1))))
@@ -270,9 +235,6 @@ Alpha should be a float between 0 and 1."
    `(gnus-cite-11 ((,spec (:foreground ,yellow))))
    `(gnus-signature ((,spec (:foreground ,yellow))))
    `(gnus-x-face ((,spec (:background ,gray3 :foreground ,fg))))
-;; GNUs:1 ends here
-
-;; [[file:tangonov-theme.org::*Notmuch][Notmuch:1]]
    `(notmuch-message-summary-face
      ((,spec (:background ,bg-alt))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
@@ -302,9 +264,6 @@ Alpha should be a float between 0 and 1."
    `(notmuch-tree-no-match-tree-face ((,spec (:foreground ,yellow))))
    `(notmuch-wash-cited-text ((,spec (:foreground ,gray1))))
    `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
-;; Notmuch:1 ends here
-
-;; [[file:tangonov-theme.org::*ERC][ERC:1]]
    `(erc-button ((,spec (:weight bold :underline t))))
    `(erc-default-face ((,spec (:inherit 'default))))
    `(erc-action-face ((,spec (:weight bold))))
@@ -323,9 +282,6 @@ Alpha should be a float between 0 and 1."
    `(erc-my-nick-prefix-face ((,spec (:inherit 'erc-my-nick-face))))
    `(erc-notice-face ((,spec (:foreground ,gray2))))
    `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
-;; ERC:1 ends here
-
-;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
    ;; Font Lock
    `(font-lock-warning-face ((,spec (:inherit 'warning))))
    `(font-lock-function-name-face ((,spec (:foreground ,blue))))
@@ -338,37 +294,19 @@ Alpha should be a float between 0 and 1."
    `(font-lock-string-face ((,spec (:foreground ,green))))
    `(font-lock-doc-face ((,spec (:foreground ,gray2))))
    `(font-lock-negation-char-face ((,spec (:foreground ,orange))))
-;; Font Lock Faces:1 ends here
-
-;; [[file:tangonov-theme.org::*Goggles][Goggles:1]]
    `(goggles-changed ((,spec (:background ,cyan))))
    `(goggles-added ((,spec (:background ,green))))
    `(goggles-removed ((,spec (:background ,red))))
-;; Goggles:1 ends here
-
-;; [[file:tangonov-theme.org::*Hydra][Hydra:1]]
    `(hydra-face-red ((,spec (:foreground ,red :weight bold))))
    `(hydra-face-blue ((,spec (:foreground ,blue :weight bold))))
    `(hydra-face-amaranth ((,spec (:foreground ,magenta :weight bold))))
    `(hydra-face-pink ((,spec (:foreground ,violet :weight bold))))
    `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
-;; Hydra:1 ends here
-
-;; [[file:tangonov-theme.org::*ISearch][ISearch:1]]
    `(isearch ((,spec (:inherit 'match :weight bold))))
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
-;; ISearch:1 ends here
-
-;; [[file:tangonov-theme.org::*Eglot][Eglot:1]]
    `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
-;; Eglot:1 ends here
-
-;; [[file:tangonov-theme.org::*Eldoc Box][Eldoc Box:1]]
    `(eldoc-highlight-function-argument ((,spec (:weight bold :underline t))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
-;; Eldoc Box:1 ends here
-
-;; [[file:tangonov-theme.org::*Modeline & Tabbar][Modeline & Tabbar:1]]
    ;; Modeline/Tabline
    `(mode-line
      ((,spec (:foreground ,fg :background ,bg-alt :box
@@ -378,9 +316,6 @@ Alpha should be a float between 0 and 1."
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
    `(mode-line-buffer-id ((,spec (:weight bold))))
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
-;; Modeline & Tabbar:1 ends here
-
-;; [[file:tangonov-theme.org::*Documents][Documents:1]]
    `(org-block ((,spec (:background ,bg-alt))))
    `(org-block-background ((,spec (:background ,bg-alt))))
    `(org-block-begin-line ((,spec (:foreground ,gray2 :background ,bg))))
@@ -408,9 +343,6 @@ Alpha should be a float between 0 and 1."
    `(org-checkbox ((,spec (:foreground ,orange))))
    `(org-checkbox-statistics-todo ((,spec (:inherit 'org-checkbox))))
    `(org-checkbox-statistics-done ((,spec (:inherit 'org-done))))
-;; Documents:1 ends here
-
-;; [[file:tangonov-theme.org::*Agenda][Agenda:1]]
    `(org-agenda-done ((,spec (:inherit 'org-done))))
    `(org-agenda-clocking
      ((,spec (:background ,(color-darken cyan 0.5) :extend t))))
@@ -418,9 +350,6 @@ Alpha should be a float between 0 and 1."
    `(org-imminent-deadline ((,spec (:foreground ,yellow))))
    `(org-upcoming-deadline ((,spec (:foreground ,teal))))
    `(org-agenda-dimmed-todo-face ((,spec (:foreground ,gray3))))
-;; Agenda:1 ends here
-
-;; [[file:tangonov-theme.org::*Rainbow Delimiters][Rainbow Delimiters:1]]
    `(rainbow-delimiters-depth-1-face ((,spec (:foreground ,magenta))))
    `(rainbow-delimiters-depth-2-face ((,spec (:foreground ,orange))))
    `(rainbow-delimiters-depth-3-face ((,spec (:foreground ,green))))
@@ -430,15 +359,9 @@ Alpha should be a float between 0 and 1."
    `(rainbow-delimiters-depth-7-face ((,spec (:foreground ,blue))))
    `(rainbow-delimiters-depth-8-face ((,spec (:foreground ,teal))))
    `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
-;; Rainbow Delimiters:1 ends here
-
-;; [[file:tangonov-theme.org::*RJSX Mode][RJSX Mode:1]]
    `(rjsx-tag ((,spec (:foreground ,red))))
    `(rjsx-attr ((,spec (:foreground ,yellow :slant italic :weight medium))))
    `(rjsx-tag-bracket-face ((,spec (:foreground ,cyan))))
-;; RJSX Mode:1 ends here
-
-;; [[file:tangonov-theme.org::*Eshell][Eshell:1]]
    `(eshell-prompt ((,spec (:foreground ,magenta :weight bold))))
    `(eshell-ls-archive ((,spec (:foreground ,gray2))))
    `(eshell-ls-backup ((,spec (:foreground ,yellow))))
@@ -451,9 +374,6 @@ Alpha should be a float between 0 and 1."
    `(eshell-ls-special ((,spec (:foreground ,violet))))
    `(eshell-ls-symlink ((,spec (:foreground ,cyan))))
    `(eshell-ls-unreadable ((,spec (:foreground ,gray3))))
-;; Eshell:1 ends here
-
-;; [[file:tangonov-theme.org::*Vterm][Vterm:1]]
    `(vterm-color-black
      ((,spec (:background ,gray1 :foreground ,(color-lighten gray1 0.2)))))
    `(vterm-color-red
@@ -469,15 +389,9 @@ Alpha should be a float between 0 and 1."
    `(vterm-color-cyan
      ((,spec (:background ,cyan :foreground ,(color-lighten cyan 0.2)))))
    `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
-;; Vterm:1 ends here
-
-;; [[file:tangonov-theme.org::*Typescript.el][Typescript.el:1]]
    `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
    `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
    `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
-;; Typescript.el:1 ends here
-
-;; [[file:tangonov-theme.org::*Diff Mode][Diff Mode:1]]
    `(diff-added ((,spec
                   (:foreground ,green :background ,(color-darken green 0.5)))))
    `(diff-changed ((,spec (:foreground ,blue :background ,(color-darken blue 0.5)))))
@@ -489,15 +403,9 @@ Alpha should be a float between 0 and 1."
    `(diff-refine-added ((,spec (:inherit 'diff-added :inverse-video t))))
    `(diff-refine-changed ((,spec (:inherit 'diff-changed :inverse-video t))))
    `(diff-refine-removed ((,spec (:inherit 'diff-removed :inverse-video t))))
-;; Diff Mode:1 ends here
-
-;; [[file:tangonov-theme.org::*Diff-hl][Diff-hl:1]]
    `(diff-hl-change ((,spec (:background ,blue :foreground ,blue))))
    `(diff-hl-delete ((,spec (:background ,red :foreground ,red))))
    `(diff-hl-insert ((,spec (:background ,green :foreground ,green))))
-;; Diff-hl:1 ends here
-
-;; [[file:tangonov-theme.org::*Ediff][Ediff:1]]
    `(ediff-fine-diff-A ((,spec
                          (:background
                           ,(color-blend cyan bg 0.7) :weight bold :extend))))
@@ -512,9 +420,6 @@ Alpha should be a float between 0 and 1."
    `(ediff-odd-diff-A ((,spec (:inherit 'ediff-even-diff-A))))
    `(ediff-odd-diff-B ((,spec (:inherit 'ediff-odd-diff-A))))
    `(ediff-odd-diff-C ((,spec (:inherit 'ediff-odd-diff-A))))
-;; Ediff:1 ends here
-
-;; [[file:tangonov-theme.org::*Magit][Magit:1]]
    `(magit-bisect-bad ((,spec (:foreground ,red))))
    `(magit-bisect-good ((,spec (:foreground ,green))))
    `(magit-bisect-skip ((,spec (:foreground ,orange))))
@@ -602,14 +507,8 @@ Alpha should be a float between 0 and 1."
    `(magit-signature-revoked ((,spec (:foreground ,magenta))))
    `(magit-signature-untrusted ((,spec (:foreground ,yellow))))
    `(magit-tag ((,spec (:foreground ,yellow))))
-;; Magit:1 ends here
-
-;; [[file:tangonov-theme.org::*Web Mode][Web Mode:1]]
    `(web-mode-html-tag-face ((,spec (:foreground ,red))))
    `(web-mode-html-attr-equal-face ((,spec (:foreground ,cyan))))
-;; Web Mode:1 ends here
-
-;; [[file:tangonov-theme.org::*Widgets][Widgets:1]]
 `(widget-button-pressed ((,spec (:foreground ,red))))
 `(widget-documentation ((,spec (:foreground ,green))))
 `(widget-single-line-field
@@ -617,11 +516,7 @@ Alpha should be a float between 0 and 1."
 `(widget-field
   ((,spec (:background ,gray2 :distant-foreground
                        ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
-;; Widgets:1 ends here
-
-;; [[file:tangonov-theme.org::*List End & Provide Theme][List End & Provide Theme:1]]
   ))
 (provide-theme 'tangonov)
-;; List End & Provide Theme:1 ends here
 
 ;;; tangonov-theme.el ends here
