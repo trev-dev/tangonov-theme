@@ -377,24 +377,24 @@ There are many packages that cobble together different Email & RSS interfaces. M
 *** ERC
 
 #+BEGIN_SRC elisp
-`(erc-button ((,spec (:weight bold :underline t))))
-`(erc-default-face ((,spec (:inherit 'default))))
-`(erc-action-face ((,spec (:weight bold))))
-`(erc-command-indicator-face ((,spec (:weight bold))))
-`(erc-direct-msg-face ((,spec (:foreground ,magenta))))
-`(erc-error-face ((,spec (:inherit 'error))))
-`(erc-header-line
-  ((,spec (:background ,(color-darken bg-alt 0.15) :foreground ,cyan))))
-`(erc-input-face ((,spec (:foreground ,green))))
-`(erc-current-nick-face ((,spec (:foreground ,green :weight bold))))
-`(erc-timestamp-face ((,spec (:foreground ,blue :weight bold))))
-`(erc-nick-default-face ((,spec (:weight bold))))
-`(erc-nick-msg-face ((,spec (:foreground ,magenta))))
-`(erc-nick-prefix-face ((,spec (:inherit 'erc-nick-default-face))))
-`(erc-my-nick-face ((,spec (:foreground ,green :weight bold))))
-`(erc-my-nick-prefix-face ((,spec (:inherit 'erc-my-nick-face))))
-`(erc-notice-face ((,spec (:foreground ,gray2))))
-`(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
+   `(erc-button ((,spec (:weight bold :underline t))))
+   `(erc-default-face ((,spec (:inherit 'default))))
+   `(erc-action-face ((,spec (:weight bold))))
+   `(erc-command-indicator-face ((,spec (:weight bold))))
+   `(erc-direct-msg-face ((,spec (:foreground ,magenta))))
+   `(erc-error-face ((,spec (:inherit 'error))))
+   `(erc-header-line
+     ((,spec (:background ,(color-darken bg-alt 0.15) :foreground ,cyan))))
+   `(erc-input-face ((,spec (:foreground ,green))))
+   `(erc-current-nick-face ((,spec (:foreground ,green :weight bold))))
+   `(erc-timestamp-face ((,spec (:foreground ,blue :weight bold))))
+   `(erc-nick-default-face ((,spec (:weight bold))))
+   `(erc-nick-msg-face ((,spec (:foreground ,magenta))))
+   `(erc-nick-prefix-face ((,spec (:inherit 'erc-nick-default-face))))
+   `(erc-my-nick-face ((,spec (:foreground ,green :weight bold))))
+   `(erc-my-nick-prefix-face ((,spec (:inherit 'erc-my-nick-face))))
+   `(erc-notice-face ((,spec (:foreground ,gray2))))
+   `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
 #+END_SRC
 
 *** Font Lock Faces
