@@ -589,11 +589,11 @@ Faces for tracking habits with the agenda view.
 **** Journal
 
 #+BEGIN_SRC elisp
-`(org-journal-highlight ((,spec (:foreground ,violet))))
-`(org-journal-calendar-entry-face
-  ((,spec (:foreground ,magenta :slant italic))))
-`(org-journal-calendar-scheduled-face
-  ((,spec (:foreground ,red :slant italic))))
+   `(org-journal-highlight ((,spec (:foreground ,violet))))
+   `(org-journal-calendar-entry-face
+     ((,spec (:foreground ,magenta :slant italic))))
+   `(org-journal-calendar-scheduled-face
+     ((,spec (:foreground ,red :slant italic))))
 #+END_SRC
 
 **** Podomoro
