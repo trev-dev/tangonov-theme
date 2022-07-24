@@ -460,10 +460,31 @@ Alpha should be a float between 0 and 1."
    `(org-habit-clear-face ((,spec (:weight bold :background ,gray2))))
    `(org-habit-clear-future-face ((,spec (:weight bold :background ,gray3))))
    `(org-habit-ready-face
-     ((,spec (:weight bold :background ,(tangonov-darken red 0.5)))))
+     ((,spec (:weight bold :background ,(tangonov-darken blue 0.5)))))
    `(org-habit-ready-future-face
-     ((,spec (:weight bold :background
-                      ,(tangonov-darken blue 0.5) :weight bold))))
+     ((,spec (:weight bold :background ,(tangonov-darken blue 0.3)))))
+   `(org-habit-alert-face
+     ((,spec (:weight bold :background ,(tangonov-darken yellow 0.5)))))
+   `(org-habit-alert-future-face
+     ((,spec (:weight bold :background ,(tangonov-darken yellow 0.3)))))
+   `(org-habit-overdue-face
+     ((,spec (:weight bold :background ,(tangonov-darken red 0.5)))))
+   `(org-habit-overdue-future-face
+     ((,spec (:weight bold :background ,(tangonov-darken red 0.3)))))
+;; Habit:1 ends here
+
+;; [[file:tangonov-theme.org::*Journal][Journal:1]]
+`(org-journal-highlight ((,spec (:foreground ,violet))))
+`(org-journal-calendar-entry-face
+  ((,spec (:foreground ,magenta :slant italic))))
+`(org-journal-calendar-scheduled-face
+  ((,spec (:foreground ,red :slant italic))))
+;; Journal:1 ends here
+
+;; [[file:tangonov-theme.org::*Podomoro][Podomoro:1]]
+   `(org-pomodoro-mode-line ((,spec (:foreground ,red))))
+   `(org-pomodoro-mode-line-overtime
+     ((,spec (:foreground ,yellow :weight bold))))
 ;; Podomoro:1 ends here
 
 ;; [[file:tangonov-theme.org::*Ref faces][Ref faces:1]]
