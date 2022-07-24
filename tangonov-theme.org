@@ -570,17 +570,17 @@ Faces for tracking habits with the agenda view.
    `(org-habit-clear-face ((,spec (:weight bold :background ,gray2))))
    `(org-habit-clear-future-face ((,spec (:weight bold :background ,gray3))))
    `(org-habit-ready-face
-     ((,spec (:weight bold :background ,(color-blend blue bg-alt 0.5)))))
+     ((,spec (:weight bold :background ,(tangonov-darken blue 0.5)))))
    `(org-habit-ready-future-face
-     ((,spec (:weight bold :background ,(color-blend blue bg-alt 0.3)))))
+     ((,spec (:weight bold :background ,(tangonov-darken blue 0.3)))))
    `(org-habit-alert-face
-     ((,spec (:weight bold :background ,(color-blend yellow bg-alt 0.5)))))
+     ((,spec (:weight bold :background ,(tangonov-darken yellow 0.5)))))
    `(org-habit-alert-future-face
-     ((,spec (:weight bold :background ,(color-blend yellow bg-alt 0.3)))))
+     ((,spec (:weight bold :background ,(tangonov-darken yellow 0.3)))))
    `(org-habit-overdue-face
-     ((,spec (:weight bold :background ,(color-blend red bg-alt 0.5)))))
+     ((,spec (:weight bold :background ,(tangonov-darken red 0.5)))))
    `(org-habit-overdue-future-face
-     ((,spec (:weight bold :background ,(color-blend red bg-alt 0.3)))))
+     ((,spec (:weight bold :background ,(tangonov-darken red 0.3)))))
 #+END_SRC
 
 **** Journal
