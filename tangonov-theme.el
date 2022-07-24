@@ -7,7 +7,7 @@
 ;; URL: https://github.com/trev-dev/tangonov
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.0
+;; Version: 1.0.2
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
