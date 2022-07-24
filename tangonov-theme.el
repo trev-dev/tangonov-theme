@@ -474,11 +474,11 @@ Alpha should be a float between 0 and 1."
 ;; Habit:1 ends here
 
 ;; [[file:tangonov-theme.org::*Journal][Journal:1]]
-`(org-journal-highlight ((,spec (:foreground ,violet))))
-`(org-journal-calendar-entry-face
-  ((,spec (:foreground ,magenta :slant italic))))
-`(org-journal-calendar-scheduled-face
-  ((,spec (:foreground ,red :slant italic))))
+   `(org-journal-highlight ((,spec (:foreground ,violet))))
+   `(org-journal-calendar-entry-face
+     ((,spec (:foreground ,magenta :slant italic))))
+   `(org-journal-calendar-scheduled-face
+     ((,spec (:foreground ,red :slant italic))))
 ;; Journal:1 ends here
 
 ;; [[file:tangonov-theme.org::*Podomoro][Podomoro:1]]
