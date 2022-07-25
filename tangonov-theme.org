@@ -1,5 +1,4 @@
 #+STARTUP: content
-#+OPTIONS: toc:nil
 * Tangonov
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el :comments link
@@ -11,7 +10,64 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 
 [[file:images/tangonov-1.png]]
 [[file:images/tangonov-2.png]]
-#+TOC: headlines 3 local
+** Contents
+:PROPERTIES:
+:TOC:      :include siblings :depth 3 :force (depth) :ignore (this) :local (depth)
+:END:
+:CONTENTS:
+- [[#package-header][Package Header]]
+- [[#dependences][Dependences]]
+- [[#utility-functions][Utility Functions]]
+  - [[#converting-named-colors-to-hexidecimal-colors][Converting named colors to hexidecimal colors]]
+  - [[#blending-colors][Blending colors]]
+- [[#color-definitions][Color Definitions]]
+- [[#faces][Faces]]
+  - [[#avy][Avy]]
+  - [[#basic-faces][Basic Faces]]
+  - [[#css][CSS]]
+  - [[#easy-customization][Easy Customization]]
+  - [[#email][Email]]
+    - [[#message-mode][Message Mode]]
+    - [[#gnus][GNUs]]
+    - [[#notmuch][Notmuch]]
+  - [[#erc][ERC]]
+  - [[#font-lock-faces][Font Lock Faces]]
+  - [[#goggles][Goggles]]
+  - [[#hydra][Hydra]]
+  - [[#isearch][ISearch]]
+  - [[#linters][Linters]]
+    - [[#flymake][Flymake]]
+    - [[#flycheck][Flycheck]]
+    - [[#flyspell][Flyspell]]
+  - [[#lsp][LSP]]
+    - [[#eglot][Eglot]]
+    - [[#eldoc-box][Eldoc Box]]
+  - [[#modeline--tabbar][Modeline & Tabbar]]
+  - [[#org-mode][Org Mode]]
+    - [[#documents][Documents]]
+    - [[#agenda][Agenda]]
+    - [[#habit][Habit]]
+    - [[#journal][Journal]]
+    - [[#podomoro][Podomoro]]
+    - [[#ref-faces][Ref faces]]
+  - [[#rainbow-delimiters][Rainbow Delimiters]]
+  - [[#rjsx-mode][RJSX Mode]]
+  - [[#shells][Shells]]
+    - [[#eshell][Eshell]]
+    - [[#vterm][Vterm]]
+  - [[#typescriptel][Typescript.el]]
+  - [[#version-control][Version Control]]
+    - [[#diff-mode][Diff Mode]]
+    - [[#diff-hl][Diff-hl]]
+    - [[#ediff][Ediff]]
+    - [[#magit][Magit]]
+  - [[#web-mode][Web Mode]]
+  - [[#widgets][Widgets]]
+- [[#list-end--provide-theme][List End & Provide Theme]]
+- [[#theme-footer][Theme Footer]]
+- [[#contributing][Contributing]]
+- [[#license][License]]
+:END:
 ** Package Header
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el
