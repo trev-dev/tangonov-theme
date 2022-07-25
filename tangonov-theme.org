@@ -864,6 +864,15 @@ Provide the theme and mark the end of the file.
 #+BEGIN_SRC elisp
 ;;; tangonov-theme.el ends here
 #+END_SRC
+
+** Contributing
+
+Thanks for your interest in this project. Development is done on the =devel= branch. If you would like to contribute, please:
+
+1. Fork this repository.
+2. Clone it locally and make a *new branch* from branch =devel= for your feature.
+3. Make your changes in the new branch, push them & submit your pull request.
+
 ** License
 :PROPERTIES:
 :header-args: :tangle LICENSE.md
