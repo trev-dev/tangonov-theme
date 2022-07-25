@@ -4,7 +4,7 @@
 
 ;; Author: Trevor Richards <trev@trevdev.ca>
 ;; Maintainer: Trevor Richards <trev@trevdev.ca>
-;; URL: https://github.com/trev-dev/tangonov
+;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
 ;; Version: 1.0.2
