@@ -703,9 +703,20 @@ Alpha should be a float between 0 and 1."
                           ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
 ;; Widgets:1 ends here
 
-;; [[file:tangonov-theme.org::*List End & Provide Theme][List End & Provide Theme:1]]
+;; [[file:tangonov-theme.org::*End of Custom Faces][End of Custom Faces:1]]
   ))
+;; End of Custom Faces:1 ends here
+
+;; [[file:tangonov-theme.org::*Add Theme to Custom Load Path][Add Theme to Custom Load Path:1]]
+;;;###autoload
+(when (and (bound-and-true-p custom-theme-load-path)
+           load-file-name)
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+;; Add Theme to Custom Load Path:1 ends here
+
+;; [[file:tangonov-theme.org::*Provide the Theme][Provide the Theme:1]]
 (provide-theme 'tangonov)
-;; List End & Provide Theme:1 ends here
+;; Provide the Theme:1 ends here
 
 ;;; tangonov-theme.el ends here

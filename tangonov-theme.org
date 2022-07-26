@@ -63,7 +63,9 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
     - [[#magit][Magit]]
   - [[#web-mode][Web Mode]]
   - [[#widgets][Widgets]]
-- [[#list-end--provide-theme][List End & Provide Theme]]
+  - [[#end-of-custom-faces][End of Custom Faces]]
+- [[#add-theme-to-custom-load-path][Add Theme to Custom Load Path]]
+- [[#provide-the-theme][Provide the Theme]]
 - [[#theme-footer][Theme Footer]]
 - [[#contributing][Contributing]]
 - [[#license][License]]
@@ -84,7 +86,7 @@ Some preliminary information about the theme
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.2
+;; Version: 1.0.3
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -905,9 +907,31 @@ Magit is a monster sized package with many, many faces
                           ,bg :box `(:line-width -1 :color ,grey1) :extend t))))
 #+END_SRC
 
-** List End & Provide Theme
+*** End of Custom Faces
+
+In branch devel, this keeps the end of =custom-theme-set-faces= clean. In branch main, we collect all of the tangled blocks here for cleaner looking source code.
+
 #+BEGIN_SRC elisp
   ))
+#+END_SRC
+
+** Add Theme to Custom Load Path
+
+It's not enough to simply provide a theme. We must set up an autoload that will put the theme into the =custom-theme-load-path=. I suppose users would have to adjust their load path without this.
+
+#+BEGIN_SRC elisp
+;;;###autoload
+(when (and (bound-and-true-p custom-theme-load-path)
+           load-file-name)
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+#+END_SRC
+
+** Provide the Theme
+
+This file needs to be symbolically represented as a theme, not a "package". So, we must =(provide-theme)=.
+
+#+BEGIN_SRC elisp
 (provide-theme 'tangonov)
 #+END_SRC
 
