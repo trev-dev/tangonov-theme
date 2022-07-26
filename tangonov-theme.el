@@ -428,6 +428,7 @@ Alpha should be a float between 0 and 1."
    `(org-level-6 ((,spec (:foreground ,magenta))))
    `(org-level-7 ((,spec (:foreground ,teal))))
    `(org-level-8 ((,spec (:foreground ,violet))))
+   `(org-headline-done ((,spec (:foreground ,gray2))))
    `(org-table ((,spec (:foreground ,magenta))))
    `(org-todo ((,spec (:foreground ,orange))))
    `(org-done ((,spec (:foreground ,gray2))))
