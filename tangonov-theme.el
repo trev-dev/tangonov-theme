@@ -7,7 +7,7 @@
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.2
+;; Version: 1.0.3
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -586,6 +586,12 @@ Alpha should be a float between 0 and 1."
      ((,spec (:background
               ,gray2 :distant-foreground
               ,bg :box `(:line-width -1 :color ,grey1) :extend t))))))
+
+;;;###autoload
+(when (and (bound-and-true-p custom-theme-load-path)
+           load-file-name)
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'tangonov)
 
