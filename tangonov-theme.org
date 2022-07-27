@@ -31,6 +31,10 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
     - [[#gnus][GNUs]]
     - [[#notmuch][Notmuch]]
   - [[#erc][ERC]]
+  - [[#evil][Evil]]
+    - [[#evil-mc][evil-mc]]
+    - [[#evil-snipe][evil-snipe]]
+    - [[#evil-goggles][evil-goggles]]
   - [[#font-lock-faces][Font Lock Faces]]
   - [[#goggles][Goggles]]
   - [[#hydra][Hydra]]
@@ -77,7 +81,7 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 Some preliminary information about the theme
 
 #+BEGIN_SRC elisp
-;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels
+;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 Trevor Richards
 
@@ -86,7 +90,7 @@ Some preliminary information about the theme
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.3
+;; Version: 1.0.4
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -465,6 +469,65 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
 #+END_SRC
 
+*** Evil
+Support for various Evil related features/packages.
+
+#+BEGIN_SRC elisp
+   `(evil-ex-info ((,spec (:foreground ,red :slant italic))))
+   `(evil-ex-search
+     ((,spec (:background ,gray1 :foreground ,cyan :weight bold))))
+   `(evil-ex-substitute-matches
+     ((,spec (:background ,gray1 :foreground
+                          ,red :weight bold :strike-through t))))
+   `(evil-ex-substitute-replacement
+     ((,spec (:background ,gray1 :foreground ,green :weight bold))))
+   `(evil-search-highlight-persist-highlight-face
+     ((,spec (:inherit 'lazy-highlight))))
+#+END_SRC
+
+**** evil-mc
+
+#+BEGIN_SRC elisp
+   `(evil-mc-cursor-default-face
+     ((,spec (:background ,magenta :foreground ,gray1 :inverse-video nil))))
+   `(evil-mc-region-face ((,spec (:inherit 'region))))
+   `(evil-mc-cursor-bar-face
+     ((,spec (:height 1 :background ,magenta :foreground ,gray1))))
+   `(evil-mc-cursor-hbar-face ((,spec (:underline `(:color ,cyan)))))
+#+END_SRC
+
+**** evil-snipe
+
+#+BEGIN_SRC elisp
+   `(evil-snipe-first-match-face
+     ((,spec (:foreground ,blue :background
+                          ,(tangonov-darken blue 0.5) :weight bold))))
+   `(evil-snipe-matches-face
+     ((,spec (:foreground highlight :underline t :weight bold))))
+#+END_SRC
+
+**** evil-goggles
+
+#+BEGIN_SRC elisp
+   `(evil-goggles-delete-face
+     ((,spec (:foreground ,(tangonov-darken red 0.5) :background ,red))))
+;; `(evil-goggles-join-face ((,spec ())))
+;; `(evil-goggles-fill-and-move-face ((,spec ())))
+   `(evil-goggles-paste-face
+     ((,spec (:foreground ,(tangonov-darken green 0.5) :background ,green))))
+;; `(evil-goggles-shift-face ((,spec ())))
+;; `(evil-goggles-surround-face ((,spec ())))
+;; `(evil-goggles-commentary-face ((,spec ())))
+;; `(evil-goggles-nerd-commenter-face ((,spec ())))
+;; `(evil-goggles-replace-with-register-face ((,spec ())))
+;; `(evil-goggles-set-marker-face ((,spec ())))
+`(evil-goggles-undo-redo-add-face ((,spec (:inherit 'evil-goggles-paste-face))))
+`(evil-goggles-undo-redo-remove-face ((,spec (:inherit 'evil-goggles-delete-face))))
+;;`(evil-goggles-undo-redo-change-face ((,spec ())))
+`(evil-goggles-record-macro-face
+  ((,spec (:foreground ,(tangonov-darken yellow 0.5) :background ,yellow))))
+#+END_SRC
+
 *** Font Lock Faces
 
 These faces end up being inherited by /many/ major modes for highlighting.
@@ -593,6 +656,8 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
    `(org-level-6 ((,spec (:foreground ,magenta))))
    `(org-level-7 ((,spec (:foreground ,teal))))
    `(org-level-8 ((,spec (:foreground ,violet))))
+   `(org-headline-done ((,spec (:foreground ,gray2))))
+   `(org-table ((,spec (:foreground ,magenta))))
    `(org-todo ((,spec (:foreground ,orange))))
    `(org-done ((,spec (:foreground ,gray2))))
    `(org-drawer ((,spec (:foreground ,gray2))))
