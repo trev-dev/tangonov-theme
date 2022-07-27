@@ -7,7 +7,7 @@
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.3
+;; Version: 1.0.4
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -331,6 +331,56 @@ Alpha should be a float between 0 and 1."
    `(erc-notice-face ((,spec (:foreground ,gray2))))
    `(erc-prompt-face ((,spec (:foreground ,cyan :weight bold))))
 ;; ERC:1 ends here
+
+;; [[file:tangonov-theme.org::*Evil][Evil:1]]
+   `(evil-ex-info ((,spec (:foreground ,red :slant italic))))
+   `(evil-ex-search
+     ((,spec (:background ,gray1 :foreground ,cyan :weight bold))))
+   `(evil-ex-substitute-matches
+     ((,spec (:background ,gray1 :foreground
+                          ,red :weight bold :strike-through t))))
+   `(evil-ex-substitute-replacement
+     ((,spec (:background ,gray1 :foreground ,green :weight bold))))
+   `(evil-search-highlight-persist-highlight-face
+     ((,spec (:inherit 'lazy-highlight))))
+;; Evil:1 ends here
+
+;; [[file:tangonov-theme.org::*evil-mc][evil-mc:1]]
+   `(evil-mc-cursor-default-face
+     ((,spec (:background ,magenta :foreground ,gray1 :inverse-video nil))))
+   `(evil-mc-region-face ((,spec (:inherit 'region))))
+   `(evil-mc-cursor-bar-face
+     ((,spec (:height 1 :background ,magenta :foreground ,gray1))))
+   `(evil-mc-cursor-hbar-face ((,spec (:underline `(:color ,cyan)))))
+;; evil-mc:1 ends here
+
+;; [[file:tangonov-theme.org::*evil-snipe][evil-snipe:1]]
+   `(evil-snipe-first-match-face
+     ((,spec (:foreground ,blue :background
+                          ,(tangonov-darken blue 0.5) :weight bold))))
+   `(evil-snipe-matches-face
+     ((,spec (:foreground highlight :underline t :weight bold))))
+;; evil-snipe:1 ends here
+
+;; [[file:tangonov-theme.org::*evil-goggles][evil-goggles:1]]
+   `(evil-goggles-delete-face
+     ((,spec (:foreground ,(tangonov-darken red 0.5) :background ,red))))
+;; `(evil-goggles-join-face ((,spec ())))
+;; `(evil-goggles-fill-and-move-face ((,spec ())))
+   `(evil-goggles-paste-face
+     ((,spec (:foreground ,(tangonov-darken green 0.5) :background ,green))))
+;; `(evil-goggles-shift-face ((,spec ())))
+;; `(evil-goggles-surround-face ((,spec ())))
+;; `(evil-goggles-commentary-face ((,spec ())))
+;; `(evil-goggles-nerd-commenter-face ((,spec ())))
+;; `(evil-goggles-replace-with-register-face ((,spec ())))
+;; `(evil-goggles-set-marker-face ((,spec ())))
+`(evil-goggles-undo-redo-add-face ((,spec (:inherit 'evil-goggles-paste-face))))
+`(evil-goggles-undo-redo-remove-face ((,spec (:inherit 'evil-goggles-delete-face))))
+;;`(evil-goggles-undo-redo-change-face ((,spec ())))
+`(evil-goggles-record-macro-face
+  ((,spec (:foreground ,(tangonov-darken yellow 0.5) :background ,yellow))))
+;; evil-goggles:1 ends here
 
 ;; [[file:tangonov-theme.org::*Font Lock Faces][Font Lock Faces:1]]
    ;; Font Lock
