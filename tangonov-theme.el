@@ -1,4 +1,4 @@
-;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels
+;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 Trevor Richards
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.2
+;; Version: 1.0.3
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3

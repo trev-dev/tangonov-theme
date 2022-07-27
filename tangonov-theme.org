@@ -77,7 +77,7 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 Some preliminary information about the theme
 
 #+BEGIN_SRC elisp
-;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels
+;;; tangonov-theme.el --- A 256 color dark theme featuring bright pastels -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 Trevor Richards
 
