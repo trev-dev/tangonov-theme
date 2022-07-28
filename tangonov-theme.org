@@ -3,6 +3,7 @@
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el :comments link
 :END:
+[[https://melpa.org/#/tangonov-theme][file:https://melpa.org/packages/tangonov-theme-badge.svg]]
 
 [[file:images/tangonov.png]]
 
