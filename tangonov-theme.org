@@ -321,6 +321,22 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 #+END_SRC
 
+*** Elfleed
+
+#+begin_src elisp
+   `(elfeed-log-debug-level-face ((,spec (:foreground ,gray2))))
+   `(elfeed-log-error-level-face ((,spec (:inherit 'error))))
+   `(elfeed-log-info-level-face ((,spec (:inherit 'success))))
+   `(elfeed-log-warn-level-face ((,spec (:inherit 'warning))))
+   `(elfeed-search-date-face ((,spec (:foreground ,violet))))
+   `(elfeed-search-feed-face ((,spec (:foreground ,blue))))
+   `(elfeed-search-tag-face ((,spec (:foreground ,gray2))))
+   `(elfeed-search-title-face ((,spec (:foreground ,gray2))))
+   `(elfeed-search-filter-face ((,spec (:foreground ,violet))))
+   `(elfeed-search-unread-count-face ((,spec (:foreground ,yellow))))
+   `(elfeed-search-unread-title-face ((,spec (:foreground ,fg :weight bold))))
+#+end_src
+
 *** Email
 
 There are many packages that cobble together different Email & RSS interfaces. Many of them look to ~message-mode~ or ~gnus~ for faces. Others have their own opinions.

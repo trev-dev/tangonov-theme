@@ -198,6 +198,20 @@ Alpha should be a float between 0 and 1."
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 ;; Easy Customization:1 ends here
 
+;; [[file:tangonov-theme.org::*Elfleed][Elfleed:1]]
+   `(elfeed-log-debug-level-face ((,spec (:foreground ,gray2))))
+   `(elfeed-log-error-level-face ((,spec (:inherit 'error))))
+   `(elfeed-log-info-level-face ((,spec (:inherit 'success))))
+   `(elfeed-log-warn-level-face ((,spec (:inherit 'warning))))
+   `(elfeed-search-date-face ((,spec (:foreground ,violet))))
+   `(elfeed-search-feed-face ((,spec (:foreground ,blue))))
+   `(elfeed-search-tag-face ((,spec (:foreground ,gray2))))
+   `(elfeed-search-title-face ((,spec (:foreground ,gray2))))
+   `(elfeed-search-filter-face ((,spec (:foreground ,violet))))
+   `(elfeed-search-unread-count-face ((,spec (:foreground ,yellow))))
+   `(elfeed-search-unread-title-face ((,spec (:foreground ,fg :weight bold))))
+;; Elfleed:1 ends here
+
 ;; [[file:tangonov-theme.org::*Message Mode][Message Mode:1]]
    `(message-header-name ((,spec (:foreground ,green))))
    `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
