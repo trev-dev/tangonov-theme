@@ -136,7 +136,9 @@ Alpha should be a float between 0 and 1."
    `(region ((,spec (:foreground
                      ,cyan :background ,(tangonov-darken cyan 0.5)))))
    `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
-   `(lazy-highlight ((,spec (:inherit 'isearch))))
+   `(lazy-highlight ((,spec
+                      (:foreground ,blue :background
+                                   ,(tangonov-darken blue 0.5)))))
    `(error ((,spec (:foreground ,red))))
    `(warning ((,spec (:foreground ,yellow))))
    `(success ((,spec (:foreground ,green))))
