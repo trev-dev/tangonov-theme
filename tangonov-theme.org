@@ -3,6 +3,7 @@
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el
 :END:
+[[https://melpa.org/#/tangonov-theme][file:https://melpa.org/packages/tangonov-theme-badge.svg]]
 
 [[file:images/tangonov.png]]
 
@@ -90,7 +91,7 @@ Some preliminary information about the theme
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark
-;; Version: 1.0.4
+;; Version: 1.0.5
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -257,7 +258,9 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(region ((,spec (:foreground
                      ,cyan :background ,(tangonov-darken cyan 0.5)))))
    `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
-   `(lazy-highlight ((,spec (:inherit 'isearch))))
+   `(lazy-highlight ((,spec
+                      (:foreground ,blue :background
+                                   ,(tangonov-darken blue 0.5)))))
    `(error ((,spec (:foreground ,red))))
    `(warning ((,spec (:foreground ,yellow))))
    `(success ((,spec (:foreground ,green))))
@@ -322,6 +325,22 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
      ((,spec (:foreground ,green :background ,(tangonov-darken green 0.5)))))
    `(custom-changed ((,spec (:foreground ,blue :background ,bg))))
 #+END_SRC
+
+*** Elfleed
+
+#+begin_src elisp
+   `(elfeed-log-debug-level-face ((,spec (:foreground ,gray2))))
+   `(elfeed-log-error-level-face ((,spec (:inherit 'error))))
+   `(elfeed-log-info-level-face ((,spec (:inherit 'success))))
+   `(elfeed-log-warn-level-face ((,spec (:inherit 'warning))))
+   `(elfeed-search-date-face ((,spec (:foreground ,violet))))
+   `(elfeed-search-feed-face ((,spec (:foreground ,blue))))
+   `(elfeed-search-tag-face ((,spec (:foreground ,gray2))))
+   `(elfeed-search-title-face ((,spec (:foreground ,gray2))))
+   `(elfeed-search-filter-face ((,spec (:foreground ,violet))))
+   `(elfeed-search-unread-count-face ((,spec (:foreground ,yellow))))
+   `(elfeed-search-unread-title-face ((,spec (:foreground ,fg :weight bold))))
+#+end_src
 
 *** Email
 
@@ -415,6 +434,12 @@ There are many packages that cobble together different Email & RSS interfaces. M
 **** Notmuch
 
 #+BEGIN_SRC elisp
+   `(notmuch-crypto-decryption ((,spec (:foreground ,magenta))))
+   ; `(notmuch-crypto-part-header ((,spec ())))
+   `(notmuch-crypto-signature-bad ((,spec (:foreground ,red))))
+   `(notmuch-crypto-signature-good ((,spec (:foreground ,green))))
+   `(notmuch-crypto-signature-good-key ((,spec (:foreground ,orange))))
+   `(notmuch-crypto-signature-unknown ((,spec (:foreground ,red))))
    `(notmuch-message-summary-face
      ((,spec (:background ,bg-alt))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
