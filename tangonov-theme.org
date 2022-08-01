@@ -219,6 +219,29 @@ To theme Emacs you must set the faces for every package you would like to see ch
    'tangonov
 #+END_SRC
 
+*** Ansi Colors
+
+These colors are used by various shell-like packages.
+
+#+begin_src elisp
+   `(ansi-color-black ((,spec (:foregound ,gray1 :background ,gray1))))
+   `(ansi-color-blue ((,spec (:foreground ,blue :background ,blue))))
+   `(ansi-color-bright-black ((,spec (:foreground ,gray2 :background ,gray2))))
+   `(ansi-color-bright-blue ((,spec (:foreground ,blue :background ,blue))))
+   `(ansi-color-bright-cyan ((,spec (:foreground ,cyan :background ,cyan))))
+   `(ansi-color-bright-green ((,spec (:foreground ,green :background ,green))))
+   `(ansi-color-bright-magenta ((,spec (:foreground ,magenta :background ,magenta))))
+   `(ansi-color-bright-red ((,spec (:foreground ,red :background ,red))))
+   `(ansi-color-bright-white ((,spec (:foreground "#FFFFFF" :background "#FFFFFF"))))
+   `(ansi-color-bright-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+   `(ansi-color-cyan ((,spec (:foreground ,cyan :background ,cyan))))
+   `(ansi-color-green ((,spec (:foreground ,green :background ,green))))
+   `(ansi-color-magenta ((,spec (:foreground ,magenta :background ,magenta))))
+   `(ansi-color-red ((,spec (:foreground ,red :background ,red))))
+   `(ansi-color-white ((,spec (:foreground ,fg :background ,fg))))
+   `(ansi-color-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+#+end_src
+
 *** Avy
 
 #+BEGIN_SRC elisp

@@ -106,6 +106,25 @@ Alpha should be a float between 0 and 1."
    'tangonov
 ;; Faces:1 ends here
 
+;; [[file:tangonov-theme.org::*Ansi Colors][Ansi Colors:1]]
+   `(ansi-color-black ((,spec (:foregound ,gray1 :background ,gray1))))
+   `(ansi-color-blue ((,spec (:foreground ,blue :background ,blue))))
+   `(ansi-color-bright-black ((,spec (:foreground ,gray2 :background ,gray2))))
+   `(ansi-color-bright-blue ((,spec (:foreground ,blue :background ,blue))))
+   `(ansi-color-bright-cyan ((,spec (:foreground ,cyan :background ,cyan))))
+   `(ansi-color-bright-green ((,spec (:foreground ,green :background ,green))))
+   `(ansi-color-bright-magenta ((,spec (:foreground ,magenta :background ,magenta))))
+   `(ansi-color-bright-red ((,spec (:foreground ,red :background ,red))))
+   `(ansi-color-bright-white ((,spec (:foreground "#FFFFFF" :background "#FFFFFF"))))
+   `(ansi-color-bright-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+   `(ansi-color-cyan ((,spec (:foreground ,cyan :background ,cyan))))
+   `(ansi-color-green ((,spec (:foreground ,green :background ,green))))
+   `(ansi-color-magenta ((,spec (:foreground ,magenta :background ,magenta))))
+   `(ansi-color-red ((,spec (:foreground ,red :background ,red))))
+   `(ansi-color-white ((,spec (:foreground ,fg :background ,fg))))
+   `(ansi-color-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+;; Ansi Colors:1 ends here
+
 ;; [[file:tangonov-theme.org::*Avy][Avy:1]]
    `(avy-goto-char-timer-face
      ((,spec (:inherit 'isearch))))
