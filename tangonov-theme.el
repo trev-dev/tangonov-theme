@@ -296,6 +296,12 @@ Alpha should be a float between 0 and 1."
 ;; GNUs:1 ends here
 
 ;; [[file:tangonov-theme.org::*Notmuch][Notmuch:1]]
+   `(notmuch-crypto-decryption ((,spec (:foreground ,magenta))))
+   ; `(notmuch-crypto-part-header ((,spec ())))
+   `(notmuch-crypto-signature-bad ((,spec (:foreground ,red))))
+   `(notmuch-crypto-signature-good ((,spec (:foreground ,green))))
+   `(notmuch-crypto-signature-good-key ((,spec (:foreground ,orange))))
+   `(notmuch-crypto-signature-unknown ((,spec (:foreground ,red))))
    `(notmuch-message-summary-face
      ((,spec (:background ,bg-alt))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
