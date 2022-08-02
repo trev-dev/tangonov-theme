@@ -452,6 +452,12 @@ Alpha should be a float between 0 and 1."
    `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
 ;; Hydra:1 ends here
 
+;; [[file:tangonov-theme.org::*Inf-Ruby][Inf-Ruby:1]]
+   `(inf-ruby-result-overlay-face
+     ((,spec (:foreground ,cyan :background
+                          ,bg-alt :box (:line-width 1 :color ,cyan)))))
+;; Inf-Ruby:1 ends here
+
 ;; [[file:tangonov-theme.org::*ISearch][ISearch:1]]
    `(isearch ((,spec (:inherit 'match :weight bold))))
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))

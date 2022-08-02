@@ -610,6 +610,14 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
 #+END_SRC
 
+*** Inf-Ruby
+
+#+begin_src elisp
+   `(inf-ruby-result-overlay-face
+     ((,spec (:foreground ,cyan :background
+                          ,bg-alt :box (:line-width 1 :color ,cyan)))))
+#+end_src
+
 *** ISearch
 
 #+BEGIN_SRC elisp
