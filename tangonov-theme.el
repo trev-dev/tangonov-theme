@@ -322,7 +322,7 @@ Alpha should be a float between 0 and 1."
    `(notmuch-crypto-signature-good-key ((,spec (:foreground ,orange))))
    `(notmuch-crypto-signature-unknown ((,spec (:foreground ,red))))
    `(notmuch-message-summary-face
-     ((,spec (:background ,bg-alt))))
+     ((,spec (:background ,bg-alt :overline ,gray2))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
    `(notmuch-search-flagged-face
