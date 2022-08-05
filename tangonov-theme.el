@@ -116,7 +116,7 @@ Alpha should be a float between 0 and 1."
           #b00000000
           #b00000000
           #b00000000)
-  "A fringe bitmap used by tangonov-theme")
+  "A fringe bitmap used by tangonov-theme.")
 
 (when tangonov-enable-custom-fringes
   (fringe-mode '(4 . 0))
@@ -125,7 +125,7 @@ Alpha should be a float between 0 and 1."
       tangonov--fringe-stub))
   (with-eval-after-load 'flycheck
     (define-fringe-bitmap 'flycheck-fringe-bitmap-caret
-      tangonov--fringe-stub)
+      tangonov--fringe-right-triangle)
     (flycheck-define-error-level
           'error
         :severity 100
