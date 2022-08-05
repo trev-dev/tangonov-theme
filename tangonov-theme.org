@@ -90,8 +90,8 @@ Some preliminary information about the theme
 ;; Maintainer: Trevor Richards <trev@trevdev.ca>
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
-;; Keywords: faces, theme, dark
-;; Version: 1.0.5
+;; Keywords: faces, theme, dark, fringe
+;; Version: 1.1.0
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -183,6 +183,144 @@ Alpha should be a float between 0 and 1."
         ((tangonov-blend color "#FFFFFF" (- 1 alpha)))))
 #+END_SRC
 
+** Custom Group
+
+This theme will be customizable under the group name ~tangonov-theme~
+
+#+begin_src elisp
+(defgroup tangonov-theme nil
+  "Custom settings for `tangonov-theme'.")
+#+end_src
+
+** Custom Fringes
+
+This is an experimental feature that includes opinionated settings for a custom fringe.
+
+#+begin_src elisp :noweb yes
+(defcustom tangonov-enable-custom-fringes t
+  "Use custom settings from tangonov-theme to set up your fringe area."
+  :type 'boolean
+  :group 'tangonov-theme)
+#+end_src
+
+*** A Smaller Fringe by Default
+
+#+begin_src elisp :noweb-ref custom-fringes :tangle no
+(fringe-mode '(4 . 0))
+#+end_src
+
+*** Bitmaps
+
+With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by built-ins and packages. They key to making these work is to load them after the packages that define theme. They are not "customizable", so the must be overridden.
+
+**** Triangle Bitmap
+
+#+begin_src elisp
+(defvar tangonov--fringe-right-triangle
+  (vector #b00000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b10000000
+          #b11000000
+          #b11100000
+          #b11110000
+          #b11100000
+          #b11000000
+          #b10000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b00000000)
+  "A fringe bitmap used by tangonov-theme.")
+#+end_src
+
+**** Stub Bitmap
+
+#+begin_src elisp
+(defvar tangonov--fringe-stub
+  (vector #b00000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b11110000
+          #b11110000
+          #b11110000
+          #b11110000
+          #b11110000
+          #b11110000
+          #b11110000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b00000000
+          #b00000000)
+  "A fringe bitmap used by tangonov-theme")
+#+end_src
+
+*** Bookmark.el
+
+#+begin_src elisp :noweb-ref custom-fringes :tangle no
+(with-eval-after-load 'bookmark
+  (define-fringe-bitmap 'bookmark-fringe-mark
+    tangonov--fringe-stub))
+#+end_src
+
+*** Flycheck
+
+#+begin_src elisp :noweb-ref custom-fringes :tangle no
+(with-eval-after-load 'flycheck
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-caret
+    tangonov--fringe-stub)
+  (flycheck-define-error-level
+        'error
+      :severity 100
+      :compilation-level 2
+      :overlay-category 'flycheck-error-overlay
+      :fringe-bitmap 'flycheck-fringe-bitmap-caret
+      :fringe-face 'flycheck-fringe-error
+      :error-list-face 'flycheck-error-list-error)
+    (flycheck-define-error-level
+        'warning
+      :severity 100
+      :compilation-level 1
+      :overlay-category 'flycheck-warning-overlay
+      :fringe-bitmap 'flycheck-fringe-bitmap-caret
+      :fringe-face 'flycheck-fringe-warning
+      :warning-list-face 'flycheck-warning-list-warning)
+    (flycheck-define-error-level
+        'info
+      :severity 100
+      :compilation-level 1
+      :overlay-category 'flycheck-info-overlay
+      :fringe-bitmap 'flycheck-fringe-bitmap-caret
+      :fringe-face 'flycheck-fringe-info
+      :info-list-face 'flycheck-info-list-info))
+#+end_src
+
+*** Flymake
+
+#+begin_src elisp :noweb-ref custom-fringes :tangle no
+(with-eval-after-load 'flymake
+  (define-fringe-bitmap 'small-right-triangle
+    tangonov--fringe-right-triangle)
+  (setq flymake-note-bitmap    '(small-right-triangle compilation-info)
+        flymake-error-bitmap   '(small-right-triangle compilation-error)
+        flymake-warning-bitmap '(small-right-triangle compilation-warning)))
+#+end_src
+
+*** Apply Settings
+
+We need our fringes to be applied after the relevant, related packages load.
+
+#+begin_src elisp :noweb yes
+(when tangonov-enable-custom-fringes
+  <<custom-fringes>>)
+#+end_src
+
 ** Color Definitions
 
 The strategy for writing this theme is to do it as simply as possible. I am only supporting 256 colors (for now).
@@ -221,6 +359,29 @@ To theme Emacs you must set the faces for every package you would like to see ch
   (custom-theme-set-faces
    'tangonov
 #+END_SRC
+
+*** Ansi Colors
+
+These colors are used by various shell-like packages.
+
+#+begin_src elisp
+   `(ansi-color-black ((,spec (:foregound ,gray1 :background ,gray1))))
+   `(ansi-color-blue ((,spec (:foreground ,blue :background ,blue))))
+   `(ansi-color-bright-black ((,spec (:foreground ,gray2 :background ,gray2))))
+   `(ansi-color-bright-blue ((,spec (:foreground ,blue :background ,blue))))
+   `(ansi-color-bright-cyan ((,spec (:foreground ,cyan :background ,cyan))))
+   `(ansi-color-bright-green ((,spec (:foreground ,green :background ,green))))
+   `(ansi-color-bright-magenta ((,spec (:foreground ,magenta :background ,magenta))))
+   `(ansi-color-bright-red ((,spec (:foreground ,red :background ,red))))
+   `(ansi-color-bright-white ((,spec (:foreground "#FFFFFF" :background "#FFFFFF"))))
+   `(ansi-color-bright-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+   `(ansi-color-cyan ((,spec (:foreground ,cyan :background ,cyan))))
+   `(ansi-color-green ((,spec (:foreground ,green :background ,green))))
+   `(ansi-color-magenta ((,spec (:foreground ,magenta :background ,magenta))))
+   `(ansi-color-red ((,spec (:foreground ,red :background ,red))))
+   `(ansi-color-white ((,spec (:foreground ,fg :background ,fg))))
+   `(ansi-color-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+#+end_src
 
 *** Avy
 
@@ -274,6 +435,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(completions-first-difference ((,spec (:foreground ,yellow))))
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
+   `(bookmark-face ((,spec (:foreground ,orange))))
 #+END_SRC
 
 *** CSS
@@ -441,7 +603,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(notmuch-crypto-signature-good-key ((,spec (:foreground ,orange))))
    `(notmuch-crypto-signature-unknown ((,spec (:foreground ,red))))
    `(notmuch-message-summary-face
-     ((,spec (:background ,bg-alt))))
+     ((,spec (:background ,bg-alt :overline ,gray2))))
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
    `(notmuch-search-flagged-face
@@ -590,6 +752,14 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
 #+END_SRC
 
+*** Inf-Ruby
+
+#+begin_src elisp
+   `(inf-ruby-result-overlay-face
+     ((,spec (:foreground ,cyan :background
+                          ,bg-alt :box (:line-width 1 :color ,cyan)))))
+#+end_src
+
 *** ISearch
 
 #+BEGIN_SRC elisp
@@ -647,19 +817,19 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
 
-*** Modeline & Tabbar
+*** Mode-line & Tabbar
 
 Set faces for the top and bottom "bars."
 
 #+BEGIN_SRC elisp
    ;; Modeline/Tabline
    `(mode-line
-     ((,spec (:foreground ,fg :background ,bg-alt :box
+     ((,spec (:foreground ,fg-alt :background ,bg-alt :box
                           (:line-width (2 . 2) :color ,bg-alt)))))
    `(mode-line-inactive
      ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
-   `(mode-line-buffer-id ((,spec (:weight bold))))
+   `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 #+END_SRC
 
@@ -747,10 +917,17 @@ Faces for tracking habits with the agenda view.
 **** Podomoro
 
 #+BEGIN_SRC elisp
-   `(org-pomodoro-mode-line ((,spec (:foreground ,red))))
+   `(org-pomodoro-mode-line ((,spec (:foreground ,fg))))
    `(org-pomodoro-mode-line-overtime
      ((,spec (:foreground ,yellow :weight bold))))
 #+END_SRC
+
+**** Mode-Line
+
+#+begin_src elisp
+   `(org-mode-line-clock ((,spec (:foreground ,fg))))
+   `(org-mode-line-clock-overrun ((,spec (:inherit error))))
+#+end_src
 
 **** Ref faces
 
