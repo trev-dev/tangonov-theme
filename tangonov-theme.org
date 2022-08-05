@@ -294,6 +294,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(completions-first-difference ((,spec (:foreground ,yellow))))
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
+   `(bookmark-face ((,spec (:foreground ,orange))))
 #+END_SRC
 
 *** CSS
