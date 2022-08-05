@@ -258,7 +258,7 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
           #b00000000
           #b00000000
           #b00000000)
-  "A fringe bitmap used by tangonov-theme")
+  "A fringe bitmap used by tangonov-theme.")
 #+end_src
 
 *** Bookmark.el
