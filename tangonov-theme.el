@@ -501,17 +501,17 @@ Alpha should be a float between 0 and 1."
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 ;; Eldoc Box:1 ends here
 
-;; [[file:tangonov-theme.org::*Modeline & Tabbar][Modeline & Tabbar:1]]
+;; [[file:tangonov-theme.org::*Mode-line & Tabbar][Mode-line & Tabbar:1]]
    ;; Modeline/Tabline
    `(mode-line
-     ((,spec (:foreground ,fg :background ,bg-alt :box
+     ((,spec (:foreground ,fg-alt :background ,bg-alt :box
                           (:line-width (2 . 2) :color ,bg-alt)))))
    `(mode-line-inactive
      ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
-   `(mode-line-buffer-id ((,spec (:weight bold))))
+   `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
-;; Modeline & Tabbar:1 ends here
+;; Mode-line & Tabbar:1 ends here
 
 ;; [[file:tangonov-theme.org::*Documents][Documents:1]]
    `(org-block ((,spec (:background ,bg-alt))))
@@ -581,10 +581,15 @@ Alpha should be a float between 0 and 1."
 ;; Journal:1 ends here
 
 ;; [[file:tangonov-theme.org::*Podomoro][Podomoro:1]]
-   `(org-pomodoro-mode-line ((,spec (:foreground ,red))))
+   `(org-pomodoro-mode-line ((,spec (:foreground ,fg))))
    `(org-pomodoro-mode-line-overtime
      ((,spec (:foreground ,yellow :weight bold))))
 ;; Podomoro:1 ends here
+
+;; [[file:tangonov-theme.org::*Mode-Line][Mode-Line:1]]
+   `(org-mode-line-clock ((,spec (:foreground ,fg))))
+   `(org-mode-line-clock-overrun ((,spec (:inherit error))))
+;; Mode-Line:1 ends here
 
 ;; [[file:tangonov-theme.org::*Ref faces][Ref faces:1]]
    `(org-ref-acronym-face ((,spec (:foreground ,violet))))

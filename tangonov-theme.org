@@ -675,19 +675,19 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
 
-*** Modeline & Tabbar
+*** Mode-line & Tabbar
 
 Set faces for the top and bottom "bars."
 
 #+BEGIN_SRC elisp
    ;; Modeline/Tabline
    `(mode-line
-     ((,spec (:foreground ,fg :background ,bg-alt :box
+     ((,spec (:foreground ,fg-alt :background ,bg-alt :box
                           (:line-width (2 . 2) :color ,bg-alt)))))
    `(mode-line-inactive
      ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
-   `(mode-line-buffer-id ((,spec (:weight bold))))
+   `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
    `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 #+END_SRC
 
@@ -775,10 +775,17 @@ Faces for tracking habits with the agenda view.
 **** Podomoro
 
 #+BEGIN_SRC elisp
-   `(org-pomodoro-mode-line ((,spec (:foreground ,red))))
+   `(org-pomodoro-mode-line ((,spec (:foreground ,fg))))
    `(org-pomodoro-mode-line-overtime
      ((,spec (:foreground ,yellow :weight bold))))
 #+END_SRC
+
+**** Mode-Line
+
+#+begin_src elisp
+   `(org-mode-line-clock ((,spec (:foreground ,fg))))
+   `(org-mode-line-clock-overrun ((,spec (:inherit error))))
+#+end_src
 
 **** Ref faces
 
