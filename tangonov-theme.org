@@ -288,7 +288,7 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
 #+begin_src elisp :noweb-ref custom-fringes :tangle no
 (with-eval-after-load 'flycheck
   (define-fringe-bitmap 'flycheck-fringe-bitmap-caret
-    tangonov--fringe-stub)
+    tangonov--fringe-right-triangle)
   (flycheck-define-error-level
         'error
       :severity 100
