@@ -21,12 +21,24 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 - [[#utility-functions][Utility Functions]]
   - [[#converting-named-colors-to-hexidecimal-colors][Converting named colors to hexidecimal colors]]
   - [[#blending-colors][Blending colors]]
+- [[#custom-group][Custom Group]]
+- [[#custom-fringes][Custom Fringes]]
+  - [[#a-smaller-fringe-by-default][A Smaller Fringe by Default]]
+  - [[#bitmaps][Bitmaps]]
+    - [[#triangle-bitmap][Triangle Bitmap]]
+    - [[#stub-bitmap][Stub Bitmap]]
+  - [[#bookmarkel][Bookmark.el]]
+  - [[#flycheck][Flycheck]]
+  - [[#flymake][Flymake]]
+  - [[#apply-settings][Apply Settings]]
 - [[#color-definitions][Color Definitions]]
 - [[#faces][Faces]]
+  - [[#ansi-colors][Ansi Colors]]
   - [[#avy][Avy]]
   - [[#basic-faces][Basic Faces]]
   - [[#css][CSS]]
   - [[#easy-customization][Easy Customization]]
+  - [[#elfleed][Elfleed]]
   - [[#email][Email]]
     - [[#message-mode][Message Mode]]
     - [[#gnus][GNUs]]
@@ -39,6 +51,7 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
   - [[#font-lock-faces][Font Lock Faces]]
   - [[#goggles][Goggles]]
   - [[#hydra][Hydra]]
+  - [[#inf-ruby][Inf-Ruby]]
   - [[#isearch][ISearch]]
   - [[#linters][Linters]]
     - [[#flymake][Flymake]]
@@ -47,13 +60,14 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
   - [[#lsp][LSP]]
     - [[#eglot][Eglot]]
     - [[#eldoc-box][Eldoc Box]]
-  - [[#modeline--tabbar][Modeline & Tabbar]]
+  - [[#mode-line--tabbar][Mode-line & Tabbar]]
   - [[#org-mode][Org Mode]]
     - [[#documents][Documents]]
     - [[#agenda][Agenda]]
     - [[#habit][Habit]]
     - [[#journal][Journal]]
     - [[#podomoro][Podomoro]]
+    - [[#mode-line][Mode-Line]]
     - [[#ref-faces][Ref faces]]
   - [[#rainbow-delimiters][Rainbow Delimiters]]
   - [[#rjsx-mode][RJSX Mode]]
@@ -258,7 +272,7 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
           #b00000000
           #b00000000
           #b00000000)
-  "A fringe bitmap used by tangonov-theme")
+  "A fringe bitmap used by tangonov-theme.")
 #+end_src
 
 *** Bookmark.el
