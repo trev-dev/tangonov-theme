@@ -268,6 +268,19 @@ Alpha should be a float between 0 and 1."
    `(elfeed-search-filter-face ((,spec (:foreground ,violet))))
    `(elfeed-search-unread-count-face ((,spec (:foreground ,yellow))))
    `(elfeed-search-unread-title-face ((,spec (:foreground ,fg :weight bold))))
+   `(eww-form-checkbox ((,spec (:inherit 'eww-form-file))))
+   `(eww-form-file   ((,spec (:inherit 'eww-form-submit :background ,bg-alt))))
+   `(eww-form-select ((,spec (:inherit 'eww-form-submit :background ,bg-alt))))
+   `(eww-form-submit
+     ((,spec (:inherit 'eww-form-text :box
+                       `(:line-width 2 :style released-button)
+                       :background ,gray1))))
+   `(eww-form-text
+     ((,spec (:box `(:line-width 1 :color ,gray2)
+                   ,bg :foreground ,fg :distant-foreground ,bg))))
+   `(eww-form-textarea ((,spec (:inherit 'eww-form-text))))
+   `(eww-invalid-certificate ((,spec (:foreground error))))
+   `(eww-valid-certificate ((,spec (:foreground highlight))))
    `(default ((,spec (:background ,bg :foreground ,fg))))
    `(bold ((,spec (:weight bold))))
    `(italic ((,spec (:slant italic))))
@@ -299,6 +312,8 @@ Alpha should be a float between 0 and 1."
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
    `(bookmark-face ((,spec (:foreground ,orange))))
+   `(tool-bar ((,spec (:foreground ,fg :background ,bg-alt))))
+   `(tooltip ((,spec (:foreground ,fg :background ,bg-alt))))
    `(message-header-name ((,spec (:foreground ,green))))
    `(message-header-subject ((,spec (:foreground ,cyan :weight bold))))
    `(message-header-to ((,spec (:foreground ,cyan :weight bold))))
@@ -375,7 +390,6 @@ Alpha should be a float between 0 and 1."
    `(gnus-signature ((,spec (:foreground ,yellow))))
    `(gnus-x-face ((,spec (:background ,gray3 :foreground ,fg))))
    `(notmuch-crypto-decryption ((,spec (:foreground ,magenta))))
-   ; `(notmuch-crypto-part-header ((,spec ())))
    `(notmuch-crypto-signature-bad ((,spec (:foreground ,red))))
    `(notmuch-crypto-signature-good ((,spec (:foreground ,green))))
    `(notmuch-crypto-signature-good-key ((,spec (:foreground ,orange))))
@@ -450,21 +464,12 @@ Alpha should be a float between 0 and 1."
      ((,spec (:foreground highlight :underline t :weight bold))))
    `(evil-goggles-delete-face
      ((,spec (:foreground ,(tangonov-darken red 0.5) :background ,red))))
-;; `(evil-goggles-join-face ((,spec ())))
-;; `(evil-goggles-fill-and-move-face ((,spec ())))
    `(evil-goggles-paste-face
      ((,spec (:foreground ,(tangonov-darken green 0.5) :background ,green))))
-;; `(evil-goggles-shift-face ((,spec ())))
-;; `(evil-goggles-surround-face ((,spec ())))
-;; `(evil-goggles-commentary-face ((,spec ())))
-;; `(evil-goggles-nerd-commenter-face ((,spec ())))
-;; `(evil-goggles-replace-with-register-face ((,spec ())))
-;; `(evil-goggles-set-marker-face ((,spec ())))
-`(evil-goggles-undo-redo-add-face ((,spec (:inherit 'evil-goggles-paste-face))))
-`(evil-goggles-undo-redo-remove-face ((,spec (:inherit 'evil-goggles-delete-face))))
-;;`(evil-goggles-undo-redo-change-face ((,spec ())))
-`(evil-goggles-record-macro-face
-  ((,spec (:foreground ,(tangonov-darken yellow 0.5) :background ,yellow))))
+   `(evil-goggles-undo-redo-add-face ((,spec (:inherit 'evil-goggles-paste-face))))
+   `(evil-goggles-undo-redo-remove-face ((,spec (:inherit 'evil-goggles-delete-face))))
+   `(evil-goggles-record-macro-face
+     ((,spec (:foreground ,(tangonov-darken yellow 0.5) :background ,yellow))))
    ;; Font Lock
    `(font-lock-warning-face ((,spec (:inherit 'warning))))
    `(font-lock-function-name-face ((,spec (:foreground ,blue))))
@@ -490,6 +495,11 @@ Alpha should be a float between 0 and 1."
                           ,bg-alt :box (:line-width 1 :color ,cyan)))))
    `(isearch ((,spec (:inherit 'match :weight bold))))
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
+   `(keycast-key
+     ((,spec (:weight bold
+                      :background ,green
+                      :foreground ,bg))))
+   `(keycast-command ((,spec (:foreground ,green :weight bold))))
    `(flymake-error ((,spec (:underline (:style wave :color ,red)))))
    `(flymake-note ((,spec (:underline (:style wave :color ,green)))))
    `(flymake-warning ((,spec (:underline (:style wave :color ,orange)))))
@@ -513,7 +523,6 @@ Alpha should be a float between 0 and 1."
      ((,spec (:underline (:style wave :color ,yellow) :inherit 'unspecified))))
    `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
-   ;; Modeline/Tabline
    `(mode-line
      ((,spec (:foreground ,fg-alt :background ,bg-alt :box
                           (:line-width (2 . 2) :color ,bg-alt)))))
@@ -521,18 +530,17 @@ Alpha should be a float between 0 and 1."
      ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
    `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
-   `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
    `(org-block ((,spec (:background ,bg-alt))))
    `(org-block-background ((,spec (:background ,bg-alt))))
    `(org-block-begin-line ((,spec (:foreground ,gray2 :background ,bg))))
-   `(org-level-1 ((,spec (:foreground ,green))))
-   `(org-level-2 ((,spec (:foreground ,yellow))))
-   `(org-level-3 ((,spec (:foreground ,red))))
-   `(org-level-4 ((,spec (:foreground ,cyan))))
-   `(org-level-5 ((,spec (:foreground ,blue))))
-   `(org-level-6 ((,spec (:foreground ,magenta))))
-   `(org-level-7 ((,spec (:foreground ,teal))))
-   `(org-level-8 ((,spec (:foreground ,violet))))
+   `(org-level-1 ((,spec (:inherit bold :foreground ,green))))
+   `(org-level-2 ((,spec (:inherit bold :foreground ,yellow))))
+   `(org-level-3 ((,spec (:inherit bold :foreground ,red))))
+   `(org-level-4 ((,spec (:inherit bold :foreground ,cyan))))
+   `(org-level-5 ((,spec (:inherit bold :foreground ,blue))))
+   `(org-level-6 ((,spec (:inherit bold :foreground ,magenta))))
+   `(org-level-7 ((,spec (:inherit bold :foreground ,teal))))
+   `(org-level-8 ((,spec (:inherit bold :foreground ,violet))))
    `(org-headline-done ((,spec (:foreground ,gray2))))
    `(org-table ((,spec (:foreground ,magenta))))
    `(org-todo ((,spec (:foreground ,orange))))
@@ -628,6 +636,19 @@ Alpha should be a float between 0 and 1."
    `(vterm-color-cyan
      ((,spec (:background ,cyan :foreground ,(tangonov-lighten cyan 0.2)))))
    `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
+   `(tab-line ((,spec (:background ,bg-alt))))
+   `(tab-line-tab ((,spec (:background ,bg-alt :foreground ,fg-alt))))
+   `(tab-line-tab-inactive
+     ((,spec (:inherit 'tab-line-tab
+                       :background ,bg-alt :foreground ,gray2))))
+   `(tab-line-tab-inactive-alternate
+     ((,spec (:inherit 'tab-line-tab-inactive))))
+   `(tab-line-tab-current ((,spec (:background ,bg-alt :foreground ,fg))))
+   `(tab-line-highlight ((,spec (:inherit 'tab-line-tab))))
+   `(tab-line-close-highlight ((,spec (:foreground ,cyan))))
+   `(tab-bar ((,spec (:inherit tab-line))))
+   `(tab-bar-tab ((,spec (:inherit tab-line-tab))))
+   `(tab-bar-tab-inactive ((,spec (:inherit tab-line-tab-inactive))))
    `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
    `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
    `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
