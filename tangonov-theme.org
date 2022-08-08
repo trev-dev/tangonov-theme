@@ -1244,7 +1244,7 @@ Magit is a monster sized package with many, many faces
 In branch devel, this keeps the end of =custom-theme-set-faces= clean. In branch main, we collect all of the tangled blocks here for cleaner looking source code.
 
 #+BEGIN_SRC elisp
-  ))
+   ))
 #+END_SRC
 
 ** Add Theme to Custom Load Path
