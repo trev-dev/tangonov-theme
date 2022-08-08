@@ -873,12 +873,11 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
 
-*** Mode-line & Tabbar
+*** Mode-line
 
 Set faces for the top and bottom "bars."
 
 #+BEGIN_SRC elisp
-   ;; Modeline/Tabline
    `(mode-line
      ((,spec (:foreground ,fg-alt :background ,bg-alt :box
                           (:line-width (2 . 2) :color ,bg-alt)))))
@@ -886,7 +885,6 @@ Set faces for the top and bottom "bars."
      ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
    `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
-   `(tab-line ((,spec (:foreground ,fg :background ,bg-alt))))
 #+END_SRC
 
 *** Org Mode
