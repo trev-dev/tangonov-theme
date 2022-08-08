@@ -7,7 +7,7 @@
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.1.0
+;; Version: 1.3.1
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -279,8 +279,8 @@ Alpha should be a float between 0 and 1."
      ((,spec (:box `(:line-width 1 :color ,gray2)
                    ,bg :foreground ,fg :distant-foreground ,bg))))
    `(eww-form-textarea ((,spec (:inherit 'eww-form-text))))
-   `(eww-invalid-certificate ((,spec (:foreground error))))
-   `(eww-valid-certificate ((,spec (:foreground highlight))))
+   `(eww-invalid-certificate ((,spec (:foreground ,red))))
+   `(eww-valid-certificate ((,spec (:foreground ,cyan))))
    `(default ((,spec (:background ,bg :foreground ,fg))))
    `(bold ((,spec (:weight bold))))
    `(italic ((,spec (:slant italic))))
