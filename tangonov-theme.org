@@ -1,4 +1,5 @@
 #+STARTUP: content
+#+OPTIONS: toc:nil
 * Tangonov
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el
@@ -11,85 +12,9 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 
 [[file:images/tangonov-1.png]]
 [[file:images/tangonov-2.png]]
-** Contents
-:PROPERTIES:
-:TOC:      :include siblings :depth 3 :force (depth) :ignore (this) :local (depth)
-:END:
-:CONTENTS:
-- [[#package-header][Package Header]]
-- [[#dependences][Dependences]]
-- [[#utility-functions][Utility Functions]]
-  - [[#converting-named-colors-to-hexidecimal-colors][Converting named colors to hexidecimal colors]]
-  - [[#blending-colors][Blending colors]]
-- [[#custom-group][Custom Group]]
-- [[#custom-fringes][Custom Fringes]]
-  - [[#a-smaller-fringe-by-default][A Smaller Fringe by Default]]
-  - [[#bitmaps][Bitmaps]]
-    - [[#triangle-bitmap][Triangle Bitmap]]
-    - [[#stub-bitmap][Stub Bitmap]]
-  - [[#bookmarkel][Bookmark.el]]
-  - [[#flycheck][Flycheck]]
-  - [[#flymake][Flymake]]
-  - [[#apply-settings][Apply Settings]]
-- [[#color-definitions][Color Definitions]]
-- [[#faces][Faces]]
-  - [[#ansi-colors][Ansi Colors]]
-  - [[#avy][Avy]]
-  - [[#company][Company]]
-  - [[#css][CSS]]
-  - [[#easy-customization][Easy Customization]]
-  - [[#elfleed][Elfleed]]
-  - [[#emacs][Emacs]]
-  - [[#email][Email]]
-    - [[#message-mode][Message Mode]]
-    - [[#gnus][GNUs]]
-    - [[#notmuch][Notmuch]]
-  - [[#erc][ERC]]
-  - [[#evil][Evil]]
-    - [[#evil-mc][evil-mc]]
-    - [[#evil-snipe][evil-snipe]]
-    - [[#evil-goggles][evil-goggles]]
-  - [[#font-lock-faces][Font Lock Faces]]
-  - [[#goggles][Goggles]]
-  - [[#hydra][Hydra]]
-  - [[#inf-ruby][Inf-Ruby]]
-  - [[#isearch][ISearch]]
-  - [[#linters][Linters]]
-    - [[#flymake][Flymake]]
-    - [[#flycheck][Flycheck]]
-    - [[#flyspell][Flyspell]]
-  - [[#lsp][LSP]]
-    - [[#eglot][Eglot]]
-    - [[#eldoc-box][Eldoc Box]]
-  - [[#mode-line--tabbar][Mode-line & Tabbar]]
-  - [[#org-mode][Org Mode]]
-    - [[#documents][Documents]]
-    - [[#agenda][Agenda]]
-    - [[#habit][Habit]]
-    - [[#journal][Journal]]
-    - [[#podomoro][Podomoro]]
-    - [[#mode-line][Mode-Line]]
-    - [[#ref-faces][Ref faces]]
-  - [[#rainbow-delimiters][Rainbow Delimiters]]
-  - [[#rjsx-mode][RJSX Mode]]
-  - [[#shells][Shells]]
-    - [[#eshell][Eshell]]
-    - [[#vterm][Vterm]]
-  - [[#typescriptel][Typescript.el]]
-  - [[#version-control][Version Control]]
-    - [[#diff-mode][Diff Mode]]
-    - [[#diff-hl][Diff-hl]]
-    - [[#ediff][Ediff]]
-    - [[#magit][Magit]]
-  - [[#web-mode][Web Mode]]
-  - [[#widgets][Widgets]]
-  - [[#end-of-custom-faces][End of Custom Faces]]
-- [[#add-theme-to-custom-load-path][Add Theme to Custom Load Path]]
-- [[#provide-the-theme][Provide the Theme]]
-- [[#theme-footer][Theme Footer]]
-- [[#contributing][Contributing]]
-- [[#license][License]]
-:END:
+
+#+TOC: headlines 3 local
+
 ** Package Header
 :PROPERTIES:
 :header-args: :tangle tangonov-theme.el
