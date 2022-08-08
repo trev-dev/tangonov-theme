@@ -492,6 +492,24 @@ These colors are used by various shell-like packages.
    `(elfeed-search-unread-title-face ((,spec (:foreground ,fg :weight bold))))
 #+end_src
 
+*** EWW
+
+#+begin_src elisp
+   `(eww-form-checkbox ((,spec (:inherit 'eww-form-file))))
+   `(eww-form-file   ((,spec (:inherit 'eww-form-submit :background ,bg-alt))))
+   `(eww-form-select ((,spec (:inherit 'eww-form-submit :background ,bg-alt))))
+   `(eww-form-submit
+     ((,spec (:inherit 'eww-form-text :box
+                       `(:line-width 2 :style released-button)
+                       :background ,gray1))))
+   `(eww-form-text
+     ((,spec (:box `(:line-width 1 :color ,gray2)
+                   ,bg :foreground ,fg :distant-foreground ,bg))))
+   `(eww-form-textarea ((,spec (:inherit 'eww-form-text))))
+   `(eww-invalid-certificate ((,spec (:foreground error))))
+   `(eww-valid-certificate ((,spec (:foreground highlight))))
+#+end_src
+
 *** Emacs
 
 Set the basic faces for the editor. Many of these faces are used commonly throughout Emacs. Some of them derive other faces.
@@ -528,6 +546,8 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
    `(bookmark-face ((,spec (:foreground ,orange))))
+   `(tool-bar ((,spec (:foreground ,fg :background ,bg-alt))))
+   `(tooltip ((,spec (:foreground ,fg :background ,bg-alt))))
 #+END_SRC
 
 *** Email
@@ -793,6 +813,16 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(isearch-fail ((,spec (:background ,red :foreground ,gray1 :weight bold))))
 #+END_SRC
 
+*** Keycast
+
+#+begin_src elisp
+   `(keycast-key
+     ((,spec (:weight bold
+                      :background ,green
+                      :foreground ,bg))))
+   `(keycast-command ((,spec (:foreground ,green :weight bold))))
+#+end_src
+
 *** Linters
 **** Flymake
 
@@ -1027,6 +1057,24 @@ Faces for tracking habits with the agenda view.
      ((,spec (:background ,cyan :foreground ,(tangonov-lighten cyan 0.2)))))
    `(vterm-color-white ((,spec (:background ,fg :foreground ,gray3))))
 #+END_SRC
+
+*** Tab Bar/Line
+
+#+begin_src elisp
+   `(tab-line ((,spec (:background ,bg-alt))))
+   `(tab-line-tab ((,spec (:background ,bg-alt :foreground ,fg-alt))))
+   `(tab-line-tab-inactive
+     ((,spec (:inherit 'tab-line-tab
+                       :background ,bg-alt :foreground ,gray2))))
+   `(tab-line-tab-inactive-alternate
+     ((,spec (:inherit 'tab-line-tab-inactive))))
+   `(tab-line-tab-current ((,spec (:background ,bg-alt :foreground ,fg))))
+   `(tab-line-highlight ((,spec (:inherit 'tab-line-tab))))
+   `(tab-line-close-highlight ((,spec (:foreground ,cyan))))
+   `(tab-bar ((,spec (:inherit tab-line))))
+   `(tab-bar-tab ((,spec (:inherit tab-line-tab))))
+   `(tab-bar-tab-inactive ((,spec (:inherit tab-line-tab-inactive))))
+#+end_src
 
 *** Typescript.el
 
