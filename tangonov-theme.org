@@ -643,7 +643,6 @@ There are many packages that cobble together different Email & RSS interfaces. M
 
 #+BEGIN_SRC elisp
    `(notmuch-crypto-decryption ((,spec (:foreground ,magenta))))
-   ; `(notmuch-crypto-part-header ((,spec ())))
    `(notmuch-crypto-signature-bad ((,spec (:foreground ,red))))
    `(notmuch-crypto-signature-good ((,spec (:foreground ,green))))
    `(notmuch-crypto-signature-good-key ((,spec (:foreground ,orange))))
@@ -744,21 +743,12 @@ Support for various Evil related features/packages.
 #+BEGIN_SRC elisp
    `(evil-goggles-delete-face
      ((,spec (:foreground ,(tangonov-darken red 0.5) :background ,red))))
-;; `(evil-goggles-join-face ((,spec ())))
-;; `(evil-goggles-fill-and-move-face ((,spec ())))
    `(evil-goggles-paste-face
      ((,spec (:foreground ,(tangonov-darken green 0.5) :background ,green))))
-;; `(evil-goggles-shift-face ((,spec ())))
-;; `(evil-goggles-surround-face ((,spec ())))
-;; `(evil-goggles-commentary-face ((,spec ())))
-;; `(evil-goggles-nerd-commenter-face ((,spec ())))
-;; `(evil-goggles-replace-with-register-face ((,spec ())))
-;; `(evil-goggles-set-marker-face ((,spec ())))
-`(evil-goggles-undo-redo-add-face ((,spec (:inherit 'evil-goggles-paste-face))))
-`(evil-goggles-undo-redo-remove-face ((,spec (:inherit 'evil-goggles-delete-face))))
-;;`(evil-goggles-undo-redo-change-face ((,spec ())))
-`(evil-goggles-record-macro-face
-  ((,spec (:foreground ,(tangonov-darken yellow 0.5) :background ,yellow))))
+   `(evil-goggles-undo-redo-add-face ((,spec (:inherit 'evil-goggles-paste-face))))
+   `(evil-goggles-undo-redo-remove-face ((,spec (:inherit 'evil-goggles-delete-face))))
+   `(evil-goggles-record-macro-face
+     ((,spec (:foreground ,(tangonov-darken yellow 0.5) :background ,yellow))))
 #+END_SRC
 
 *** Font Lock Faces
