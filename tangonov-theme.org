@@ -1152,7 +1152,7 @@ Magit is a monster sized package with many, many faces
    `(magit-blame-hash ((,spec (:foreground ,cyan))))
    `(magit-blame-date ((,spec (:foreground ,red))))
    `(magit-blame-heading
-     ((,spec (:foreground ,orange :background ,gray3 :extend t))))
+     ((,spec (:foreground ,orange :background ,bg-alt :extend t))))
    `(magit-branch-current ((,spec (:foreground ,blue))))
    `(magit-branch-local ((,spec (:foreground ,cyan))))
    `(magit-branch-remote ((,spec (:foreground ,green))))
