@@ -106,7 +106,7 @@ Some preliminary information about the theme
 ;; URL: https://github.com/trev-dev/tangonov-theme
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.3.1
+;; Version: 1.4.0
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
