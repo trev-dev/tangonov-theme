@@ -546,7 +546,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
                                ,(if tangonov-selection-foregrounds
                                     fg
                                   nil)
-                               :background ,gray2))))
+                               :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
