@@ -261,6 +261,17 @@ We need our fringes to be applied after the relevant, related packages load.
   <<custom-fringes>>)
 #+end_src
 
+** Region Foregrounds
+
+There may be some reason you'd want to avoid having some explicit foreground for selected text. If I am using something like Meow modal editing, selection comes hand-in-hand with motion. I don't want to lose syntax highlighting while trying to find things.
+
+#+begin_src elisp
+(defcustom tangonov-selection-foregrounds t
+  "Set a uniform foreground for selected text."
+  :type 'boolean
+  :group 'tangonov-theme)
+#+end_src
+
 ** Color Definitions
 
 The strategy for writing this theme is to do it as simply as possible. I am only supporting 256 colors (for now).
@@ -455,8 +466,15 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(match ((,spec (:foreground
                     ,green :background ,(tangonov-darken green 0.5)))))
    `(region ((,spec (:foreground
-                     ,cyan :background ,(tangonov-darken cyan 0.5)))))
-   `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
+                  ,(if tangonov-selection-foregrounds
+                       cyan
+                     nil)
+                  :background ,(tangonov-darken cyan 0.5)))))
+   `(secondary-selection ((,spec (:foreground
+                               ,(if tangonov-selection-foregrounds
+                                    fg
+                                  nil)
+                               :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
@@ -1062,7 +1080,7 @@ Magit is a monster sized package with many, many faces
    `(magit-blame-hash ((,spec (:foreground ,cyan))))
    `(magit-blame-date ((,spec (:foreground ,red))))
    `(magit-blame-heading
-     ((,spec (:foreground ,orange :background ,gray3 :extend t))))
+     ((,spec (:foreground ,orange :background ,bg-alt :extend t))))
    `(magit-branch-current ((,spec (:foreground ,blue))))
    `(magit-branch-local ((,spec (:foreground ,cyan))))
    `(magit-branch-remote ((,spec (:foreground ,green))))
