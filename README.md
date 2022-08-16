@@ -6,62 +6,62 @@
 
 A pleasant dark theme with bright, easy to read pastels. I had originally made this theme as a contribution to Doom Themes as "doom-material-dark". This is the stand-alone verison of that theme.
 
-
 ![img](images/tangonov-1.png) ![img](images/tangonov-2.png)
 
-1.  [Package Header](#orgf3cf1fa)
-2.  [Dependences](#org6ab210f)
-3.  [Utility Functions](#orgcaa5bc2)
-    1.  [Converting named colors to hexidecimal colors](#org12e85f8)
-    2.  [Blending colors](#org823d48d)
-4.  [Custom Group](#org226ecbd)
-5.  [Custom Fringes](#org1b8e81a)
-    1.  [A Smaller Fringe by Default](#org3a4641e)
-    2.  [Bitmaps](#org18b741b)
-    3.  [Bookmark.el](#org2f2a833)
-    4.  [Flycheck](#org72cd2d5)
-    5.  [Flymake](#orgf230fa3)
-    6.  [Apply Settings](#orga2b841c)
-6.  [Color Definitions](#org5e8f13e)
-7.  [Faces](#orgfe6e824)
-    1.  [Ansi Colors](#orgc43f92c)
-    2.  [Avy](#org833c2f5)
-    3.  [Company](#org68e597c)
-    4.  [CSS](#orgc90cceb)
-    5.  [Easy Customization](#orgb448647)
-    6.  [Elfleed](#org01851d6)
-    7.  [EWW](#org8e9c7f0)
-    8.  [Emacs](#orge443435)
-    9.  [Email](#org8fee7a6)
-    10. [ERC](#orgea1a24a)
-    11. [Evil](#org17ffb0f)
-    12. [Font Lock Faces](#org445868f)
-    13. [Goggles](#orgdbf3613)
-    14. [Hydra](#orgd01a68e)
-    15. [Inf-Ruby](#orgc609bbb)
-    16. [ISearch](#org4823504)
-    17. [Keycast](#orgd507d67)
-    18. [Linters](#orgac01855)
-    19. [LSP](#org741a765)
-    20. [Mode-line](#org7523082)
-    21. [Org Mode](#orga01dc3d)
-    22. [Rainbow Delimiters](#org2312c4a)
-    23. [RJSX Mode](#org2bb0704)
-    24. [Shells](#orgdb6353e)
-    25. [Tab Bar/Line](#org357c097)
-    26. [Typescript.el](#org1823062)
-    27. [Version Control](#org759dfcc)
-    28. [Web Mode](#org67b531a)
-    29. [Widgets](#org32ddadf)
-    30. [End of Custom Faces](#org9f0855b)
-8.  [Add Theme to Custom Load Path](#orgdb4c000)
-9.  [Provide the Theme](#orgd721327)
-10. [Theme Footer](#orgebea302)
-11. [Contributing](#org2eda3e0)
-12. [License](#org46e2ab2)
+1.  [Package Header](#org60e703b)
+2.  [Dependences](#org13e69c3)
+3.  [Utility Functions](#org870f8c6)
+    1.  [Converting named colors to hexidecimal colors](#orgbce34ba)
+    2.  [Blending colors](#orgae635c7)
+4.  [Custom Group](#org72f06ef)
+5.  [Custom Fringes](#orgea328fa)
+    1.  [A Smaller Fringe by Default](#orgf0f6cdf)
+    2.  [Bitmaps](#orgdd1ba13)
+    3.  [Bookmark.el](#org95fef19)
+    4.  [Flycheck](#orgccecd40)
+    5.  [Flymake](#orgcda4ec2)
+    6.  [Apply Settings](#org30e9966)
+6.  [Region Foregrounds](#orga626040)
+7.  [Color Definitions](#org9844ce9)
+8.  [Faces](#org39629a3)
+    1.  [Ansi Colors](#org812c656)
+    2.  [Avy](#orgb9392d1)
+    3.  [Company](#org2ebf821)
+    4.  [CSS](#org39303f4)
+    5.  [Easy Customization](#org9f884f2)
+    6.  [Elfleed](#orgbc25f4f)
+    7.  [EWW](#org7665a66)
+    8.  [Emacs](#org6fecdfc)
+    9.  [Email](#org209074b)
+    10. [ERC](#orgbf1dd8b)
+    11. [Evil](#orgd5599e6)
+    12. [Font Lock Faces](#orgd0216ef)
+    13. [Goggles](#orge7d7d54)
+    14. [Hydra](#orge142aa1)
+    15. [Inf-Ruby](#org0fe1a55)
+    16. [ISearch](#org1e0a230)
+    17. [Keycast](#orgc7a5c18)
+    18. [Linters](#org803139e)
+    19. [LSP](#org1c8911d)
+    20. [Mode-line](#org88bc3a9)
+    21. [Org Mode](#org2141346)
+    22. [Rainbow Delimiters](#org356835e)
+    23. [RJSX Mode](#org33f1fa6)
+    24. [Shells](#orgea911a4)
+    25. [Tab Bar/Line](#org3c8ff03)
+    26. [Typescript.el](#orgf4e5efe)
+    27. [Version Control](#org4818eb0)
+    28. [Web Mode](#orgae5e17d)
+    29. [Widgets](#org918b158)
+    30. [End of Custom Faces](#org2cdb8f0)
+9.  [Add Theme to Custom Load Path](#orge390716)
+10. [Provide the Theme](#org0f6b998)
+11. [Theme Footer](#orgb12df00)
+12. [Contributing](#orgb092cc5)
+13. [License](#org1e965e1)
 
 
-<a id="orgf3cf1fa"></a>
+<a id="org60e703b"></a>
 
 ## Package Header
 
@@ -74,10 +74,10 @@ Some preliminary information about the theme
 
 ;; Author: Trevor Richards <trev@trevdev.ca>
 ;; Maintainer: Trevor Richards <trev@trevdev.ca>
-;; URL: https://github.com/trev-dev/tangonov-theme
+;; URL: https://sr.ht/~trevdev/tangonov-theme/
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.3.1
+;; Version: 1.4.0
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -105,18 +105,18 @@ Some preliminary information about the theme
 ```
 
 
-<a id="org6ab210f"></a>
+<a id="org13e69c3"></a>
 
 ## Dependences
 
-We will need a relatively modern version of emacs with "Common Lisp" support. These are for [utility functions](#orgcaa5bc2).
+We will need a relatively modern version of emacs with "Common Lisp" support. These are for [utility functions](#org870f8c6).
 
 ```elisp
 (require 'cl-lib)
 ```
 
 
-<a id="orgcaa5bc2"></a>
+<a id="org870f8c6"></a>
 
 ## Utility Functions
 
@@ -125,7 +125,7 @@ We will need a relatively modern version of emacs with "Common Lisp" support. Th
 The benefit of using these is laziness. I can make one list of colors and then derive other complimentary colors from that list.
 
 
-<a id="org12e85f8"></a>
+<a id="orgbce34ba"></a>
 
 ### Converting named colors to hexidecimal colors
 
@@ -140,7 +140,7 @@ Apparently Emacs has a built in function called `tty-color-standard-values` whic
 ```
 
 
-<a id="org823d48d"></a>
+<a id="orgae635c7"></a>
 
 ### Blending colors
 
@@ -182,7 +182,7 @@ Alpha should be a float between 0 and 1."
 ```
 
 
-<a id="org226ecbd"></a>
+<a id="org72f06ef"></a>
 
 ## Custom Group
 
@@ -194,7 +194,7 @@ This theme will be customizable under the group name `tangonov-theme`
 ```
 
 
-<a id="org1b8e81a"></a>
+<a id="orgea328fa"></a>
 
 ## Custom Fringes
 
@@ -208,7 +208,7 @@ This is an experimental feature that includes opinionated settings for a custom 
 ```
 
 
-<a id="org3a4641e"></a>
+<a id="orgf0f6cdf"></a>
 
 ### A Smaller Fringe by Default
 
@@ -217,7 +217,7 @@ This is an experimental feature that includes opinionated settings for a custom 
 ```
 
 
-<a id="org18b741b"></a>
+<a id="orgdd1ba13"></a>
 
 ### Bitmaps
 
@@ -272,7 +272,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
     ```
 
 
-<a id="org2f2a833"></a>
+<a id="org95fef19"></a>
 
 ### Bookmark.el
 
@@ -283,7 +283,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
 ```
 
 
-<a id="org72cd2d5"></a>
+<a id="orgccecd40"></a>
 
 ### Flycheck
 
@@ -318,7 +318,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
 ```
 
 
-<a id="orgf230fa3"></a>
+<a id="orgcda4ec2"></a>
 
 ### Flymake
 
@@ -332,7 +332,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
 ```
 
 
-<a id="orga2b841c"></a>
+<a id="org30e9966"></a>
 
 ### Apply Settings
 
@@ -380,7 +380,21 @@ We need our fringes to be applied after the relevant, related packages load.
 ```
 
 
-<a id="org5e8f13e"></a>
+<a id="orga626040"></a>
+
+## Region Foregrounds
+
+There may be some reason you'd want to avoid having some explicit foreground for selected text. If I am using something like Meow modal editing, selection comes hand-in-hand with motion. I don't want to lose syntax highlighting while trying to find things.
+
+```elisp
+(defcustom tangonov-selection-foregrounds t
+  "Set a uniform foreground for selected text."
+  :type 'boolean
+  :group 'tangonov-theme)
+```
+
+
+<a id="org9844ce9"></a>
 
 ## Color Definitions
 
@@ -410,7 +424,7 @@ The strategy for writing this theme is to do it as simply as possible. I am only
 ```
 
 
-<a id="orgfe6e824"></a>
+<a id="org39629a3"></a>
 
 ## Faces
 
@@ -422,7 +436,7 @@ To theme Emacs you must set the faces for every package you would like to see ch
 ```
 
 
-<a id="orgc43f92c"></a>
+<a id="org812c656"></a>
 
 ### Ansi Colors
 
@@ -448,7 +462,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org833c2f5"></a>
+<a id="orgb9392d1"></a>
 
 ### Avy
 
@@ -468,7 +482,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org68e597c"></a>
+<a id="org2ebf821"></a>
 
 ### Company
 
@@ -485,7 +499,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="orgc90cceb"></a>
+<a id="org39303f4"></a>
 
 ### CSS
 
@@ -496,7 +510,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="orgb448647"></a>
+<a id="org9f884f2"></a>
 
 ### Easy Customization
 
@@ -541,7 +555,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org01851d6"></a>
+<a id="orgbc25f4f"></a>
 
 ### Elfleed
 
@@ -560,7 +574,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org8e9c7f0"></a>
+<a id="org7665a66"></a>
 
 ### EWW
 
@@ -581,7 +595,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="orge443435"></a>
+<a id="org6fecdfc"></a>
 
 ### Emacs
 
@@ -600,8 +614,15 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(match ((,spec (:foreground
                     ,green :background ,(tangonov-darken green 0.5)))))
    `(region ((,spec (:foreground
-                     ,cyan :background ,(tangonov-darken cyan 0.5)))))
-   `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
+                  ,(if tangonov-selection-foregrounds
+                       cyan
+                     nil)
+                  :background ,(tangonov-darken cyan 0.5)))))
+   `(secondary-selection ((,spec (:foreground
+                               ,(if tangonov-selection-foregrounds
+                                    fg
+                                  nil)
+                               :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
@@ -624,7 +645,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
 ```
 
 
-<a id="org8fee7a6"></a>
+<a id="org209074b"></a>
 
 ### Email
 
@@ -755,7 +776,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
     ```
 
 
-<a id="orgea1a24a"></a>
+<a id="orgbf1dd8b"></a>
 
 ### ERC
 
@@ -781,7 +802,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
 ```
 
 
-<a id="org17ffb0f"></a>
+<a id="orgd5599e6"></a>
 
 ### Evil
 
@@ -835,7 +856,7 @@ Support for various Evil related features/packages.
     ```
 
 
-<a id="org445868f"></a>
+<a id="orgd0216ef"></a>
 
 ### Font Lock Faces
 
@@ -857,7 +878,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgdbf3613"></a>
+<a id="orge7d7d54"></a>
 
 ### Goggles
 
@@ -868,7 +889,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgd01a68e"></a>
+<a id="orge142aa1"></a>
 
 ### Hydra
 
@@ -881,7 +902,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgc609bbb"></a>
+<a id="org0fe1a55"></a>
 
 ### Inf-Ruby
 
@@ -892,7 +913,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="org4823504"></a>
+<a id="org1e0a230"></a>
 
 ### ISearch
 
@@ -902,7 +923,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgd507d67"></a>
+<a id="orgc7a5c18"></a>
 
 ### Keycast
 
@@ -915,7 +936,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgac01855"></a>
+<a id="org803139e"></a>
 
 ### Linters
 
@@ -956,7 +977,7 @@ These faces end up being inherited by *many* major modes for highlighting.
     ```
 
 
-<a id="org741a765"></a>
+<a id="org1c8911d"></a>
 
 ### LSP
 
@@ -973,7 +994,7 @@ These faces end up being inherited by *many* major modes for highlighting.
     ```
 
 
-<a id="org7523082"></a>
+<a id="org88bc3a9"></a>
 
 ### Mode-line
 
@@ -990,7 +1011,7 @@ Set faces for the top and bottom "bars."
 ```
 
 
-<a id="orga01dc3d"></a>
+<a id="org2141346"></a>
 
 ### Org Mode
 
@@ -1100,7 +1121,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
     ```
 
 
-<a id="org2312c4a"></a>
+<a id="org356835e"></a>
 
 ### Rainbow Delimiters
 
@@ -1117,7 +1138,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="org2bb0704"></a>
+<a id="org33f1fa6"></a>
 
 ### RJSX Mode
 
@@ -1128,7 +1149,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="orgdb6353e"></a>
+<a id="orgea911a4"></a>
 
 ### Shells
 
@@ -1171,7 +1192,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
     ```
 
 
-<a id="org357c097"></a>
+<a id="org3c8ff03"></a>
 
 ### Tab Bar/Line
 
@@ -1192,7 +1213,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="org1823062"></a>
+<a id="orgf4e5efe"></a>
 
 ### Typescript.el
 
@@ -1203,7 +1224,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="org759dfcc"></a>
+<a id="org4818eb0"></a>
 
 ### Version Control
 
@@ -1267,7 +1288,7 @@ Set the faces for several version-control related packages.
        `(magit-blame-hash ((,spec (:foreground ,cyan))))
        `(magit-blame-date ((,spec (:foreground ,red))))
        `(magit-blame-heading
-         ((,spec (:foreground ,orange :background ,gray3 :extend t))))
+         ((,spec (:foreground ,orange :background ,bg-alt :extend t))))
        `(magit-branch-current ((,spec (:foreground ,blue))))
        `(magit-branch-local ((,spec (:foreground ,cyan))))
        `(magit-branch-remote ((,spec (:foreground ,green))))
@@ -1354,7 +1375,7 @@ Set the faces for several version-control related packages.
     ```
 
 
-<a id="org67b531a"></a>
+<a id="orgae5e17d"></a>
 
 ### Web Mode
 
@@ -1364,7 +1385,7 @@ Set the faces for several version-control related packages.
 ```
 
 
-<a id="org32ddadf"></a>
+<a id="org918b158"></a>
 
 ### Widgets
 
@@ -1380,7 +1401,7 @@ Set the faces for several version-control related packages.
 ```
 
 
-<a id="org9f0855b"></a>
+<a id="org2cdb8f0"></a>
 
 ### End of Custom Faces
 
@@ -1502,8 +1523,15 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(match ((,spec (:foreground
                     ,green :background ,(tangonov-darken green 0.5)))))
    `(region ((,spec (:foreground
-                     ,cyan :background ,(tangonov-darken cyan 0.5)))))
-   `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
+                  ,(if tangonov-selection-foregrounds
+                       cyan
+                     nil)
+                  :background ,(tangonov-darken cyan 0.5)))))
+   `(secondary-selection ((,spec (:foreground
+                               ,(if tangonov-selection-foregrounds
+                                    fg
+                                  nil)
+                               :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
@@ -1899,7 +1927,7 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(magit-blame-hash ((,spec (:foreground ,cyan))))
    `(magit-blame-date ((,spec (:foreground ,red))))
    `(magit-blame-heading
-     ((,spec (:foreground ,orange :background ,gray3 :extend t))))
+     ((,spec (:foreground ,orange :background ,bg-alt :extend t))))
    `(magit-branch-current ((,spec (:foreground ,blue))))
    `(magit-branch-local ((,spec (:foreground ,cyan))))
    `(magit-branch-remote ((,spec (:foreground ,green))))
@@ -1996,7 +2024,7 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
 ```
 
 
-<a id="orgdb4c000"></a>
+<a id="orge390716"></a>
 
 ## Add Theme to Custom Load Path
 
@@ -2011,7 +2039,7 @@ It's not enough to simply provide a theme. We must set up an autoload that will 
 ```
 
 
-<a id="orgd721327"></a>
+<a id="org0f6b998"></a>
 
 ## Provide the Theme
 
@@ -2022,7 +2050,7 @@ This file needs to be symbolically represented as a theme, not a "package". So, 
 ```
 
 
-<a id="orgebea302"></a>
+<a id="orgb12df00"></a>
 
 ## Theme Footer
 
@@ -2033,7 +2061,7 @@ Provide the theme and mark the end of the file.
 ```
 
 
-<a id="org2eda3e0"></a>
+<a id="orgb092cc5"></a>
 
 ## Contributing
 
@@ -2046,7 +2074,7 @@ Thanks for your interest in this project. Development is done on the `devel` bra
 **Note:** This theme is developed using literate programming. This is to say, the document you are viewing **is** the theme. If you're not sure what this means, look into literate programming with org-mode. If you are wanting to make a contribution but do not know/do not want to know how to use this document, I will try to work with you.
 
 
-<a id="org46e2ab2"></a>
+<a id="org1e965e1"></a>
 
 ## License
 

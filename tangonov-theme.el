@@ -4,10 +4,10 @@
 
 ;; Author: Trevor Richards <trev@trevdev.ca>
 ;; Maintainer: Trevor Richards <trev@trevdev.ca>
-;; URL: https://github.com/trev-dev/tangonov-theme
+;; URL: https://sr.ht/~trevdev/tangonov-theme/
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.3.1
+;; Version: 1.4.0
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -157,6 +157,11 @@ Alpha should be a float between 0 and 1."
           flymake-error-bitmap   '(small-right-triangle compilation-error)
           flymake-warning-bitmap '(small-right-triangle compilation-warning))))
 
+(defcustom tangonov-selection-foregrounds t
+  "Set a uniform foreground for selected text."
+  :type 'boolean
+  :group 'tangonov-theme)
+
 (deftheme tangonov
   "A 256 color dark theme featuring bright pastels.")
 
@@ -293,8 +298,15 @@ Alpha should be a float between 0 and 1."
    `(match ((,spec (:foreground
                     ,green :background ,(tangonov-darken green 0.5)))))
    `(region ((,spec (:foreground
-                     ,cyan :background ,(tangonov-darken cyan 0.5)))))
-   `(secondary-selection ((,spec (:background ,gray2 :foreground ,fg))))
+                  ,(if tangonov-selection-foregrounds
+                       cyan
+                     nil)
+                  :background ,(tangonov-darken cyan 0.5)))))
+   `(secondary-selection ((,spec (:foreground
+                               ,(if tangonov-selection-foregrounds
+                                    fg
+                                  nil)
+                               :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
@@ -690,7 +702,7 @@ Alpha should be a float between 0 and 1."
    `(magit-blame-hash ((,spec (:foreground ,cyan))))
    `(magit-blame-date ((,spec (:foreground ,red))))
    `(magit-blame-heading
-     ((,spec (:foreground ,orange :background ,gray3 :extend t))))
+     ((,spec (:foreground ,orange :background ,bg-alt :extend t))))
    `(magit-branch-current ((,spec (:foreground ,blue))))
    `(magit-branch-local ((,spec (:foreground ,cyan))))
    `(magit-branch-remote ((,spec (:foreground ,green))))
