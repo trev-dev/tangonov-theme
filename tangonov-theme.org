@@ -106,7 +106,7 @@ Some preliminary information about the theme
 ;; URL: https://sr.ht/~trevdev/tangonov-theme/
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.4.0
+;; Version: 1.4.1
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -204,7 +204,8 @@ This theme will be customizable under the group name ~tangonov-theme~
 
 #+begin_src elisp
 (defgroup tangonov-theme nil
-  "Custom settings for `tangonov-theme'.")
+  "Custom settings for `tangonov-theme'."
+  :group 'faces)
 #+end_src
 
 ** Custom Fringes
@@ -290,7 +291,8 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
 (with-eval-after-load 'flycheck
   (define-fringe-bitmap 'flycheck-fringe-bitmap-caret
     tangonov--fringe-right-triangle)
-  (flycheck-define-error-level
+  (when (functionp 'flycheck-define-error-level)
+    (flycheck-define-error-level
         'error
       :severity 100
       :compilation-level 2
@@ -313,7 +315,7 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
       :overlay-category 'flycheck-info-overlay
       :fringe-bitmap 'flycheck-fringe-bitmap-caret
       :fringe-face 'flycheck-fringe-info
-      :info-list-face 'flycheck-info-list-info))
+      :info-list-face 'flycheck-info-list-info)))
 #+end_src
 
 *** Flymake
@@ -322,9 +324,12 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
 (with-eval-after-load 'flymake
   (define-fringe-bitmap 'small-right-triangle
     tangonov--fringe-right-triangle)
-  (setq flymake-note-bitmap    '(small-right-triangle compilation-info)
-        flymake-error-bitmap   '(small-right-triangle compilation-error)
-        flymake-warning-bitmap '(small-right-triangle compilation-warning)))
+  (when (and (boundp 'flymake-note-bitmap)
+             (boundp 'flymake-error-bitmap)
+             (boundp 'flymake-warning-bitmap))
+    (setq flymake-note-bitmap    '(small-right-triangle compilation-info)
+          flymake-error-bitmap   '(small-right-triangle compilation-error)
+          flymake-warning-bitmap '(small-right-triangle compilation-warning))))
 #+end_src
 
 *** Apply Settings
