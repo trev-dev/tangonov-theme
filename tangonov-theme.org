@@ -885,6 +885,14 @@ These faces end up being inherited by /many/ major modes for highlighting.
 #+BEGIN_SRC elisp
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
+*** Meow
+
+#+begin_src elisp
+   `(meow-search-indicator ((,spec (:foreground ,yellow :weight bold))))
+   `(meow-search-highlight
+     ((,spec (:foreground ,yellow :background
+                          ,(tangonov-darken yellow 0.7) :weight bold))))
+#+end_src
 
 *** Mode-line
 
