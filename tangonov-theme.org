@@ -758,7 +758,7 @@ Support for various Evil related features/packages.
      ((,spec (:foreground ,blue :background
                           ,(tangonov-darken blue 0.5) :weight bold))))
    `(evil-snipe-matches-face
-     ((,spec (:foreground highlight :underline t :weight bold))))
+     ((,spec (:foreground ,cyan :underline t :weight bold))))
 #+END_SRC
 
 **** evil-goggles
