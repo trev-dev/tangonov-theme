@@ -697,7 +697,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(notmuch-tree-no-match-subject-face ((,spec (:foreground ,gray3))))
    `(notmuch-tree-no-match-tag-face ((,spec (:foreground ,yellow))))
    `(notmuch-tree-no-match-tree-face ((,spec (:foreground ,yellow))))
-   `(notmuch-wash-cited-text ((,spec (:foreground ,gray1))))
+   `(notmuch-wash-cited-text ((,spec (:foreground ,fg-alt))))
    `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
 #+END_SRC
 
