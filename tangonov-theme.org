@@ -31,7 +31,7 @@ Some preliminary information about the theme
 ;; URL: https://sr.ht/~trevdev/tangonov-theme/
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.4.0
+;; Version: 1.4.4
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -129,7 +129,8 @@ This theme will be customizable under the group name ~tangonov-theme~
 
 #+begin_src elisp
 (defgroup tangonov-theme nil
-  "Custom settings for `tangonov-theme'.")
+  "Custom settings for `tangonov-theme'."
+  :group 'faces)
 #+end_src
 
 ** Custom Fringes
@@ -215,7 +216,8 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
 (with-eval-after-load 'flycheck
   (define-fringe-bitmap 'flycheck-fringe-bitmap-caret
     tangonov--fringe-right-triangle)
-  (flycheck-define-error-level
+  (when (functionp 'flycheck-define-error-level)
+    (flycheck-define-error-level
         'error
       :severity 100
       :compilation-level 2
@@ -238,7 +240,7 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
       :overlay-category 'flycheck-info-overlay
       :fringe-bitmap 'flycheck-fringe-bitmap-caret
       :fringe-face 'flycheck-fringe-info
-      :info-list-face 'flycheck-info-list-info))
+      :info-list-face 'flycheck-info-list-info)))
 #+end_src
 
 *** Flymake
@@ -247,9 +249,12 @@ With the use of ~(define-fringe-bitmap)~ we can set custom bitmaps to be used by
 (with-eval-after-load 'flymake
   (define-fringe-bitmap 'small-right-triangle
     tangonov--fringe-right-triangle)
-  (setq flymake-note-bitmap    '(small-right-triangle compilation-info)
-        flymake-error-bitmap   '(small-right-triangle compilation-error)
-        flymake-warning-bitmap '(small-right-triangle compilation-warning)))
+  (when (and (boundp 'flymake-note-bitmap)
+             (boundp 'flymake-error-bitmap)
+             (boundp 'flymake-warning-bitmap))
+    (setq flymake-note-bitmap    '(small-right-triangle compilation-info)
+          flymake-error-bitmap   '(small-right-triangle compilation-error)
+          flymake-warning-bitmap '(small-right-triangle compilation-warning))))
 #+end_src
 
 *** Apply Settings
@@ -620,7 +625,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(notmuch-tree-no-match-subject-face ((,spec (:foreground ,gray3))))
    `(notmuch-tree-no-match-tag-face ((,spec (:foreground ,yellow))))
    `(notmuch-tree-no-match-tree-face ((,spec (:foreground ,yellow))))
-   `(notmuch-wash-cited-text ((,spec (:foreground ,gray1))))
+   `(notmuch-wash-cited-text ((,spec (:foreground ,fg-alt))))
    `(notmuch-wash-toggle-button ((,spec (:foreground ,fg))))
 #+END_SRC
 
@@ -681,7 +686,7 @@ Support for various Evil related features/packages.
      ((,spec (:foreground ,blue :background
                           ,(tangonov-darken blue 0.5) :weight bold))))
    `(evil-snipe-matches-face
-     ((,spec (:foreground highlight :underline t :weight bold))))
+     ((,spec (:foreground ,cyan :underline t :weight bold))))
 #+END_SRC
 
 **** evil-goggles
@@ -808,6 +813,14 @@ These faces end up being inherited by /many/ major modes for highlighting.
 #+BEGIN_SRC elisp
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
+*** Meow
+
+#+begin_src elisp
+   `(meow-search-indicator ((,spec (:foreground ,yellow :weight bold))))
+   `(meow-search-highlight
+     ((,spec (:foregound ,fg :background
+                         ,(tangonov-darken yellow 0.35) :weight bold))))
+#+end_src
 
 *** Mode-line
 
@@ -943,6 +956,19 @@ Faces for tracking habits with the agenda view.
    `(rainbow-delimiters-depth-8-face ((,spec (:foreground ,teal))))
    `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
 #+END_SRC
+
+*** Re-builder
+
+#+begin_src elisp
+   `(reb-match-0
+     ((,spec (:foreground ,green :background ,(tangonov-darken green 0.5)))))
+   `(reb-match-1
+     ((,spec (:foreground ,cyan :background ,(tangonov-darken cyan 0.5)))))
+   `(reb-match-2
+     ((,spec (:foreground ,yellow :background ,(tangonov-darken yellow 0.5)))))
+   `(reb-match-3
+     ((,spec (:foreground ,magenta :background ,(tangonov-darken magenta 0.5)))))
+#+end_src
 
 *** RJSX Mode
 
