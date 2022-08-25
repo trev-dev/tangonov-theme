@@ -1029,6 +1029,19 @@ Faces for tracking habits with the agenda view.
    `(rainbow-delimiters-depth-9-face ((,spec (:foreground ,red))))
 #+END_SRC
 
+*** Re-builder
+
+#+begin_src elisp
+   `(reb-match-0
+     ((,spec (:foreground ,green :background ,(tangonov-darken green 0.5)))))
+   `(reb-match-1
+     ((,spec (:foreground ,cyan :background ,(tangonov-darken cyan 0.5)))))
+   `(reb-match-2
+     ((,spec (:foreground ,yellow :background ,(tangonov-darken yellow 0.5)))))
+   `(reb-match-3
+     ((,spec (:foreground ,magenta :background ,(tangonov-darken magenta 0.5)))))
+#+end_src
+
 *** RJSX Mode
 
 #+BEGIN_SRC elisp
