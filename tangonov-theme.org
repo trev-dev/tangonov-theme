@@ -1108,6 +1108,14 @@ Faces for tracking habits with the agenda view.
    `(tab-bar-tab-inactive ((,spec (:inherit tab-line-tab-inactive))))
 #+end_src
 
+*** Transpose Mark
+
+#+begin_src elisp
+   `(transpose-mark-region-set-face
+     ((,spec (:background
+              ,(tangonov-darken magenta 0.5) :foreground ,magenta :weight bold))))
+#+end_src
+
 *** Typescript.el
 
 #+BEGIN_SRC elisp
