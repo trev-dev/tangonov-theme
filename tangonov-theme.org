@@ -810,9 +810,11 @@ These faces end up being inherited by /many/ major modes for highlighting.
 *** Icomplete
 
 #+begin_src elisp
-   `(icomplete-selected-match ((,spec (:inherit 'isearch))))
    `(icomplete-section ((,spec (:foreground ,gray3))))
-   `(icomplete-first-match ((,spec (:foreground ,green :weight bold :underline t))))
+   `(icomplete-first-match
+     ((,spec (:foreground ,green :weight bold :underline t))))
+   `(icomplete-selected-match
+     ((,spec (:inherit 'icomplete-first-match :extend t))))
 #+end_src
 
 *** Inf-Ruby
