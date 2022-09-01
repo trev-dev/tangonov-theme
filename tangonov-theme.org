@@ -671,7 +671,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
    `(notmuch-search-flagged-face
-     ((,spec (:foreground ,(tangonov-darken red 0.5)))))
+     ((,spec (:foreground ,magenta :weight bold))))
    `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
    `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
    `(notmuch-search-subject ((,spec (:foreground ,fg))))
