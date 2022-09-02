@@ -891,6 +891,14 @@ These faces end up being inherited by /many/ major modes for highlighting.
 #+BEGIN_SRC elisp
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
 #+END_SRC
+
+**** LSP-UI
+
+#+begin_src elisp
+   `(lsp-ui-doc-background ((,spec (:background ,bg-alt))))
+   `(lsp-ui-doc-header ((,spec (:foreground ,green :underline t))))
+#+end_src
+
 *** Meow
 
 #+begin_src elisp
