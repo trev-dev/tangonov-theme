@@ -436,7 +436,7 @@ These colors are used by various shell-like packages.
    `(company-tooltip-annotation ((,spec (:foreground ,yellow))))
    `(company-tooltip-common ((,spec (:foreground ,cyan))))
    `(company-tooltip-common-selection
-     ((,spec (:foreground ,cyan :weight bold))))
+     ((,spec (:foreground ,green :weight bold))))
    `(company-tooltip-scrollbar-thumb ((,spec (:background ,violet))))
    `(company-tooltip-scrollbar-track ((,spec (:background ,bg-alt))))
    `(company-tooltip-selection ((,spec (:inherit bold :background ,gray1))))
