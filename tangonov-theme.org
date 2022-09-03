@@ -433,7 +433,7 @@ These colors are used by various shell-like packages.
 #+begin_src elisp
    `(company-echo-common ((,spec (:foreground ,cyan))))
    `(company-tooltip ((,spec (:background ,bg))))
-   `(company-tooltip-annotation ((,spec (:foreground ,fg-alt))))
+   `(company-tooltip-annotation ((,spec (:foreground ,yellow))))
    `(company-tooltip-common ((,spec (:foreground ,cyan))))
    `(company-tooltip-common-selection
      ((,spec (:foreground ,cyan :weight bold))))
@@ -562,6 +562,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(line-number-current-line ((,spec (:foreground ,cyan :background ,gray1))))
    `(completions-common-part ((,spec (:foreground ,cyan))))
    `(completions-first-difference ((,spec (:foreground ,yellow))))
+   `(completions-annotations ((,spec (:foreground ,yellow :weight bold))))
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
    `(bookmark-face ((,spec (:foreground ,orange))))
