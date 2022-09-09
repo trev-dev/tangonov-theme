@@ -353,6 +353,14 @@ These colors are used by various shell-like packages.
 
 #+begin_src elisp
    `(company-echo-common ((,spec (:foreground ,cyan))))
+   `(company-preview ((,spec (:inherit 'highlight :foreground ,fg-alt))))
+   `(company-preview-common
+     ((,spec (:inherit 'company-preview :foreground ,magenta))))
+   `(company-preview-search
+     ((,spec (:inherit 'company-preview :foreground ,cyan))))
+   `(company-scrollbar-bg ((,spec (:background ,bg-alt))))
+   `(company-scrollbar-fg ((,spec (:background ,magenta))))
+   `(company-template-field ((,spec (:background ,yellow :foreground ,bg))))
    `(company-tooltip ((,spec (:background ,bg))))
    `(company-tooltip-annotation ((,spec (:foreground ,yellow))))
    `(company-tooltip-common ((,spec (:foreground ,cyan))))
