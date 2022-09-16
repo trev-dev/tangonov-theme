@@ -332,6 +332,13 @@ These colors are used by various shell-like packages.
    `(ansi-color-yellow ((,spec (:foreground ,yellow :background ,yellow))))
 #+end_src
 
+*** Anzu
+
+#+begin_src elisp
+   `(anzu-mode-line ((,spec (:foreground ,yellow :weight bold))))
+   `(anzu-mode-line-no-match ((,spec (:foreground ,red :weight bold))))
+#+end_src
+
 *** Avy
 
 #+BEGIN_SRC elisp
