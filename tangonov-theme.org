@@ -337,6 +337,11 @@ These colors are used by various shell-like packages.
 #+begin_src elisp
    `(anzu-mode-line ((,spec (:foreground ,yellow :weight bold))))
    `(anzu-mode-line-no-match ((,spec (:foreground ,red :weight bold))))
+   `(anzu-replace-highlight
+     ((,spec (:foreground ,yellow :background
+                          ,(tangonov-darken yellow 0.7) :strike-through t))))
+   `(anzu-replace-to ((,spec (:foreground ,cyan :background
+                                          ,(tangonov-darken cyan 0.5)))))
 #+end_src
 
 *** Avy
