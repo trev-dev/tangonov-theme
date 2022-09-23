@@ -756,7 +756,7 @@ These faces end up being inherited by /many/ major modes for highlighting.
    `(icomplete-first-match
      ((,spec (:foreground ,green :weight bold :underline t))))
    `(icomplete-selected-match
-     ((,spec (:inherit 'icomplete-first-match :extend t))))
+     ((,spec (:weight bold :underline t :extend t))))
 #+end_src
 
 *** Inf-Ruby
@@ -863,6 +863,15 @@ Set faces for the top and bottom "bars."
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
    `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
 #+END_SRC
+
+*** Orderless
+
+#+begin_src elisp
+   `(orderless-match-face-0 ((,spec (:weight bold :foreground ,blue))))
+   `(orderless-match-face-1 ((,spec (:weight bold :foreground ,magenta))))
+   `(orderless-match-face-2 ((,spec (:weight bold :foreground ,green))))
+   `(orderless-match-face-3 ((,spec (:weight bold :foreground ,yellow))))
+#+end_src
 
 *** Org Mode
 
