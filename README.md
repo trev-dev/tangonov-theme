@@ -8,62 +8,67 @@ A pleasant dark theme with bright, easy to read pastels. I had originally made t
 
 ![img](images/tangonov-1.png) ![img](images/tangonov-2.png)
 
-1.  [Package Header](#orge2b591a)
-2.  [Dependences](#orgbfe4266)
-3.  [Utility Functions](#org2ad2b27)
-    1.  [Converting named colors to hexidecimal colors](#orgf22412c)
-    2.  [Blending colors](#org5b9e367)
-4.  [Custom Group](#orgdc9346a)
-5.  [Custom Fringes](#org0b5876f)
-    1.  [A Smaller Fringe by Default](#org75a97f5)
-    2.  [Bitmaps](#org4e1f30b)
-    3.  [Bookmark.el](#org4049e5b)
-    4.  [Flycheck](#org44e212a)
-    5.  [Flymake](#org6ed105c)
-    6.  [Apply Settings](#org0eabedc)
-6.  [Region Foregrounds](#org77d30fe)
-7.  [Color Definitions](#org64e0a52)
-8.  [Faces](#orga1b7e5e)
-    1.  [Ansi Colors](#orgf89a0fe)
-    2.  [Avy](#org516e280)
-    3.  [Company](#org600cbba)
-    4.  [CSS](#org194671d)
-    5.  [Easy Customization](#orgb35c979)
-    6.  [Elfleed](#org16de0e4)
-    7.  [EWW](#org096e4a0)
-    8.  [Emacs](#orgf12e36d)
-    9.  [Email](#org33eb276)
-    10. [ERC](#orgfb1aba8)
-    11. [Evil](#orgc067649)
-    12. [Font Lock Faces](#org1baa44e)
-    13. [Goggles](#orgb0d49b0)
-    14. [Hydra](#org312e769)
-    15. [Inf-Ruby](#org3bee906)
-    16. [ISearch](#org7f5e40f)
-    17. [Keycast](#orgb85d4d9)
-    18. [Linters](#org4770082)
-    19. [LSP](#org156a83d)
-    20. [Meow](#org23da2eb)
-    21. [Mode-line](#orgb7caf83)
-    22. [Org Mode](#org6cbb32f)
-    23. [Rainbow Delimiters](#org0f8b4ff)
-    24. [Re-builder](#org468b2ca)
-    25. [RJSX Mode](#orgc74b88c)
-    26. [Shells](#orgb0d7ad8)
-    27. [Tab Bar/Line](#org92e70e7)
-    28. [Typescript.el](#org432499f)
-    29. [Version Control](#org5c4e367)
-    30. [Web Mode](#orgf162bf5)
-    31. [Widgets](#org076c52a)
-    32. [End of Custom Faces](#orgc589130)
-9.  [Add Theme to Custom Load Path](#org3c50e40)
-10. [Provide the Theme](#org9701b1b)
-11. [Theme Footer](#orgc62df20)
-12. [Contributing](#orgafdab12)
-13. [License](#org672b200)
+1.  [Package Header](#org2a72d16)
+2.  [Dependences](#orgde4fcbc)
+3.  [Utility Functions](#org00a3487)
+    1.  [Converting named colors to hexidecimal colors](#org49355d8)
+    2.  [Blending colors](#org84a1347)
+4.  [Custom Group](#orgffd6018)
+5.  [Custom Fringes](#orgb3580b6)
+    1.  [A Smaller Fringe by Default](#org7dd9e98)
+    2.  [Bitmaps](#org673b0e9)
+    3.  [Bookmark.el](#orgaf8ac34)
+    4.  [Flycheck](#orga0d5a42)
+    5.  [Flymake](#orgfd77093)
+    6.  [Apply Settings](#org50de7ba)
+6.  [Region Foregrounds](#org4fcf52c)
+7.  [Color Definitions](#orgb728301)
+8.  [Faces](#orgbdf2718)
+    1.  [Ansi Colors](#org3fdef0f)
+    2.  [Anzu](#orgb53c590)
+    3.  [Avy](#org68dc998)
+    4.  [Company](#orga38a999)
+    5.  [Corfu](#orgb5d1c39)
+    6.  [CSS](#org6fa9e6e)
+    7.  [Easy Customization](#org25da8f3)
+    8.  [Elfleed](#orge044541)
+    9.  [EWW](#orgd8431b1)
+    10. [Emacs](#org5f1f719)
+    11. [Email](#org56fe83d)
+    12. [ERC](#org38e8aea)
+    13. [Evil](#org5761461)
+    14. [Font Lock Faces](#org6b67074)
+    15. [Goggles](#orgafc2b50)
+    16. [Hydra](#org0d233ac)
+    17. [Icomplete](#org2ecc79b)
+    18. [Inf-Ruby](#orgcfabb4d)
+    19. [ISearch](#org8a02854)
+    20. [Keycast](#org216c6e9)
+    21. [Linters](#orgd83e69a)
+    22. [LSP](#orgf389110)
+    23. [Meow](#org7d5f826)
+    24. [Mode-line](#org420c37d)
+    25. [Orderless](#org908a54f)
+    26. [Org Mode](#org5c92082)
+    27. [Rainbow Delimiters](#org7d475c9)
+    28. [Re-builder](#org04677ce)
+    29. [RJSX Mode](#org1a8812a)
+    30. [Shells](#org8aab806)
+    31. [Tab Bar/Line](#org3e73366)
+    32. [Transpose Mark](#orga4cdd85)
+    33. [Typescript.el](#org2e86a9f)
+    34. [Version Control](#org09ba83f)
+    35. [Web Mode](#orgf9a0563)
+    36. [Widgets](#org5a50b07)
+    37. [End of Custom Faces](#orgf8b9609)
+9.  [Add Theme to Custom Load Path](#org06c3b23)
+10. [Provide the Theme](#org938602d)
+11. [Theme Footer](#orgdfb298c)
+12. [Contributing](#orgb038431)
+13. [License](#org81497ae)
 
 
-<a id="orge2b591a"></a>
+<a id="org2a72d16"></a>
 
 ## Package Header
 
@@ -79,7 +84,7 @@ Some preliminary information about the theme
 ;; URL: https://sr.ht/~trevdev/tangonov-theme/
 ;; Created: 20th July, 2022
 ;; Keywords: faces, theme, dark, fringe
-;; Version: 1.4.4
+;; Version: 1.4.5
 ;; Package-Requires: ((emacs "25"))
 
 ;; License: GPL3
@@ -107,18 +112,18 @@ Some preliminary information about the theme
 ```
 
 
-<a id="orgbfe4266"></a>
+<a id="orgde4fcbc"></a>
 
 ## Dependences
 
-We will need a relatively modern version of emacs with "Common Lisp" support. These are for [utility functions](#org2ad2b27).
+We will need a relatively modern version of emacs with "Common Lisp" support. These are for [utility functions](#org00a3487).
 
 ```elisp
 (require 'cl-lib)
 ```
 
 
-<a id="org2ad2b27"></a>
+<a id="org00a3487"></a>
 
 ## Utility Functions
 
@@ -127,7 +132,7 @@ We will need a relatively modern version of emacs with "Common Lisp" support. Th
 The benefit of using these is laziness. I can make one list of colors and then derive other complimentary colors from that list.
 
 
-<a id="orgf22412c"></a>
+<a id="org49355d8"></a>
 
 ### Converting named colors to hexidecimal colors
 
@@ -142,7 +147,7 @@ Apparently Emacs has a built in function called `tty-color-standard-values` whic
 ```
 
 
-<a id="org5b9e367"></a>
+<a id="org84a1347"></a>
 
 ### Blending colors
 
@@ -184,7 +189,7 @@ Alpha should be a float between 0 and 1."
 ```
 
 
-<a id="orgdc9346a"></a>
+<a id="orgffd6018"></a>
 
 ## Custom Group
 
@@ -197,7 +202,7 @@ This theme will be customizable under the group name `tangonov-theme`
 ```
 
 
-<a id="org0b5876f"></a>
+<a id="orgb3580b6"></a>
 
 ## Custom Fringes
 
@@ -211,7 +216,7 @@ This is an experimental feature that includes opinionated settings for a custom 
 ```
 
 
-<a id="org75a97f5"></a>
+<a id="org7dd9e98"></a>
 
 ### A Smaller Fringe by Default
 
@@ -220,7 +225,7 @@ This is an experimental feature that includes opinionated settings for a custom 
 ```
 
 
-<a id="org4e1f30b"></a>
+<a id="org673b0e9"></a>
 
 ### Bitmaps
 
@@ -275,7 +280,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
     ```
 
 
-<a id="org4049e5b"></a>
+<a id="orgaf8ac34"></a>
 
 ### Bookmark.el
 
@@ -286,7 +291,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
 ```
 
 
-<a id="org44e212a"></a>
+<a id="orga0d5a42"></a>
 
 ### Flycheck
 
@@ -322,7 +327,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
 ```
 
 
-<a id="org6ed105c"></a>
+<a id="orgfd77093"></a>
 
 ### Flymake
 
@@ -339,7 +344,7 @@ With the use of `(define-fringe-bitmap)` we can set custom bitmaps to be used by
 ```
 
 
-<a id="org0eabedc"></a>
+<a id="org50de7ba"></a>
 
 ### Apply Settings
 
@@ -391,7 +396,7 @@ We need our fringes to be applied after the relevant, related packages load.
 ```
 
 
-<a id="org77d30fe"></a>
+<a id="org4fcf52c"></a>
 
 ## Region Foregrounds
 
@@ -405,7 +410,7 @@ There may be some reason you'd want to avoid having some explicit foreground for
 ```
 
 
-<a id="org64e0a52"></a>
+<a id="orgb728301"></a>
 
 ## Color Definitions
 
@@ -435,7 +440,7 @@ The strategy for writing this theme is to do it as simply as possible. I am only
 ```
 
 
-<a id="orga1b7e5e"></a>
+<a id="orgbdf2718"></a>
 
 ## Faces
 
@@ -447,7 +452,7 @@ To theme Emacs you must set the faces for every package you would like to see ch
 ```
 
 
-<a id="orgf89a0fe"></a>
+<a id="org3fdef0f"></a>
 
 ### Ansi Colors
 
@@ -473,7 +478,22 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org516e280"></a>
+<a id="orgb53c590"></a>
+
+### Anzu
+
+```elisp
+   `(anzu-mode-line ((,spec (:foreground ,yellow :weight bold))))
+   `(anzu-mode-line-no-match ((,spec (:foreground ,red :weight bold))))
+   `(anzu-replace-highlight
+     ((,spec (:foreground ,yellow :background
+                          ,(tangonov-darken yellow 0.7) :strike-through t))))
+   `(anzu-replace-to ((,spec (:foreground ,cyan :background
+                                          ,(tangonov-darken cyan 0.5)))))
+```
+
+
+<a id="org68dc998"></a>
 
 ### Avy
 
@@ -493,24 +513,41 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org600cbba"></a>
+<a id="orga38a999"></a>
 
 ### Company
 
 ```elisp
    `(company-echo-common ((,spec (:foreground ,cyan))))
+   `(company-preview ((,spec (:inherit 'highlight :foreground ,fg-alt))))
+   `(company-preview-common
+     ((,spec (:inherit 'company-preview :foreground ,magenta))))
+   `(company-preview-search
+     ((,spec (:inherit 'company-preview :foreground ,cyan))))
+   `(company-scrollbar-bg ((,spec (:background ,bg-alt))))
+   `(company-scrollbar-fg ((,spec (:background ,magenta))))
+   `(company-template-field ((,spec (:background ,yellow :foreground ,bg))))
    `(company-tooltip ((,spec (:background ,bg))))
-   `(company-tooltip-annotation ((,spec (:foreground ,fg-alt))))
+   `(company-tooltip-annotation ((,spec (:foreground ,yellow))))
    `(company-tooltip-common ((,spec (:foreground ,cyan))))
    `(company-tooltip-common-selection
-     ((,spec (:foreground ,cyan :weight bold))))
+     ((,spec (:foreground ,green :weight bold))))
    `(company-tooltip-scrollbar-thumb ((,spec (:background ,violet))))
    `(company-tooltip-scrollbar-track ((,spec (:background ,bg-alt))))
    `(company-tooltip-selection ((,spec (:inherit bold :background ,gray1))))
 ```
 
 
-<a id="org194671d"></a>
+<a id="orgb5d1c39"></a>
+
+### Corfu
+
+```elisp
+   `(corfu-current ((,spec (:foreground ,fg :background ,gray1 :weight bold))))
+```
+
+
+<a id="org6fa9e6e"></a>
 
 ### CSS
 
@@ -521,7 +558,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="orgb35c979"></a>
+<a id="org25da8f3"></a>
 
 ### Easy Customization
 
@@ -566,7 +603,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org16de0e4"></a>
+<a id="orge044541"></a>
 
 ### Elfleed
 
@@ -585,7 +622,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="org096e4a0"></a>
+<a id="orgd8431b1"></a>
 
 ### EWW
 
@@ -606,7 +643,7 @@ These colors are used by various shell-like packages.
 ```
 
 
-<a id="orgf12e36d"></a>
+<a id="org5f1f719"></a>
 
 ### Emacs
 
@@ -624,16 +661,12 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(highlight ((,spec (:background ,gray1 :weight bold))))
    `(match ((,spec (:foreground
                     ,green :background ,(tangonov-darken green 0.5)))))
-   `(region ((,spec (:foreground
-                  ,(if tangonov-selection-foregrounds
-                       cyan
-                     nil)
-                  :background ,(tangonov-darken cyan 0.5)))))
-   `(secondary-selection ((,spec (:foreground
-                               ,(if tangonov-selection-foregrounds
-                                    fg
-                                  nil)
-                               :background ,gray1))))
+   `(region ((,spec (,@(when tangonov-selection-foregrounds
+                         (list :foreground cyan))
+                     :background ,(tangonov-darken cyan 0.5)))))
+   `(secondary-selection ((,spec (,@(when tangonov-selection-foregrounds
+                                      (list :foreground fg))
+                                  :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
@@ -648,6 +681,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
    `(line-number-current-line ((,spec (:foreground ,cyan :background ,gray1))))
    `(completions-common-part ((,spec (:foreground ,cyan))))
    `(completions-first-difference ((,spec (:foreground ,yellow))))
+   `(completions-annotations ((,spec (:foreground ,yellow :weight bold))))
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
    `(bookmark-face ((,spec (:foreground ,orange))))
@@ -656,7 +690,7 @@ Set the basic faces for the editor. Many of these faces are used commonly throug
 ```
 
 
-<a id="org33eb276"></a>
+<a id="org56fe83d"></a>
 
 ### Email
 
@@ -760,7 +794,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
        `(notmuch-search-count ((,spec (:foreground ,gray2))))
        `(notmuch-search-date ((,spec (:foreground ,orange))))
        `(notmuch-search-flagged-face
-         ((,spec (:foreground ,(tangonov-darken red 0.5)))))
+         ((,spec (:foreground ,magenta :weight bold))))
        `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
        `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
        `(notmuch-search-subject ((,spec (:foreground ,fg))))
@@ -787,7 +821,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
     ```
 
 
-<a id="orgfb1aba8"></a>
+<a id="org38e8aea"></a>
 
 ### ERC
 
@@ -813,7 +847,7 @@ There are many packages that cobble together different Email & RSS interfaces. M
 ```
 
 
-<a id="orgc067649"></a>
+<a id="org5761461"></a>
 
 ### Evil
 
@@ -867,7 +901,7 @@ Support for various Evil related features/packages.
     ```
 
 
-<a id="org1baa44e"></a>
+<a id="org6b67074"></a>
 
 ### Font Lock Faces
 
@@ -889,7 +923,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgb0d49b0"></a>
+<a id="orgafc2b50"></a>
 
 ### Goggles
 
@@ -900,7 +934,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="org312e769"></a>
+<a id="org0d233ac"></a>
 
 ### Hydra
 
@@ -913,7 +947,20 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="org3bee906"></a>
+<a id="org2ecc79b"></a>
+
+### Icomplete
+
+```elisp
+   `(icomplete-section ((,spec (:foreground ,gray3))))
+   `(icomplete-first-match
+     ((,spec (:foreground ,green :weight bold :underline t))))
+   `(icomplete-selected-match
+     ((,spec (:weight bold :underline t :extend t))))
+```
+
+
+<a id="orgcfabb4d"></a>
 
 ### Inf-Ruby
 
@@ -924,7 +971,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="org7f5e40f"></a>
+<a id="org8a02854"></a>
 
 ### ISearch
 
@@ -934,7 +981,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgb85d4d9"></a>
+<a id="org216c6e9"></a>
 
 ### Keycast
 
@@ -947,7 +994,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="org4770082"></a>
+<a id="orgd83e69a"></a>
 
 ### Linters
 
@@ -988,7 +1035,7 @@ These faces end up being inherited by *many* major modes for highlighting.
     ```
 
 
-<a id="org156a83d"></a>
+<a id="orgf389110"></a>
 
 ### LSP
 
@@ -1004,8 +1051,15 @@ These faces end up being inherited by *many* major modes for highlighting.
        `(eldoc-box-border ((,spec (:background ,fg-alt))))
     ```
 
+3.  LSP-UI
 
-<a id="org23da2eb"></a>
+    ```elisp
+       `(lsp-ui-doc-background ((,spec (:background ,bg-alt))))
+       `(lsp-ui-doc-header ((,spec (:foreground ,green :underline t))))
+    ```
+
+
+<a id="org7d5f826"></a>
 
 ### Meow
 
@@ -1017,7 +1071,7 @@ These faces end up being inherited by *many* major modes for highlighting.
 ```
 
 
-<a id="orgb7caf83"></a>
+<a id="org420c37d"></a>
 
 ### Mode-line
 
@@ -1034,7 +1088,19 @@ Set faces for the top and bottom "bars."
 ```
 
 
-<a id="org6cbb32f"></a>
+<a id="org908a54f"></a>
+
+### Orderless
+
+```elisp
+   `(orderless-match-face-0 ((,spec (:weight bold :foreground ,blue))))
+   `(orderless-match-face-1 ((,spec (:weight bold :foreground ,yellow))))
+   `(orderless-match-face-2 ((,spec (:weight bold :foreground ,magenta))))
+   `(orderless-match-face-3 ((,spec (:weight bold :foreground ,green))))
+```
+
+
+<a id="org5c92082"></a>
 
 ### Org Mode
 
@@ -1144,7 +1210,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
     ```
 
 
-<a id="org0f8b4ff"></a>
+<a id="org7d475c9"></a>
 
 ### Rainbow Delimiters
 
@@ -1161,7 +1227,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="org468b2ca"></a>
+<a id="org04677ce"></a>
 
 ### Re-builder
 
@@ -1177,7 +1243,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="orgc74b88c"></a>
+<a id="org1a8812a"></a>
 
 ### RJSX Mode
 
@@ -1188,7 +1254,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="orgb0d7ad8"></a>
+<a id="org8aab806"></a>
 
 ### Shells
 
@@ -1231,7 +1297,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
     ```
 
 
-<a id="org92e70e7"></a>
+<a id="org3e73366"></a>
 
 ### Tab Bar/Line
 
@@ -1252,7 +1318,18 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="org432499f"></a>
+<a id="orga4cdd85"></a>
+
+### Transpose Mark
+
+```elisp
+   `(transpose-mark-region-set-face
+     ((,spec (:background
+              ,(tangonov-darken magenta 0.5) :foreground ,magenta :weight bold))))
+```
+
+
+<a id="org2e86a9f"></a>
 
 ### Typescript.el
 
@@ -1263,7 +1340,7 @@ Org-mode has many faces. It takes some work to make them consistent in buffers a
 ```
 
 
-<a id="org5c4e367"></a>
+<a id="org09ba83f"></a>
 
 ### Version Control
 
@@ -1414,7 +1491,7 @@ Set the faces for several version-control related packages.
     ```
 
 
-<a id="orgf162bf5"></a>
+<a id="orgf9a0563"></a>
 
 ### Web Mode
 
@@ -1424,7 +1501,7 @@ Set the faces for several version-control related packages.
 ```
 
 
-<a id="org076c52a"></a>
+<a id="org5a50b07"></a>
 
 ### Widgets
 
@@ -1440,7 +1517,7 @@ Set the faces for several version-control related packages.
 ```
 
 
-<a id="orgc589130"></a>
+<a id="orgf8b9609"></a>
 
 ### End of Custom Faces
 
@@ -1465,6 +1542,13 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(ansi-color-red ((,spec (:foreground ,red :background ,red))))
    `(ansi-color-white ((,spec (:foreground ,fg :background ,fg))))
    `(ansi-color-yellow ((,spec (:foreground ,yellow :background ,yellow))))
+   `(anzu-mode-line ((,spec (:foreground ,yellow :weight bold))))
+   `(anzu-mode-line-no-match ((,spec (:foreground ,red :weight bold))))
+   `(anzu-replace-highlight
+     ((,spec (:foreground ,yellow :background
+                          ,(tangonov-darken yellow 0.7) :strike-through t))))
+   `(anzu-replace-to ((,spec (:foreground ,cyan :background
+                                          ,(tangonov-darken cyan 0.5)))))
    `(avy-goto-char-timer-face
      ((,spec (:inherit 'isearch))))
    `(avy-background-face ((,spec (:foreground ,(tangonov-darken bg 0.2)))))
@@ -1478,14 +1562,23 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
      ((,spec (:inherit 'avy-lead-face :foreground
                        ,(tangonov-darken yellow 0.6)))))
    `(company-echo-common ((,spec (:foreground ,cyan))))
+   `(company-preview ((,spec (:inherit 'highlight :foreground ,fg-alt))))
+   `(company-preview-common
+     ((,spec (:inherit 'company-preview :foreground ,magenta))))
+   `(company-preview-search
+     ((,spec (:inherit 'company-preview :foreground ,cyan))))
+   `(company-scrollbar-bg ((,spec (:background ,bg-alt))))
+   `(company-scrollbar-fg ((,spec (:background ,magenta))))
+   `(company-template-field ((,spec (:background ,yellow :foreground ,bg))))
    `(company-tooltip ((,spec (:background ,bg))))
-   `(company-tooltip-annotation ((,spec (:foreground ,fg-alt))))
+   `(company-tooltip-annotation ((,spec (:foreground ,yellow))))
    `(company-tooltip-common ((,spec (:foreground ,cyan))))
    `(company-tooltip-common-selection
-     ((,spec (:foreground ,cyan :weight bold))))
+     ((,spec (:foreground ,green :weight bold))))
    `(company-tooltip-scrollbar-thumb ((,spec (:background ,violet))))
    `(company-tooltip-scrollbar-track ((,spec (:background ,bg-alt))))
    `(company-tooltip-selection ((,spec (:inherit bold :background ,gray1))))
+   `(corfu-current ((,spec (:foreground ,fg :background ,gray1 :weight bold))))
    `(css-proprietary-property ((,spec (:foreground ,orange))))
    `(css-property ((,spec (:foreground ,green))))
    `(css-selector ((,spec (:foreground ,blue))))
@@ -1561,16 +1654,12 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(highlight ((,spec (:background ,gray1 :weight bold))))
    `(match ((,spec (:foreground
                     ,green :background ,(tangonov-darken green 0.5)))))
-   `(region ((,spec (:foreground
-                  ,(if tangonov-selection-foregrounds
-                       cyan
-                     nil)
-                  :background ,(tangonov-darken cyan 0.5)))))
-   `(secondary-selection ((,spec (:foreground
-                               ,(if tangonov-selection-foregrounds
-                                    fg
-                                  nil)
-                               :background ,gray1))))
+   `(region ((,spec (,@(when tangonov-selection-foregrounds
+                         (list :foreground cyan))
+                     :background ,(tangonov-darken cyan 0.5)))))
+   `(secondary-selection ((,spec (,@(when tangonov-selection-foregrounds
+                                      (list :foreground fg))
+                                  :background ,gray1))))
    `(lazy-highlight ((,spec
                       (:foreground ,blue :background
                                    ,(tangonov-darken blue 0.5)))))
@@ -1585,6 +1674,7 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(line-number-current-line ((,spec (:foreground ,cyan :background ,gray1))))
    `(completions-common-part ((,spec (:foreground ,cyan))))
    `(completions-first-difference ((,spec (:foreground ,yellow))))
+   `(completions-annotations ((,spec (:foreground ,yellow :weight bold))))
    `(trailing-whitespace ((,spec (:background ,red))))
    `(whitespace-trailing ((,spec (:background ,red))))
    `(bookmark-face ((,spec (:foreground ,orange))))
@@ -1675,7 +1765,7 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(notmuch-search-count ((,spec (:foreground ,gray2))))
    `(notmuch-search-date ((,spec (:foreground ,orange))))
    `(notmuch-search-flagged-face
-     ((,spec (:foreground ,(tangonov-darken red 0.5)))))
+     ((,spec (:foreground ,magenta :weight bold))))
    `(notmuch-search-matching-authors ((,spec (:foreground ,blue))))
    `(notmuch-search-non-matching-authors ((,spec (:foreground ,fg))))
    `(notmuch-search-subject ((,spec (:foreground ,fg))))
@@ -1766,6 +1856,11 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(hydra-face-amaranth ((,spec (:foreground ,magenta :weight bold))))
    `(hydra-face-pink ((,spec (:foreground ,violet :weight bold))))
    `(hydra-face-teal ((,spec (:foreground ,teal :weight bold))))
+   `(icomplete-section ((,spec (:foreground ,gray3))))
+   `(icomplete-first-match
+     ((,spec (:foreground ,green :weight bold :underline t))))
+   `(icomplete-selected-match
+     ((,spec (:weight bold :underline t :extend t))))
    `(inf-ruby-result-overlay-face
      ((,spec (:foreground ,cyan :background
                           ,bg-alt :box (:line-width 1 :color ,cyan)))))
@@ -1799,6 +1894,8 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
      ((,spec (:underline (:style wave :color ,yellow) :inherit 'unspecified))))
    `(eglot-highlight-symbol-face ((,spec (:weight bold :background ,gray1))))
    `(eldoc-box-border ((,spec (:background ,fg-alt))))
+   `(lsp-ui-doc-background ((,spec (:background ,bg-alt))))
+   `(lsp-ui-doc-header ((,spec (:foreground ,green :underline t))))
    `(meow-search-indicator ((,spec (:foreground ,yellow :weight bold))))
    `(meow-search-highlight
      ((,spec (:foregound ,fg :background
@@ -1810,6 +1907,10 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
      ((,spec (:inherit 'mode-line :foreground ,gray2 :background ,bg))))
    `(mode-line-highlight ((,spec (:box (:line-width (2 . 2) :color ,magenta)))))
    `(mode-line-buffer-id ((,spec (:foreground ,fg :weight bold))))
+   `(orderless-match-face-0 ((,spec (:weight bold :foreground ,blue))))
+   `(orderless-match-face-1 ((,spec (:weight bold :foreground ,yellow))))
+   `(orderless-match-face-2 ((,spec (:weight bold :foreground ,magenta))))
+   `(orderless-match-face-3 ((,spec (:weight bold :foreground ,green))))
    `(org-block ((,spec (:background ,bg-alt))))
    `(org-block-background ((,spec (:background ,bg-alt))))
    `(org-block-begin-line ((,spec (:foreground ,gray2 :background ,bg))))
@@ -1937,6 +2038,9 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
    `(tab-bar ((,spec (:inherit tab-line))))
    `(tab-bar-tab ((,spec (:inherit tab-line-tab))))
    `(tab-bar-tab-inactive ((,spec (:inherit tab-line-tab-inactive))))
+   `(transpose-mark-region-set-face
+     ((,spec (:background
+              ,(tangonov-darken magenta 0.5) :foreground ,magenta :weight bold))))
    `(typescript-jsdoc-tag ((,spec (:foreground ,magenta))))
    `(typescript-jsdoc-type ((,spec (:foreground ,gray3))))
    `(typescript-jsdoc-value ((,spec (:foreground ,cyan))))
@@ -2075,7 +2179,7 @@ In branch devel, this keeps the end of `custom-theme-set-faces` clean. In branch
 ```
 
 
-<a id="org3c50e40"></a>
+<a id="org06c3b23"></a>
 
 ## Add Theme to Custom Load Path
 
@@ -2090,7 +2194,7 @@ It's not enough to simply provide a theme. We must set up an autoload that will 
 ```
 
 
-<a id="org9701b1b"></a>
+<a id="org938602d"></a>
 
 ## Provide the Theme
 
@@ -2101,7 +2205,7 @@ This file needs to be symbolically represented as a theme, not a "package". So, 
 ```
 
 
-<a id="orgc62df20"></a>
+<a id="orgdfb298c"></a>
 
 ## Theme Footer
 
@@ -2112,7 +2216,7 @@ Provide the theme and mark the end of the file.
 ```
 
 
-<a id="orgafdab12"></a>
+<a id="orgb038431"></a>
 
 ## Contributing
 
@@ -2125,7 +2229,7 @@ Thanks for your interest in this project. Development is done on the `devel` bra
 **Note:** This theme is developed using literate programming. This is to say, the document you are viewing **is** the theme. If you're not sure what this means, look into literate programming with org-mode. If you are wanting to make a contribution but do not know/do not want to know how to use this document, I will try to work with you.
 
 
-<a id="org672b200"></a>
+<a id="org81497ae"></a>
 
 ## License
 
