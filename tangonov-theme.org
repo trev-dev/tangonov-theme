@@ -383,6 +383,12 @@ These colors are used by various shell-like packages.
    `(company-tooltip-selection ((,spec (:inherit bold :background ,gray1))))
 #+end_src
 
+*** Corfu
+
+#+begin_src elisp
+   `(corfu-current ((,spec (:foreground ,fg :background ,gray1 :weight bold))))
+#+end_src
+
 *** CSS
 
 #+BEGIN_SRC elisp
